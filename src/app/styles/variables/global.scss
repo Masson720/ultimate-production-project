@@ -1,5 +1,5 @@
 :root {
-    --font-family-main: Consolas, "Thimes New Roman", Serif;
+    --font-family-main: "Consolas", sans-serif;
 
     --font-line-m: 24px;
     --font-size-m: 16px;
@@ -8,4 +8,7 @@
     --font-line-l: 32px;
     --font-size-l: 24px;
     --font-l: var(--font-size-l) / var(--font-line-l) var(--font-family-main);
+
+    //Размеры
+    --navbar-height: 50px;
 }

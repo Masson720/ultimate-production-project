@@ -1,6 +1,4 @@
-
-
-//Record определяет тип ключа и значения
+// Record определяет тип ключа и значения
 type ModsType = Record<string, boolean | string>
 
 

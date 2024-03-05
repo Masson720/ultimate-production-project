@@ -1,5 +1,4 @@
-import { AboutPage } from "pages/AboutPage";
-import { MainPage } from "pages/MainPage";
+
 import { Suspense } from "react";
 import { Routes, Route } from "react-router";
 import { RouteConfig } from "shared/config/routeConfig/RouteConfig";
@@ -11,8 +10,8 @@ const AppRouter = () => {
         {Object.values(RouteConfig).map(({element, path}) => (
             <Route 
                 key={path}
-                element={element}
                 path={path}
+                element={<div className='page-wrapper'>{element}</div>}
             />
         ))}
       </Routes>

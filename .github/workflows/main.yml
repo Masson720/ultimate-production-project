@@ -2,9 +2,9 @@ name: testing, building
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: 
   push:
-    branches: [ master ]
+    branches: [ main ]
   pull_request: 
-    btanches: [ master ]
+    btanches: [ main ]
 jobs:
   pipeline:
     runs-on: ubuntu-latest

@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Button, ThemeButton } from './Button';
+import { Button, ButtonSize, ThemeButton } from './Button';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: 'Example/Button',
+  title: 'shared/Button',
   component: Button,
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ['autodocs'],
@@ -29,10 +29,27 @@ export const Clear: Story = {
     },
 };
 
-export const Outline: Story = {
+export const OutlineSizeM: Story = {
     args: {
         children: 'text',
-        theme: ThemeButton.OUTLINE
+        theme: ThemeButton.OUTLINE,
+        size: ButtonSize.M
+    },
+};
+
+export const OutlineSizeL: Story = {
+    args: {
+        children: 'text',
+        theme: ThemeButton.OUTLINE,
+        size: ButtonSize.L
+    },
+};
+
+export const OutlineSizeXL: Story = {
+    args: {
+        children: 'text',
+        theme: ThemeButton.OUTLINE,
+        size: ButtonSize.XL
     },
 };
 
@@ -42,4 +59,45 @@ export const OutlineDark: Story = {
         theme: ThemeButton.OUTLINE
     },
 };
-OutlineDark.decorators = [ThemeDecorator(Theme.DARK)]
+OutlineDark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const BackgroundTheme: Story = {
+    args: {
+        children: 'text',
+        theme: ThemeButton.BACKGROUND
+    },
+};
+
+export const BackgroundInvertedTheme: Story = {
+    args: {
+        children: 'text',
+        theme: ThemeButton.BACKGROUND_INVERTED
+    },
+};
+
+export const SquareSizeM: Story = {
+    args: {
+        children: '>',
+        theme: ThemeButton.BACKGROUND,
+        square: true,
+        size: ButtonSize.M
+    },
+};
+
+export const SquareSizeL: Story = {
+    args: {
+        children: '>',
+        theme: ThemeButton.BACKGROUND,
+        square: true,
+        size: ButtonSize.L
+    },
+};
+
+export const SquareSizeXL: Story = {
+    args: {
+        children: '>',
+        theme: ThemeButton.BACKGROUND,
+        square: true,
+        size: ButtonSize.XL
+    },
+};

@@ -3,10 +3,17 @@
 @import "themes/normal";
 @import "themes/dark";
 
-body {
+// body {
+//     font-size: var(--font-m);  
+//     font-family: var(--font-family-main);
+//     color: var(--primary-color);
+// }
+
+.app,
+.app_modal {
     font-size: var(--font-m);  
     font-family: var(--font-family-main);
-    color: var(--primary-color);
+    color: var(--primary-color); 
 }
 
 .app {

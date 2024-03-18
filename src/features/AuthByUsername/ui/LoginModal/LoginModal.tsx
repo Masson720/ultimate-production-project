@@ -1,5 +1,5 @@
-import { Modal } from "shared/ui/Modal/Modal"
-import { LoginForm } from "../LoginForm/LoginForm"
+import { Modal } from "shared/ui/Modal/Modal";
+import { LoginForm } from "../LoginForm/LoginForm";
 
 interface LoginModalProps {
     className?: string
@@ -9,8 +9,8 @@ interface LoginModalProps {
 
 export const LoginModal = (props: LoginModalProps) => {
     const {
-        className, 
-        isOpen, 
+        className,
+        isOpen,
         onClose
     } = props;
 
@@ -18,6 +18,6 @@ export const LoginModal = (props: LoginModalProps) => {
         isOpen={isOpen}
         onClose={onClose}
     >
-            <LoginForm/> 
-        </Modal>)
+        <LoginForm/>
+    </Modal>)
 }

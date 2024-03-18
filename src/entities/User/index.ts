@@ -1,3 +1,6 @@
+export {
+    getUserAuthData
+} from './model/selectors/gatUserAuthData/getUserAuthData';
 
 export {
     userReducer,

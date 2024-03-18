@@ -70,6 +70,7 @@
     "@reduxjs/toolkit": "^1.8.0",
     "@types/node": "^17.0.21",
     "@types/webpack": "^5.28.0",
+    "axios": "^0.26.1",
     "css-loader": "^6.10.0",
     "html-webpack-plugin": "^5.5.0",
     "i18next-browser-languagedetector": "^6.1.3",

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { LoginForm } from './LoginForm';
+import LoginForm from './LoginForm';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 
 const meta = {
@@ -13,8 +13,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
     args: {
-        placeholder: 'text',
-        value: '12345',
+
     },
 };
 Primary.decorators = [StoreDecorator({
@@ -23,8 +22,7 @@ Primary.decorators = [StoreDecorator({
 
 export const WithError: Story = {
   args: {
-      placeholder: 'text',
-      value: '12345',
+
   },
 };
 WithError.decorators = [StoreDecorator({
@@ -33,8 +31,7 @@ WithError.decorators = [StoreDecorator({
 
 export const IsLoading: Story = {
   args: {
-      placeholder: 'text',
-      value: '12345',
+
   },
 };
 IsLoading.decorators = [StoreDecorator({

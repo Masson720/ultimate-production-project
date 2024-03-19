@@ -21,7 +21,7 @@ export function buildPlugins({paths, isDev}: BuildOptions): webpack.WebpackPlugi
     ]
     if(isDev) {
         plugins.push(new BundleAnalyzerPlugin({openAnalyzer: false}))
-    } 
+    }
     
     return plugins;
 }

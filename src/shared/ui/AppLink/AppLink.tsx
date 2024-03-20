@@ -1,6 +1,6 @@
 import { Link, LinkProps } from 'react-router-dom';
 import cls from './AppLink.module.scss';
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 
 export enum AppLinkTheme {
@@ -11,9 +11,9 @@ export enum AppLinkTheme {
 interface AppLinkProps extends LinkProps{
     className?: string
     theme?: AppLinkTheme
-}
+} 
 
-export const AppLink: FC<AppLinkProps> = ({className, children, theme = AppLinkTheme.PRIMARY, to, ...otherProps}) => {
+export const AppLink: FC<AppLinkProps> = memo(({className, children, theme = AppLinkTheme.PRIMARY, to, ...otherProps}) => {
   return (
     <Link 
         to={to} 
@@ -23,4 +23,4 @@ export const AppLink: FC<AppLinkProps> = ({className, children, theme = AppLinkT
         {children}
     </Link>
   )
-}
+})

@@ -1,5 +1,5 @@
 import { DeepPartial, ReducersMapObject } from '@reduxjs/toolkit';
-import { StoryFn, StoryObj } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import { StateSchema, StoreProvider } from 'app/providers/StoreProvider';
 import { loginReducer } from 'features/AuthByUsername/model/slice/loginSlice';
 

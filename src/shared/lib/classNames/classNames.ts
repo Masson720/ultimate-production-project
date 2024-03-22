@@ -1,8 +1,10 @@
-// Record определяет тип ключа и значения
-type ModsType = Record<string, boolean | string>
 
 
-export function classNames (className: string, mods: ModsType = {}, additional: string[] = []): string {
+ // Record определяет тип ключа и значения
+export type ModsType = Record<string, boolean | string | undefined>
+
+
+export function classNames (className: string, mods: ModsType = {}, additional: Array<string | undefined> = []): string {
     return [
         className,
         ...additional.filter(Boolean),

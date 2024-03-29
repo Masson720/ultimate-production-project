@@ -9,6 +9,7 @@ import { Currency } from "entities/Currency";
 import { Country } from "entities/Country";
 import { TextTheme, Text } from "shared/ui/Text/Text";
 import { ValidateProfileErrors } from "entities/Profile/model/types/profile";
+import { log } from "console";
 
 const reducers: ReducersList = {
     profile: profileReducer
@@ -35,7 +36,7 @@ const ProfilePage = () => {
     useEffect(() => {
         if(__PROJECT__ !== 'storybook'){
             dispatch(fetchProfileData());
-        } 
+        }
     }, [dispatch]);
 
     const onChangeFirstname = useCallback((value?: string) => {

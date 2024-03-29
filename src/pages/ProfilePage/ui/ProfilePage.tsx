@@ -9,7 +9,6 @@ import { Currency } from "entities/Currency";
 import { Country } from "entities/Country";
 import { TextTheme, Text } from "shared/ui/Text/Text";
 import { ValidateProfileErrors } from "entities/Profile/model/types/profile";
-import { log } from "console";
 
 const reducers: ReducersList = {
     profile: profileReducer
@@ -47,7 +46,7 @@ const ProfilePage = () => {
         dispatch(profileActions.updateProfile({lastname: value || ''})); 
     }, [dispatch]);
 
-   const onChangeAge = useCallback((value?: string) => {
+    const onChangeAge = useCallback((value?: string) => {
         dispatch(profileActions.updateProfile({age: Number(value) || 0})); 
     }, [dispatch]);
 
@@ -98,7 +97,6 @@ const ProfilePage = () => {
             />
         </div>
     </DynamicModuleLoader>
-)
-}
+)}
 
 export default ProfilePage;

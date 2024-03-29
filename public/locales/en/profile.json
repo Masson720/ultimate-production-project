@@ -11,5 +11,10 @@
     "Город": "City",
     "Введите имя пользователя": "Enter username",
     "Введите ссылку на аватар": "Enter a link to your avatar",
-    "Укажите валюту": "Specify currency"
+    "Укажите валюту": "Specify currency",
+    "Серверная ошибка": "server error",
+    "Имя и фамилия обязательны": "First and last name are required",
+    "Некорректный возраст": "Incorrect age",
+    "Некорректный регион": "Incorrect region",
+    "Нет данных": "No data"
 }

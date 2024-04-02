@@ -60,7 +60,8 @@ export const profileSlice = createSlice({
                 state.isLoading = false;
                 state.validateErrors = action.payload
             })
-    }
+    },
+    
 })
 
 export const { actions: profileActions  } = profileSlice;

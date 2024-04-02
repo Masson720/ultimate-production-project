@@ -1,7 +1,8 @@
 import { memo } from "react";
+import cls from './ArticlesPage.module.scss';
 
 const ArticlesPage = () => {
-    return (<div>
+    return (<div className={cls.ArticlesPage}>
         ARTICLES PAGE
     </div>)
 }

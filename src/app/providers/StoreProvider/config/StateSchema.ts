@@ -7,6 +7,7 @@ import { LoginSchema } from "features/AuthByUsername";
 import { NavigateOptions } from "react-router-dom";
 import { To } from 'history'; 
 import { ArticleDetailsSchema } from "entities/Article";
+import { ArticleDetailsCommentSchema } from "pages/ArticleDetailsPage";
 
 export interface StateSchema {
     counter: CounterSchema
@@ -15,7 +16,8 @@ export interface StateSchema {
     //Асинхронные редюсеры
     loginForm?: LoginSchema
     profile?: ProfileSchema
-    articleDetails?: ArticleDetailsSchema 
+    articleDetails?: ArticleDetailsSchema
+    articleDetailsComments?: ArticleDetailsCommentSchema
 } 
 
 

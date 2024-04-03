@@ -98,19 +98,22 @@
       "id": "1",
       "text": "some comment",
       "articleId": "1",
-      "userId": "1"
+      "userId": "1",
+      "avatar": "https://sun9-23.userapi.com/impg/5Kd7hCD5_5lzNLaAJNPpCmru96aN1YwwWB314g/e1Stwn-UQLY.jpg?size=256x256&quality=95&sign=0f2f0006164370661a40025a5e9d256b&c_uniq_tag=rElTDO4oT-IARx7OWiNawz6ZB5TlwGynYdI3tjA-JKQ&type=album"
     },
     {
       "id": "2",
       "text": "some comment 2",
       "articleId": "1",
-      "userId": "1"
+      "userId": "1",
+      "avatar": "https://sun9-23.userapi.com/impg/5Kd7hCD5_5lzNLaAJNPpCmru96aN1YwwWB314g/e1Stwn-UQLY.jpg?size=256x256&quality=95&sign=0f2f0006164370661a40025a5e9d256b&c_uniq_tag=rElTDO4oT-IARx7OWiNawz6ZB5TlwGynYdI3tjA-JKQ&type=album"
     },
     {
       "id": "3",
       "text": "some comment 3",
       "articleId": "1",
-      "userId": "1"
+      "userId": "1",
+      "avatar": "https://vk.com/sticker/1-67687-256b"
     }
   ],
   "users": [

@@ -12,5 +12,7 @@
     "Введите пароль": "and password",
     "Форма авторизации": "Authorization form",
     "Неверный логин или пароль": "Wrong login or password",
-    "Комментарии отсутствуют": "No comments"
+    "Комментарии отсутствуют": "No comments",
+    "Введите текст комментария": "Enter comment text",
+    "Отправить": "Send"
 }

@@ -8,6 +8,7 @@ import { NavigateOptions } from "react-router-dom";
 import { To } from 'history'; 
 import { ArticleDetailsSchema } from "entities/Article";
 import { ArticleDetailsCommentSchema } from "pages/ArticleDetailsPage";
+import { AddCommentFormSchema } from "features/AddCommentForm";
 
 export interface StateSchema {
     counter: CounterSchema
@@ -18,6 +19,7 @@ export interface StateSchema {
     profile?: ProfileSchema
     articleDetails?: ArticleDetailsSchema
     articleDetailsComments?: ArticleDetailsCommentSchema
+    addCommentForm?: AddCommentFormSchema
 } 
 
 

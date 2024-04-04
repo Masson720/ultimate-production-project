@@ -12,6 +12,7 @@ const data = {
     first: 'admin',
     city: 'Moscow',
     currency: Currency.RUB,
+    id: '1'
 }
 
 

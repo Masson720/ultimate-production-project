@@ -1,7 +1,17 @@
-import { memo } from "react";
-import cls from './ArticlesPage.module.scss';
-import { Article, ArticleList, ArticleView } from "entities/Article";
+import type { Meta, StoryObj } from '@storybook/react';
+import { ArticleListItem } from './ArticleListItem';
+import { Article, ArticleView } from '../../model/types/article';
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { Theme } from 'app/providers/ThemeProvider';
 
+const meta = {
+  title: 'entities/ArticleListItem',
+  component: ArticleListItem,
+  tags: ['autodocs'],
+} satisfies Meta<typeof ArticleListItem>;
+
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 const article = {
     "id": "1",
@@ -94,19 +104,27 @@ const article = {
     ]
   } as Article;
 
-const ArticlesPage = () => {
-    return (<div className={cls.ArticlesPage}>
-        <ArticleList 
-            view={ArticleView.BIG}
-            isLoading
-            articles={new Array(16)
-                .fill(0)
-                .map((item, index) => ({
-                    ...article,
-                    id: String(index)
-                }))
-        }/> 
-    </div>)
-}
+export const Primary: Story = {
+    args: {
+        article,
+        view: ArticleView.SMALL
+    },
+};
 
-export default memo(ArticlesPage);
+
+export const PrimaryBig: Story = {
+    args: {
+        article,
+        view: ArticleView.BIG
+    },
+};
+
+
+export const PrimaryBigDark: Story = {
+    args: {
+        article,
+        view: ArticleView.BIG
+    },
+};
+
+PrimaryBigDark.decorators = [ThemeDecorator(Theme.DARK)]

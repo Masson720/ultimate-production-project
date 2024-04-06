@@ -74,32 +74,32 @@ const ProfilePage = () => {
     }, [dispatch]);
 
     return (
-    <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-        <div>
-            <ProfilePageHeader/>
-            {validateErrors?.length && validateErrors.map(err =>  (
-                 <Text
-                    key={err}
-                    theme={TextTheme.ERROR}
-                    text={validateErrorTranslates[err]}
+        <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
+            <div>
+                <ProfilePageHeader/>
+                {validateErrors?.length && validateErrors.map(err =>  (
+                    <Text
+                        key={err}
+                        theme={TextTheme.ERROR}
+                        text={validateErrorTranslates[err]}
+                    />
+                ))}
+                <ProfileCard
+                    data={formData}
+                    isLoading={isLoading}
+                    error={error}
+                    readonly={readonly}
+                    onChangeFirstname={onChangeFirstname}
+                    onChangeLastname={onChangeLastname}
+                    onChangeAge={onChangeAge}
+                    onChangeCity={onChangeCity}
+                    onChangeUsername={onChangeUsername}
+                    onChangeAvatar={onChangeAvatar}
+                    onChangeCurrency={onChangeCurrency}
+                    onChangeCountry={onChangeCountry} 
                 />
-            ))}
-            <ProfileCard
-                data={formData}
-                isLoading={isLoading}
-                error={error}
-                readonly={readonly}
-                onChangeFirstname={onChangeFirstname}
-                onChangeLastname={onChangeLastname}
-                onChangeAge={onChangeAge}
-                onChangeCity={onChangeCity}
-                onChangeUsername={onChangeUsername}
-                onChangeAvatar={onChangeAvatar}
-                onChangeCurrency={onChangeCurrency}
-                onChangeCountry={onChangeCountry} 
-            />
-        </div>
-    </DynamicModuleLoader>
+            </div>
+        </DynamicModuleLoader>
 )}
 
 export default ProfilePage;

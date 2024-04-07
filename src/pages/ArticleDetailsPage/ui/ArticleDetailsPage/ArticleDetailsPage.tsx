@@ -16,7 +16,7 @@ import { AddCommentForm } from "features/AddCommentForm";
 import { addCommentForArticle } from "../../model/services/addCommentForArticle/addCommentForArticle";
 import { Button, ThemeButton } from "shared/ui/Button/Button";
 import { RoutePath } from "shared/config/routeConfig/RouteConfig";
-import { Page } from "shared/ui/Page/Page";
+import { Page } from "widgets/Page/Page";
 
 const reducers: ReducersList = {
     articleDetailsComments: articleDetailsCommentsReducer

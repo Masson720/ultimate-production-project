@@ -8,10 +8,12 @@ import { ArticleDetailsSchema } from "entities/Article";
 import { ArticleDetailsCommentSchema } from "pages/ArticleDetailsPage";
 import { AddCommentFormSchema } from "features/AddCommentForm";
 import { ArticlesPageSchema } from "pages/ArticlesPage";
+import { UISchema } from "features/ScrollSave";
 
 export interface StateSchema {
     counter: CounterSchema
     user: UserSchema
+    ui: UISchema
 
     //Асинхронные редюсеры
     loginForm?: LoginSchema

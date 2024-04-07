@@ -4,16 +4,10 @@ import { getArticlesPageHasMore, getArticlesPageIsLoading, getArticlesPageNum } 
 import { articlesPageActions } from "../../slices/articlesPageSlice";
 import { fetchArticlesList } from "../fetchArticlesList/fetchArticlesList";
 
-interface FetchArticleListProps {
-    page?: number
-}
-
  export const fetchNextArticlesPage  = createAsyncThunk<void, void, ThunkConfig<string>>(
     'articlePage/fetchNextArticlesPage',
     async (_, thunkApi) => {
         const {
-            extra, 
-            rejectWithValue,
             getState,
             dispatch
         } = thunkApi;

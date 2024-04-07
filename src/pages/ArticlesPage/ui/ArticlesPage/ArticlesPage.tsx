@@ -5,17 +5,15 @@ import { DynamicModuleLoader, ReducersList } from "shared/lib/components/Dynamic
 import { articlesPageActions, articlesPageReducer, getArticles } from "../../model/slices/articlesPageSlice";
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
-import { fetchArticlesList } from "../../model/services/fetchArticlesList/fetchArticlesList";
 import { useSelector } from "react-redux";
 import { 
-    getArticlesPageError, 
-    getArticlesPageHasMore, 
-    getArticlesPageIsLoading, 
-    getArticlesPageNum, 
+    getArticlesPageError,  
+    getArticlesPageIsLoading,
     getArticlesPageView 
 } from "../../model/selectors/articlesPageSelectors";
 import { Page } from "shared/ui/Page/Page";
 import { fetchNextArticlesPage } from "pages/ArticlesPage/model/services/fetchNextArticlesPage/fetchNextArticlesPage";
+import { initArticlesPage } from "pages/ArticlesPage/model/services/initArticlesPage/initArticlesPage";
 
 const reducers: ReducersList = {
     articlesPage: articlesPageReducer
@@ -27,14 +25,9 @@ const ArticlesPage = () => {
     const isLoading = useSelector(getArticlesPageIsLoading);
     const error = useSelector(getArticlesPageError);
     const view = useSelector(getArticlesPageView);
-    const page = useSelector(getArticlesPageNum);
-    const hasMore = useSelector(getArticlesPageHasMore);
 
     useInitialEffect(() => {
-        dispatch(articlesPageActions.initState());
-        dispatch(fetchArticlesList({
-            page: 1
-        })); 
+        dispatch(initArticlesPage());
     });
 
     const onLoadNextPart = useCallback(() => {
@@ -46,8 +39,8 @@ const ArticlesPage = () => {
     }, [dispatch]);
 
     return (
-        <DynamicModuleLoader reducers={reducers}>
-            <Page
+        <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
+            <Page 
                 onScrollEnd={onLoadNextPart}
                 className={cls.ArticlesPage}
             >

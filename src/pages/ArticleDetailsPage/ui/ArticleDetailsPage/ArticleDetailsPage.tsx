@@ -16,6 +16,7 @@ import { AddCommentForm } from "features/AddCommentForm";
 import { addCommentForArticle } from "../../model/services/addCommentForArticle/addCommentForArticle";
 import { Button, ThemeButton } from "shared/ui/Button/Button";
 import { RoutePath } from "shared/config/routeConfig/RouteConfig";
+import { Page } from "shared/ui/Page/Page";
 
 const reducers: ReducersList = {
     articleDetailsComments: articleDetailsCommentsReducer
@@ -52,7 +53,7 @@ const ArticleDetailsPage = () => {
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-            <div>
+            <Page>
                 <Button theme={ThemeButton.OUTLINE} onClick={onBackToList}>
                     {t('Назад к списку')}
                 </Button>
@@ -63,7 +64,7 @@ const ArticleDetailsPage = () => {
                     comments={comments}
                     isLoading={commentsIsLoading} 
                 />
-            </div> 
+            </Page> 
         </DynamicModuleLoader>
 
     )

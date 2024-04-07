@@ -8,11 +8,11 @@ const AppRouter = () => {
 
     const renderWithWrapper = useCallback((route: AppRoutesProps) => {
 
-        const element = (<Suspense fallback={<PageLoader/>}>
-            <div className='page-wrapper'>
+        const element = (
+            <Suspense fallback={<PageLoader/>}>
                 {route.element} 
-            </div>
-        </Suspense>)
+            </Suspense>
+        )
 
         return (
             <Route 

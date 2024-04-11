@@ -5,7 +5,7 @@ import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDeco
 import { Theme } from 'app/providers/ThemeProvider';
 
 const meta = {
-  title: 'entities/ArticleViewSelector',
+  title: 'entities/Article/ArticleViewSelector',
   component: ArticleViewSelector,
   tags: ['autodocs'],
 } satisfies Meta<typeof ArticleViewSelector>;

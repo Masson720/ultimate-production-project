@@ -31,7 +31,7 @@ const ArticlesPage = () => {
 
     useInitialEffect(() => {
         dispatch(initArticlesPage(searchParams));
-    });
+    }, []);
 
     const onLoadNextPart = useCallback(() => {
         dispatch(fetchNextArticlesPage());

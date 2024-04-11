@@ -1,7 +1,7 @@
 import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoading } from "entities/Article/model/selector/articleDetailsSelectors";
 import { fetchArticleById } from "entities/Article/model/services/fetchArticleById/fetchArticleById";
 import { articleDetailsReducer } from "entities/Article/model/slice/articleDetailsSlice";
-import { memo, useCallback, useEffect } from "react";
+import { memo, useCallback } from "react";
 import cls from './ArticleDetails.module.scss';
 import { useSelector } from "react-redux";
 import { DynamicModuleLoader, ReducersList } from "shared/lib/components/DynamicModule/DynamicModuleLoader";
@@ -52,7 +52,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
 
     useInitialEffect(() => {
         dispatch(fetchArticleById(id));
-    });
+    }, [id]);
 
     let content;
 

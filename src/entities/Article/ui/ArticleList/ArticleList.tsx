@@ -2,7 +2,7 @@ import { classNames } from "shared/lib/classNames/classNames";
 import cls from "./ArticleList.module.scss"
 import { Article, ArticleView } from "../../model/types/article";
 import { ArticleListItem } from "../ArticleListItem/ArticleListItem";
-import { memo } from "react";
+import { HTMLAttributeAnchorTarget, memo } from "react";
 import { ArticleListItemSkeleton } from "../ArticleListItem/ArticleListItemSkeleton";
 import { Text, TextSize } from "shared/ui/Text/Text";
 import { useTranslation } from "react-i18next";
@@ -12,6 +12,7 @@ interface ArticleListProps {
     className?: string
     articles: Article[]
     isLoading?: boolean
+    target?: HTMLAttributeAnchorTarget
     view?: ArticleView
 }
 
@@ -33,6 +34,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
     const {
         className,
         articles,
+        target,
         isLoading,
         view = ArticleView.SMALL
     } = props;
@@ -41,7 +43,8 @@ export const ArticleList = memo((props: ArticleListProps) => {
     const renderArticle = (article: Article) => {
         return (
             <ArticleListItem 
-                article={article} 
+                article={article}
+                target={target}
                 className={cls.card}
                 key={article.id}
                 view={view}
@@ -51,7 +54,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
 
     if(!isLoading && !articles.length){
         return (
-            <div className={classNames(cls.ArticleList)}>
+            <div className={classNames(cls.ArticleList, {}, [className])}>
                 <Text 
                     size={TextSize.L} 
                     title={t('Статьи не найдены')} 
@@ -61,7 +64,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
     }
 
     return (
-        <div className={classNames(cls.ArticleList)}>
+        <div className={classNames(cls.ArticleList, {}, [className])}>
             {articles.length > 0 
                 ? articles.map(renderArticle)
                 : null

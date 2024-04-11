@@ -2,3 +2,10 @@
 .commentTitle {
     margin-top: 20px;
 }
+
+.recomendations {
+    margin: 20px 0;
+    flex-wrap: nowrap;
+    overflow-y: hidden;
+    overflow-x: auto;
+}

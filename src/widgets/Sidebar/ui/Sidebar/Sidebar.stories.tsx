@@ -25,7 +25,7 @@ export const Light: Story = {
     },
 };
 Light.decorators = [
-  ThemeDecorator(Theme.DARK), 
+  ThemeDecorator(Theme.LIGHT), 
   StoreDecorator({
       user: {
           authData: {}

@@ -8,6 +8,7 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[]{
     const {
       isDev
     } = options;
+    
     const svgLoader = {
       test: /\.svg$/,
       use: ['@svgr/webpack']
@@ -24,6 +25,7 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[]{
 
     const babelLoader = buildBabelLoader(options)
 
+    console.log(options.isDev);
     const cssLoader = buildCssLoaders(isDev);
 
     //Если не используем тайпскрипт - нужен babel-loader

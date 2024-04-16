@@ -18,6 +18,7 @@ import { ArticleCodeBlockComponent } from "../ArticleCodeBlockComponent/ArticleC
 import { ArticleImageBlockComponent } from "../ArticleImageBlockComponent/ArticleImageBlockComponent";
 import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect";
+import { HStack, VStack } from "shared/ui/Stack";
 
 interface ArticleDetailsProps {
     id: string
@@ -78,35 +79,44 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
     } else {
         content = (
             <>
-                <div className={cls.avatarWrapper}>
+                <HStack 
+                    justify="center"
+                    max
+                >
                     <Avatar 
                         size={200} 
                         src={article?.img} 
                         className={cls.avatar}
                     />                    
-                </div>
-
-                <Text 
-                    className={cls.title}
-                    title={article?.title}
-                    size={TextSize.L}
-                    text={article?.subtitle}
-                    align={TextAlign.LEFT}
-                />
-                <div className={cls.articleInfo}>
-                    <Icon Svg={EyeIcon} className={cls.icon}/>
+                </HStack>
+                <VStack 
+                    gap='4' 
+                    max
+                >
                     <Text 
-                        text={String(article?.views)}
+                        title={article?.title}
+                        size={TextSize.L}
+                        text={article?.subtitle}
                         align={TextAlign.LEFT}
                     />
-                </div>
-                <div className={cls.articleInfo}>
-                    <Icon Svg={CalendarIcon} className={cls.icon}/>
-                    <Text 
-                        text={article?.createdAt}
-                        align={TextAlign.LEFT}
-                    />
-                </div>
+                    <HStack 
+                        gap='8' 
+                        className={cls.articleInfo}
+                    >
+                        <Icon Svg={EyeIcon}/>
+                        <Text 
+                            text={String(article?.views)}
+                            align={TextAlign.LEFT}
+                        />
+                    </HStack>
+                    <HStack gap='8'>
+                        <Icon Svg={CalendarIcon}/>
+                        <Text 
+                            text={article?.createdAt}
+                            align={TextAlign.LEFT}
+                        />
+                    </HStack>                                      
+                </VStack>
                 {article?.blocks.map(renderBlock)}
             </>
         )
@@ -114,9 +124,12 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount={true}>
-            <div className={cls.ArticleDetails}>
+            <VStack 
+                gap='16' 
+                className={cls.ArticleDetails}
+            >
                 {content}
-            </div>
+            </VStack>
         </DynamicModuleLoader>
     )
 })

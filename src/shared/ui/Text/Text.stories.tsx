@@ -12,10 +12,19 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Primary: Story = {
+export const PrimaryS: Story = {
     args: {
         title: 'text',
-        text: 'Description'
+        text: 'Description',
+        size: TextSize.S
+    },
+};
+
+export const PrimaryM: Story = {
+    args: {
+        title: 'text',
+        text: 'Description',
+        size: TextSize.M
     },
 };
 

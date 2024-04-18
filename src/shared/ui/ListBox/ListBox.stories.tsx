@@ -15,44 +15,47 @@ const meta = {
     title: 'shared/ListBox',
     component: ListBox,
     tags: ['autodocs'],
+    decorators: [
+        Story => <div style={{padding: 50}}><Story/></div>
+    ]
 } satisfies Meta<typeof ListBox>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Primary: Story = {
+export const PrimaryTopLeft: Story = {
     args: {
         items: people,
         defaultValue: 'bulks',
-        direction: 'bottom'
+        direction: 'bottom left'
     },
 };
 
-export const PrimaryLabel: Story = {
+export const PrimaryLabelBottomRight: Story = {
     args: {
         items: people,
         defaultValue: 'bulks',
-        direction: 'bottom',
+        direction: 'bottom right',
         label: 'Bulks'
     },
 };
 
-export const Dark: Story = {
+export const DarkTopLeft: Story = {
     args: {
         items: people,
         defaultValue: 'bulks',
-        direction: 'bottom'
+        direction: 'top left'
     },
 };
 
-Dark.decorators = [ThemeDecorator(Theme.DARK)];
+DarkTopLeft.decorators = [ThemeDecorator(Theme.DARK)];
 
-export const Orange: Story = {
+export const OrangeTopRight: Story = {
     args: {
         items: people,
         defaultValue: 'bulks',
-        direction: 'bottom'
+        direction: 'top right'
     },
 };
 
-Orange.decorators = [ThemeDecorator(Theme.ORANGE)];
+OrangeTopRight.decorators = [ThemeDecorator(Theme.ORANGE)];

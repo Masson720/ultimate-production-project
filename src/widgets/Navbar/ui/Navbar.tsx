@@ -1,4 +1,4 @@
-import { classNames } from "shared/lib/classNames/classNames";
+ import { classNames } from "shared/lib/classNames/classNames";
 import cls from './Navbar.module.scss';
 import { useTranslation } from "react-i18next";
 import { Button, ThemeButton } from "shared/ui/Button/Button";
@@ -9,10 +9,13 @@ import { getUserAuthData, userActions } from "entities/User";
 import { Text, TextTheme } from "shared/ui/Text/Text";
 import { AppLink, AppLinkTheme } from "shared/ui/AppLink/AppLink";
 import { RoutePath } from "shared/config/routeConfig/RouteConfig";
+import { Dropdown } from "shared/ui/Dropdown/Dropdown";
+import { Avatar } from "shared/ui/Avatar/Avatar";
 
 interface NavbarProps {
     className?: string
 }
+
 
 export const Navbar = memo(({className}: NavbarProps) => {
     const {t} = useTranslation();
@@ -32,6 +35,17 @@ export const Navbar = memo(({className}: NavbarProps) => {
         dispatch(userActions.logout())
     }, [])
 
+    const dropdownItems = [
+        {
+            content: t('Профиль'),
+            href: RoutePath.profile + authData?.id
+        },
+        {
+            content: t('Выйти'),
+            onClick: onLogout
+        }
+    ]
+
     if(authData){
         return (
             <header  className={classNames(cls.Navbar, {}, [className])}>
@@ -47,9 +61,12 @@ export const Navbar = memo(({className}: NavbarProps) => {
                 >
                     {t('Создать статью')}
                 </AppLink>
-                <Button theme={ThemeButton.CLEAR_INVERTED} className={cls.links} onClick={onLogout}>
-                    {t('Выйти')}
-                </Button>
+                <Dropdown
+                    className={cls.dropdown}
+                    direction="bottom left"
+                    items={dropdownItems} 
+                    trigger={<Avatar size={30} src={authData.avatar}/>}
+                />
             </header>
         )
     }

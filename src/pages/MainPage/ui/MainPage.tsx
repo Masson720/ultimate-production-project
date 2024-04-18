@@ -3,7 +3,17 @@ import { Counter } from "entities/Counter";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Input } from "shared/ui/Input/Input";
+import { ListBox } from "shared/ui/ListBox/ListBox";
+import { HStack } from "shared/ui/Stack";
 import { Page } from "widgets/Page/Page";
+
+const people = [
+    { value: 'Durward Reynolds', content: 'Durward Reynolds', disabled: false },
+    { value: 'Kenton Towne', content: 'Kenton Towne', disabled: false },
+    { value: 'Therese Wunsch', content: 'Therese Wunsch', disabled: false },
+    { value: 'Benedict Kessler', content: 'Benedict Kessler', disabled: true },
+    { value: 'Katelyn Rohan', content: 'Katelyn Rohan', disabled: false },
+]
 
 
 const MainPage = () => {
@@ -17,9 +27,10 @@ const MainPage = () => {
     return (
         <Page>
             {t('Главная страница')}
-            <BugButton/>
-            <Counter/>
-            <Input value={value} onChange={onChange} placeholder={'Введите текст'}/>
+            <HStack>
+                <ListBox items={people} value={undefined} defaultValue="Выберите значение" onChange={((string) => console.log(string))}/>
+                <div>hdhqdhqwhd</div>
+            </HStack>
         </Page>
     )
 }

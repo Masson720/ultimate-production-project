@@ -1,7 +1,7 @@
 import { Currency } from "entities/Currency/model/types/currency"
 import { memo, useCallback, useMemo } from "react";
 import { useTranslation } from "react-i18next"
-import { Select } from "shared/ui/Select/Select"
+import { ListBox } from "shared/ui/ListBox/ListBox";
 
 const options = [
     {value: Currency.RUB, content: Currency.RUB},
@@ -25,11 +25,14 @@ export const CurrencySelect = memo(({className, value, onChange, readonly}: Curr
     }, [onChange])
 
     return (
-        <Select
-            label={t('Укажите валюту')}
-            options={options}
+        <ListBox 
             value={value}
-            onChange={onChangehandler}
             readonly={readonly}
-    />)
+            defaultValue={t('Укажите валюту')}
+            label={t('Укажите валюту')}
+            items={options} 
+            onChange={onChangehandler}
+            direction="top"
+        />
+    )
 })

@@ -574,6 +574,12 @@
       "userId": "1",
       "text": "Hello",
       "id": "xPWOaMi"
+    },
+    {
+      "articleId": "7",
+      "userId": "1",
+      "text": "Писюн",
+      "id": "gsBjPKU"
     }
   ],
   "users": [
@@ -595,11 +601,11 @@
   "profile": [
     {
       "id": "1",
-      "first": "jgh",
-      "lastname": "asf",
+      "first": "Хлепс",
+      "lastname": "Батонов",
       "age": 465,
-      "currency": "RUB",
-      "country": "Russia",
+      "currency": "USD",
+      "country": "Ukraine",
       "city": "Moscow",
       "username": "admin213",
       "avatar": "https://tlgrm.ru/_/stickers/a93/ee9/a93ee975-aea5-4466-ba64-cbb4a0fb4fab/10.jpg"

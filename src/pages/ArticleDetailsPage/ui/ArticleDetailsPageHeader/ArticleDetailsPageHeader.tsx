@@ -1,4 +1,4 @@
-import { useCallback } from "react";
+import { memo, useCallback } from "react";
 import { useTranslation } from "react-i18next"
 import { useNavigate } from "react-router-dom";
 import { RoutePath } from "shared/config/routeConfig/RouteConfig";
@@ -9,7 +9,7 @@ import { getCanEditArticle } from "pages/ArticleDetailsPage/model/selectors/arti
 import { HStack } from "shared/ui/Stack";
 
 
-export const ArticleDetailsPageHeader = () => {
+export const ArticleDetailsPageHeader = memo(() => {
     const {t} = useTranslation('article');
     const navigate = useNavigate();
     const article = useSelector(getArticleDetailsData);
@@ -38,4 +38,4 @@ export const ArticleDetailsPageHeader = () => {
             }
         </HStack>
     )
-}
+})

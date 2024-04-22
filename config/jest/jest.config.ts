@@ -44,6 +44,17 @@ export default {
     __API__: '',
     __PROJECT__: 'jest'
   },
+  testResultsProcessor: "./node_modules/jest-html-reporter",
+  // reporters: [
+  //   "default",
+  //   ["./node_modules/jest-html-reporter", {
+  //     "pageTitle": "Test Report",
+  //     publicPath: '<rootDir>/reports/unit',
+  //     filename: 'report.html',
+  //     openReport: true,
+  //     inlineSource: false,
+  //   }]
+  // ]
 
   // Indicates whether the coverage information should be collected while executing the test
   // collectCoverage: false,

@@ -587,15 +587,28 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "role": "ADMIN",
+      "roles": [
+        "ADMIN"
+      ],
       "avatar": "https://tlgrm.ru/_/stickers/a93/ee9/a93ee975-aea5-4466-ba64-cbb4a0fb4fab/10.jpg"
     },
     {
       "id": "2",
-      "username": "admin123",
+      "username": "user",
       "password": "123",
-      "role": "USER",
+      "roles": [
+        "USER"
+      ],
       "avatar": "https://sun9-23.userapi.com/impg/5Kd7hCD5_5lzNLaAJNPpCmru96aN1YwwWB314g/e1Stwn-UQLY.jpg?size=256x256&quality=95&sign=0f2f0006164370661a40025a5e9d256b&c_uniq_tag=rElTDO4oT-IARx7OWiNawz6ZB5TlwGynYdI3tjA-JKQ&type=album"
+    },
+    {
+      "id": "3",
+      "username": "manager",
+      "password": "123",
+      "roles": [
+        "MANAGER"
+      ],
+      "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIrU3MNFaBsSlX7uOwEC96CRa3UAW4qDhrZjZGa1SZr3pSh5QH0HFI6265hD_ek2Qs8A8&usqp=CAU"
     }
   ],
   "profile": [
@@ -620,6 +633,17 @@
       "city": "Moscow",
       "username": "Булькс",
       "avatar": "https://sun9-23.userapi.com/impg/5Kd7hCD5_5lzNLaAJNPpCmru96aN1YwwWB314g/e1Stwn-UQLY.jpg?size=256x256&quality=95&sign=0f2f0006164370661a40025a5e9d256b&c_uniq_tag=rElTDO4oT-IARx7OWiNawz6ZB5TlwGynYdI3tjA-JKQ&type=album"
+    },
+    {
+      "id": "3",
+      "first": "Чпоньк",
+      "lastname": "Брахипельмусович",
+      "age": 1,
+      "currency": "RUB",
+      "country": "Russia",
+      "city": "Moscow",
+      "username": "Hamorii",
+      "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Brachypelma_smithi_2009_G09.jpg/550px-Brachypelma_smithi_2009_G09.jpg"
     }
   ]
 }

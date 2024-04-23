@@ -17,5 +17,7 @@
     "Отправить": "Send",
     "Профиль": "Profile",
     "Статьи": "Articles",
-    "Создать статью": "Create article"
+    "Создать статью": "Create article",
+    "Админ панель": "Admin panel",
+    "У вас нет доступа к этой странице": "You do not have access to this page"
 }

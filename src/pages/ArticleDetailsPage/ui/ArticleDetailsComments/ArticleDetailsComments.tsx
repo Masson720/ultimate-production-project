@@ -34,7 +34,7 @@ export const ArticleDetailsComments = (props: ArticleDetailsCommentsProps) => {
     }, []);
 
     return (
-        <VStack gap='8' max>
+        <VStack gap='16' max>
             <Text 
                 size={TextSize.L} 
                 title={t('Комментарии')} 

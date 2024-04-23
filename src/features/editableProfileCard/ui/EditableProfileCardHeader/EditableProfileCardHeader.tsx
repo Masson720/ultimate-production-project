@@ -41,16 +41,25 @@ export const EditableProfileCardHeader = () => {
                     {readonly ? (<Button 
                             theme={ThemeButton.OUTLINE}
                             onClick={onEdit}
-                    >{t('Редактировать')}</Button>)
+                            data-testid={'EditableProfileCardHeader.EditButton'}
+                    >
+                        {t('Редактировать')}
+                        </Button>
+                    )
                     :
-                    (<HStack><Button 
+                    (<HStack>
+                        <Button 
                             theme={ThemeButton.OUTLINE_RED}
-                            onClick={onCancelEdit}            
+                            onClick={onCancelEdit}
+                            data-testid={'EditableProfileCardHeader.CancelButton'}       
                         >{t('Отменить')}</Button>
                         <Button 
                             theme={ThemeButton.OUTLINE}
-                            onClick={onSave}                        
-                        >{t('Сохранить')}</Button>
+                            onClick={onSave}
+                            data-testid={'EditableProfileCardHeader.SaveButton'}                
+                        >
+                            {t('Сохранить')}
+                        </Button>
                         </HStack>)
                     }
                 </div>

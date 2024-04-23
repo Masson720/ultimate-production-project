@@ -12,21 +12,23 @@ interface ArticleRecomendationsListProps {
 export const ArticleRecomendationsList = memo((props: ArticleRecomendationsListProps) => {
     const { className } = props;
     const { t } = useTranslation();
-    const {isLoading, data: articles, error } = useArticleRecomendationsList(3);
+    const { isLoading, data: articles, error } = useArticleRecomendationsList(3);
 
-    if(isLoading || error){
-        return null; 
+    if(isLoading || error || !articles){
+        return null;
     }
     
     return (
         <div className={classNames('', {}, [className])}>
-            <Text 
-                size={TextSize.L} 
-                title={t('Рекомендуем')} 
+            <Text
+                size={TextSize.L}
+                title={t('Рекомендуем')}
             />
-            <ArticleList 
+            <ArticleList
                 articles={articles}
-            />   
+                target='_blank'
+                virtualized={false}
+            />
         </div>
     );
 });

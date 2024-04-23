@@ -18,6 +18,7 @@ import { profileActions, profileReducer } from '../../model/slice/profileSlice';
 import { ValidateProfileErrors } from '../../model/types/editableProfileCardSchema';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModule/DynamicModuleLoader';
 import { VStack } from 'shared/ui/Stack';
+import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
 
 
 interface EditableProfileCardProps {
@@ -89,11 +90,13 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
     return (
         <DynamicModuleLoader reducers={reducers}>
             <VStack gap='8' max className={classNames('', {}, [className])}>
+            <EditableProfileCardHeader/>
             {validateErrors?.length && validateErrors.map(err =>  (
                             <Text
                                 key={err}
                                 theme={TextTheme.ERROR}
                                 text={validateErrorTranslates[err]}
+                                data-testid='EditableProfileCard.Error'
                             />
                         ))}
                         <ProfileCard

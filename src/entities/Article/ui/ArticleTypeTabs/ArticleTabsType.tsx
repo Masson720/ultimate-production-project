@@ -1,4 +1,5 @@
-import { ArticleType } from "../../model/types/article";
+
+import { ArticleType } from "entities/Article/model/consts/articleConsts";
 import { useCallback, useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { classNames } from "shared/lib/classNames/classNames";

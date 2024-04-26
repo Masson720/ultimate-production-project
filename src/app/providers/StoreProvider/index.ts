@@ -4,7 +4,10 @@ import { StoreProvider } from "./ui/StoreProvider"
 
 export {
     StoreProvider,
-    createReduxStore,
+    createReduxStore
+}
+
+export type {
     StateSchema,
     ReduxStoreWithManager,
     AppDispatch,

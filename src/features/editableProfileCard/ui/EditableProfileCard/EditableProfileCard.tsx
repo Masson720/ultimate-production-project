@@ -15,10 +15,10 @@ import { getProfileError } from '../../model/selectors/getProfileError/getProfil
 import { getProfileValidateErrors } from '../../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
 import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';
 import { profileActions, profileReducer } from '../../model/slice/profileSlice';
-import { ValidateProfileErrors } from '../../model/types/editableProfileCardSchema';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModule/DynamicModuleLoader';
 import { VStack } from 'shared/ui/Stack';
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
+import { ValidateProfileErrors } from '../../model/consts/consts';
 
 
 interface EditableProfileCardProps {

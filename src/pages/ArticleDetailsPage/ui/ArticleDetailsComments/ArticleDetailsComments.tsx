@@ -4,17 +4,18 @@ import { getArticleCommentsIsLoading } from "pages/ArticleDetailsPage/model/sele
 import { addCommentForArticle } from "pages/ArticleDetailsPage/model/services/addCommentForArticle/addCommentForArticle";
 import { fetchCommentsByArticleId } from "pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";
 import { getArticleComments } from "pages/ArticleDetailsPage/model/slices/articleDetailsCommentsSlice";
-import { useCallback } from "react";
+import { Suspense, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect";
+import { Loader } from "shared/ui/Loader/Loader";
 import { VStack } from "shared/ui/Stack";
 import { TextSize, Text } from "shared/ui/Text/Text";
 
 interface ArticleDetailsCommentsProps {
     className?: string
-    id: string
+    id?: string
 }
 
 export const ArticleDetailsComments = (props: ArticleDetailsCommentsProps) => {
@@ -39,7 +40,9 @@ export const ArticleDetailsComments = (props: ArticleDetailsCommentsProps) => {
                 size={TextSize.L} 
                 title={t('Комментарии')} 
             />
-            <AddCommentForm onSendComment={onSendComment}/>
+            <Suspense fallback={<Loader/>}>
+                <AddCommentForm onSendComment={onSendComment}/>
+            </Suspense>
             <CommentList 
                 comments={comments}
                 isLoading={commentsIsLoading} 

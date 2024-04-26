@@ -1,31 +1,37 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Theme } from 'app/providers/ThemeProvider';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { ArticleDetailsPageHeader } from './ArticleDetailsPageHeader';
+import { ArticleDetailsComments } from './ArticleDetailsComments';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 
 const meta = {
-  title: 'pages/ArticleDetailsPageHeader',
-  component: ArticleDetailsPageHeader,
+  title: 'pages/ArticleDetailsComments',
+  component: ArticleDetailsComments,
   tags: ['autodocs'],
   decorators: [StoreDecorator({})]
-} satisfies Meta<typeof ArticleDetailsPageHeader>;
+} satisfies Meta<typeof ArticleDetailsComments>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
-    args: {},
+    args: {
+        id: '1'
+    },
 };
 
 export const Dark: Story = {
-    args: {},
+    args: {
+        id: '1'
+    },
 };
 
 Dark.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const Orange: Story = {
-    args: {},
+    args: {
+        id: '1'
+    },
 };
 
 Orange.decorators = [ThemeDecorator(Theme.ORANGE)];

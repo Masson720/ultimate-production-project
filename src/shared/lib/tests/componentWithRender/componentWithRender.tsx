@@ -18,7 +18,6 @@ export function componentRender(component: ReactNode, options: ComponentRenderPr
         initialState,
         asyncReducers
     } = options;
-
     return render(
         <MemoryRouter initialEntries={[route]}>    
             <StoreProvider asyncReducers={asyncReducers} initialState={initialState}>

@@ -18,13 +18,13 @@ const ArticleDetailsPage = () => {
     const { id } = useParams<{id: string}>();
     const {t} = useTranslation('article');
 
-    if(!id) {
-        return (
-            <div>
-                {t('Статья не найдена')}
-            </div>
-        )
-    }
+    // if(!id) {
+    //     return (
+    //         <div>
+    //             {t('Статья не найдена')}
+    //         </div>
+    //     )
+    // }
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>

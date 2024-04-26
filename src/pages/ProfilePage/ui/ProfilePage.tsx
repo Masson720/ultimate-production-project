@@ -8,11 +8,6 @@ import { Text } from 'shared/ui/Text/Text';
 
 const ProfilePage = () => {
     const {id} = useParams<{id: string}>();
-    const {t} = useTranslation('profile')
-
-    if(!id){
-        return <Text text={t('Профиль не найден')}/> 
-    }
     
     return (
         <Page>

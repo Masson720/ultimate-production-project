@@ -1,7 +1,7 @@
 import { Currency } from "entities/Currency/model/types/currency"
-import { memo, useCallback, useMemo } from "react";
+import { memo, useCallback } from "react";
 import { useTranslation } from "react-i18next"
-import { ListBox } from "shared/ui/ListBox/ListBox";
+import { ListBox } from "shared/ui/Popups";
 
 const options = [
     {value: Currency.RUB, content: Currency.RUB},

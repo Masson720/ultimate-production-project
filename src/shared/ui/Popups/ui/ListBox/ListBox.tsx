@@ -1,10 +1,12 @@
 import { Fragment, ReactNode, useState } from 'react';
 import { Listbox as HListbox } from '@headlessui/react';
 import cls from './ListBox.module.scss';
+import popupCls from '../../styles/popup.module.scss';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Button } from '../Button/Button';
-import { HStack } from '../Stack';
 import { DropdownDirection } from 'shared/types/ui';
+import { mapDirectionClass } from '../../styles/consts';
+import { Button } from '../../../Button/Button';
+import { HStack } from '../../../Stack';
 
 interface ListBoxItem {
     value: string
@@ -22,14 +24,7 @@ interface ListBoxProps {
     onChange: (valie: string) => void
     readonly?: boolean
     direction?: DropdownDirection
-}
-
-const mapDirectionClass: Record<DropdownDirection, string> = {
-    'bottom left': cls.optionsBottomLeft,
-    'bottom right': cls.optionsBottomRight,
-    'top left': cls.optionsTopLeft,
-    'top right': cls.optionsTopRight,
-}
+} 
 
 export function ListBox(props: ListBoxProps) {
     const {
@@ -54,7 +49,7 @@ export function ListBox(props: ListBoxProps) {
             <HListbox 
                 as='div'
                 disabled={readonly}
-                className={classNames(cls.ListBox, {}, [className])} 
+                className={classNames(cls.ListBox, {}, [className, popupCls.popup])} 
                 value={value} 
                 onChange={onChange}
             > 
@@ -72,8 +67,8 @@ export function ListBox(props: ListBoxProps) {
                             {({active, selected}) => (
                                 <li className={classNames(cls.item, 
                                     {
-                                        [cls.active]: active,
-                                        [cls.disabled]: item.disabled
+                                        [popupCls.active]: active,
+                                        [popupCls.disabled]: item.disabled
                                 })}>
                                     {selected && '!!!'}
                                     {item.content}

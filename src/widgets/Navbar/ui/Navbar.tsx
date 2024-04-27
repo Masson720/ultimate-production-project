@@ -12,6 +12,8 @@ import { RoutePath } from "shared/config/routeConfig/RouteConfig";
 import { HStack } from "shared/ui/Stack";
 import { NotificationButton } from "features/notificationButton";
 import { AvatarDropdown } from "features/avatarDropdown";
+import { Drawer } from "shared/ui/Drawer/Drawer";
+import { NotificationList } from "entities/Notification";
 
 interface NavbarProps {
     className?: string
@@ -31,7 +33,6 @@ export const Navbar = memo(({className}: NavbarProps) => {
         setIsAuthModal(true);
     }, [])
 
-
     if(authData){
         return (
             <header  className={classNames(cls.Navbar, {}, [className])}>
@@ -49,7 +50,7 @@ export const Navbar = memo(({className}: NavbarProps) => {
                 </AppLink>
                 <HStack gap='16' className={cls.actions}>
                     <NotificationButton/>
-                    <AvatarDropdown/>                
+                    <AvatarDropdown/>           
                 </HStack>
             </header>
         )

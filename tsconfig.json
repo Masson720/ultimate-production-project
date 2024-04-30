@@ -7,7 +7,7 @@
       "noImplicitAny": true,
       "module": "ESNext",
       // В какую версию компилируем: для поддержки большинства браузеров
-      "target": "es5",
+      "target": "ES2015",
       "jsx": "react-jsx",
       // Компилятор будет обрабатывать не только TS, но и JS файлы
       "allowJs": true,

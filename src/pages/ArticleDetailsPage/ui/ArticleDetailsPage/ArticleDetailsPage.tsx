@@ -1,13 +1,13 @@
-import { ArticleDetails} from "entities/Article";
+import { ArticleDetails} from "@/entities/Article";
 import { memo } from "react";
 import { useTranslation } from "react-i18next"
 import { useParams } from "react-router-dom";
-import { DynamicModuleLoader, ReducersList } from "shared/lib/components/DynamicModule/DynamicModuleLoader";
-import { Page } from "widgets/Page/Page";
+import { DynamicModuleLoader, ReducersList } from "@/shared/lib/components/DynamicModule/DynamicModuleLoader";
+import { Page } from "@/widgets/Page/Page";
 import { articleDetailsPageReducer } from "../../model/slices";
 import { ArticleDetailsPageHeader } from "../ArticleDetailsPageHeader/ArticleDetailsPageHeader";
-import { VStack } from "shared/ui/Stack";
-import { ArticleRecomendationsList } from "features/articleRecomendationsList";
+import { VStack } from "@/shared/ui/Stack";
+import { ArticleRecomendationsList } from "@/features/articleRecomendationsList";
 import { ArticleDetailsComments } from "../ArticleDetailsComments/ArticleDetailsComments";
 
 const reducers: ReducersList = {

@@ -1,6 +1,6 @@
 import { FC } from "react";
 import cls from './PageLoader.module.scss';
-import { classNames } from "shared/lib/classNames/classNames";
+import { classNames } from "@/shared/lib/classNames/classNames";
 import { Loader } from "../../shared/ui/Loader/Loader";
 
 export const PageLoader: FC = () => {

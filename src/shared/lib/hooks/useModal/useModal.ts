@@ -1,6 +1,6 @@
-import { useTheme } from "app/providers/ThemeProvider";
+import { useTheme } from "@/app/providers/ThemeProvider";
 import { MutableRefObject, useCallback, useEffect, useRef, useState } from "react";
-import { ModsType } from "shared/lib/classNames/classNames";
+import { ModsType } from "@/shared/lib/classNames/classNames";
 
 
 interface UseModalProps {

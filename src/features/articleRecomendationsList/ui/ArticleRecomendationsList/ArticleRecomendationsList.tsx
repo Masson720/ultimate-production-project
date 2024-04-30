@@ -1,8 +1,8 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
-import { TextSize, Text } from 'shared/ui/Text/Text';
-import { ArticleList } from 'entities/Article';
+import { TextSize, Text } from '@/shared/ui/Text/Text';
+import { ArticleList } from '@/entities/Article';
 import { useArticleRecomendationsList } from '../../api/articleRecommendationsApi';
 
 interface ArticleRecomendationsListProps {
@@ -27,7 +27,6 @@ export const ArticleRecomendationsList = memo((props: ArticleRecomendationsListP
             <ArticleList
                 articles={articles}
                 target='_blank'
-                virtualized={false}
             />
         </div>
     );

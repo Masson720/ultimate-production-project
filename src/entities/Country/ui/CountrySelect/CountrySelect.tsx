@@ -1,7 +1,7 @@
-import { Country } from "entities/Country/model/types/country";
+import { Country } from "@/entities/Country/model/types/country";
 import { memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
-import { ListBox } from "shared/ui/Popups";
+import { ListBox } from "@/shared/ui/Popups";
 
 const options = [
     {value: Country.Armenia, content: Country.Armenia},

@@ -1,7 +1,7 @@
-import { useTheme } from "app/providers/ThemeProvider";
+import { useTheme } from "@/app/providers/ThemeProvider";
 import { ReactNode, memo, useCallback, useEffect } from "react";
 import { Portal } from "../Portal/Portal";
-import { classNames } from "shared/lib/classNames/classNames";
+import { classNames } from "@/shared/lib/classNames/classNames";
 import cls from './Drawer.module.scss';
 import { Overlay } from "../Overlay/Overlay";
 import { useAnimationLibs } from "../../lib/components/AnimationProvider";

@@ -1,8 +1,8 @@
-import { VStack } from "shared/ui/Stack";
+import { VStack } from "@/shared/ui/Stack";
 import { useNotifications } from "../../api/notificationApi"
 import { NotificationItem } from "../NotificationItem/NotificationItem";
-import { classNames } from "shared/lib/classNames/classNames";
-import { Skeleton } from "shared/ui/Skeleton/Skeleton";
+import { classNames } from "@/shared/lib/classNames/classNames";
+import { Skeleton } from "@/shared/ui/Skeleton/Skeleton";
 
 interface NotificationListProps {
     className?: string

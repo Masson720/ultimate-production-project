@@ -1,8 +1,8 @@
-import { Select, SelectOptions } from 'shared/ui/Select/Select';
+import { Select, SelectOptions } from '@/shared/ui/Select/Select';
 import cls from './ArticleSortSelector.module.scss';
 import { useTranslation } from 'react-i18next';
 import { useCallback, useMemo } from 'react';
-import { SortOrder } from 'shared/types';
+import { SortOrder } from '@/shared/types';
 import { ArticleSortField } from '../../model/consts/articleConsts';
 
 interface ArticleSortSelectorProps {

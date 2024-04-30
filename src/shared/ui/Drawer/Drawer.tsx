@@ -4,7 +4,7 @@ import { Portal } from "../Portal/Portal";
 import { classNames } from "@/shared/lib/classNames/classNames";
 import cls from './Drawer.module.scss';
 import { Overlay } from "../Overlay/Overlay";
-import { useAnimationLibs } from "../../lib/components/AnimationProvider";
+import { AnimationProvider, useAnimationLibs } from "../../lib/components/AnimationProvider";
 
 interface DrawerProps {
     className?: string
@@ -90,7 +90,7 @@ export const DrawerContent = memo((props: DrawerProps) => {
 })
 
 
-export const Drawer = (props: DrawerProps) => {
+const DrawerAsync = (props: DrawerProps) => {
     const {isLoaded} = useAnimationLibs();
 
     if(!isLoaded){
@@ -98,4 +98,13 @@ export const Drawer = (props: DrawerProps) => {
     }
 
     return <DrawerContent  {...props}/>
+}
+
+export const Drawer = (props: DrawerProps) => {
+
+    return (
+        <AnimationProvider>
+            <DrawerAsync  {...props}/>
+        </AnimationProvider>
+    )
 }

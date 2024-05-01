@@ -37,6 +37,8 @@ export const Modal: FC<ModalProps> = (props) => {
         isOpen
     });
 
+    console.log(theme);
+
     const mods: ModsType = {
         [cls.opened]: isOpen,
         [cls.isClosing]: isClosing
@@ -48,7 +50,7 @@ export const Modal: FC<ModalProps> = (props) => {
 
     return (
         <Portal>
-            <div className={classNames(cls.Modal, mods, [className, theme,'app_modal'])}>
+            <div className={classNames(cls.Modal, mods, [className, theme, 'app_modal'])}>
                 <Overlay className={cls.overlay} onClick={close}/>
                 <div className={cls.content }>
                     {children}

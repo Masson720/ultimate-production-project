@@ -9,6 +9,7 @@ import { ArticleDetailsPageHeader } from "../ArticleDetailsPageHeader/ArticleDet
 import { VStack } from "@/shared/ui/Stack";
 import { ArticleRecomendationsList } from "@/features/articleRecomendationsList";
 import { ArticleDetailsComments } from "../ArticleDetailsComments/ArticleDetailsComments";
+import { ArticleRating } from "@/features/articleRating";
 
 const reducers: ReducersList = {
     articleDetailsPage: articleDetailsPageReducer
@@ -18,13 +19,9 @@ const ArticleDetailsPage = () => {
     const { id } = useParams<{id: string}>();
     const {t} = useTranslation('article');
 
-    // if(!id) {
-    //     return (
-    //         <div>
-    //             {t('Статья не найдена')}
-    //         </div>
-    //     )
-    // }
+    if(!id){
+        return null;
+    }
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
@@ -32,6 +29,7 @@ const ArticleDetailsPage = () => {
                 <VStack gap='16' max>
                     <ArticleDetailsPageHeader/>
                     <ArticleDetails id={id}/>
+                    <ArticleRating articleId={id} />
                     <ArticleRecomendationsList/>              
                     <ArticleDetailsComments id={id}/>
                 </VStack>

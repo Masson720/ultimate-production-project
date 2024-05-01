@@ -73,6 +73,8 @@ export const DrawerContent = memo((props: DrawerProps) => {
 
     const display = y.to((py) => (py < height ? 'block' : 'none'));
 
+    console.log(theme);
+
     return (
         <Portal>
             <div className={classNames(cls.Drawer, {}, [className, theme, 'add_drawer'])}>

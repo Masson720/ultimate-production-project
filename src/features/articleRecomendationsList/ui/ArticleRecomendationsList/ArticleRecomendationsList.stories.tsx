@@ -4,7 +4,6 @@ import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDe
 import { ArticleRecomendationsList } from './ArticleRecomendationsList';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { Article } from '@/entities/Article';
-import withMock from 'storybook-addon-mock'
 
 const article: Article = {
     id: '1',
@@ -22,7 +21,7 @@ const meta = {
   title: 'features/ArticleRecomendationsList',
   component: ArticleRecomendationsList,
   tags: ['autodocs'],
-  decorators: [StoreDecorator({}), withMock],
+  decorators: [StoreDecorator({})],
 } satisfies Meta<typeof ArticleRecomendationsList>;
 
 export default meta;

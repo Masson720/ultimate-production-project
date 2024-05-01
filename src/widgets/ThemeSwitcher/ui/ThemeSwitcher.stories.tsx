@@ -4,7 +4,7 @@ import { Theme } from '@/app/providers/ThemeProvider';
 import { ThemeSwitcher } from './ThemeSwitcher';
 
 const meta = {
-  title: 'shared/ThemeSwitcher',
+  title: 'widgets/ThemeSwitcher',
   component: ThemeSwitcher,
   tags: ['autodocs'],
 } satisfies Meta<typeof ThemeSwitcher>;

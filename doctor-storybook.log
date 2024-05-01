@@ -1,29 +1,22 @@
-🩺 checking the health of your Storybook..
-(node:43769) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+🩺 The doctor is checking the health of your Storybook..
+(node:82706) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
 (Use `node --trace-deprecation ...` to show where the warning was created)
+╭ Incompatible packages found ────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                     │
+│   The following packages are incompatible with Storybook 7.6.18 as they depend on different major versions of Storybook packages:   │
+│   - storybook@8.0.9                                                                                                                 │
+│    Repo: https://github.com/storybookjs/storybook/tree/next/code/lib/cli                                                            │
+│   - storybook-addon-mock@5.0.0                                                                                                      │
+│                                                                                                                                     │
+│                                                                                                                                     │
+│   Please consider updating your packages or contacting the maintainers for compatibility details.                                   │
+│   For more on Storybook 8 compatibility, see the linked GitHub issue:                                                               │
+│   https://github.com/storybookjs/storybook/issues/26031                                                                             │
+│                                                                                                                                     │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
 
-╭ Diagnostics ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
-│                                                                                                                                                                                      │
-│   Attention: There seems to be a mismatch between your Storybook package versions. This can result in a broken Storybook installation.                                               │
-│                                                                                                                                                                                      │
-│   The version of your storybook core packages should align with 7.6.18 (from the storybook package) or higher.                                                                       │
-│                                                                                                                                                                                      │
-│   Based on your lockfile, these dependencies should be upgraded:                                                                                                                     │
-│                                                                                                                                                                                      │
-│   @storybook/addon-essentials: 7.6.17 (in your package.json)                                                                                                                         │
-│   @storybook/addon-interactions: 7.6.17 (in your package.json)                                                                                                                       │
-│   @storybook/addon-links: 7.6.17 (in your package.json)                                                                                                                              │
-│   @storybook/react-webpack5: 7.6.17 (in your package.json)                                                                                                                           │
-│   @storybook/test: 7.6.17 (in your package.json)                                                                                                                                     │
-│                                                                                                                                                                                      │
-│   You can run npx storybook@latest upgrade to upgrade all of your Storybook packages to the latest version.                                                                          │
-│                                                                                                                                                                                      │
-│   Alternatively you can try manually changing the versions to match in your package.json. We also recommend regenerating your lockfile, or running the following command to          │
-│   possibly deduplicate your Storybook package versions: npm dedupe                                                                                                                   │
-│                                                                                                                                                                                      │
-│   -------                                                                                                                                                                            │
-│                                                                                                                                                                                      │
-│   You can find the full logs in /Users/john/Desktop/react-ulbitv-ultimate/doctor-storybook.log                                                                                       │
-│                                                                                                                                                                                      │
-╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+You can always recheck the health of your project by running:
+npx storybook doctor
+
+Full logs are available in /Users/john/Desktop/react-ulbitv-ultimate/doctor-storybook.log
 

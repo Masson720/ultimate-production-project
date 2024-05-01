@@ -5,7 +5,7 @@ import { Navbar } from './Navbar';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 
 const meta = {
-  title: 'widget/Navbar',
+  title: 'widgets/Navbar',
   component: Navbar,
   tags: ['autodocs'],
 } satisfies Meta<typeof Navbar>;

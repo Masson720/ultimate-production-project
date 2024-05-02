@@ -7,7 +7,8 @@ export {
 export {
     ArticleView,
     ArticleSortField,
-    ArticleType
+    ArticleType,
+    ArticleBlockType
 } from './model/consts/articleConsts';
 
 export type {

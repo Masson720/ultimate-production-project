@@ -1,12 +1,12 @@
 import { memo, useCallback } from "react";
 import { useTranslation } from "react-i18next"
 import { useNavigate } from "react-router-dom";
-import { RoutePath } from "@/shared/config/routeConfig/RouteConfig";
 import { Button, ThemeButton } from "@/shared/ui/Button/Button";
 import { useSelector } from "react-redux";
 import { getArticleDetailsData } from "@/entities/Article/model/selector/articleDetailsSelectors";
 import { getCanEditArticle } from "@/pages/ArticleDetailsPage/model/selectors/articleSelectors";
 import { HStack } from "@/shared/ui/Stack";
+import { RoutePath } from "@/shared/const/router";
 
 
 export const ArticleDetailsPageHeader = memo(() => {

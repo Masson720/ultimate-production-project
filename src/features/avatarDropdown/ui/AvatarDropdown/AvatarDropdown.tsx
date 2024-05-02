@@ -2,11 +2,11 @@ import { getUserAuthData, isUserAdmin, isUserManager, userActions } from "@/enti
 import { useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
-import { RoutePath } from "@/shared/config/routeConfig/RouteConfig";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { Avatar } from "@/shared/ui/Avatar/Avatar";
 import { Dropdown } from "@/shared/ui/Popups";
 import cls from './AvatarDropdown.module.scss';
+import { RoutePath } from "@/shared/const/router";
 
 
 export const AvatarDropdown = () => {

@@ -2,12 +2,12 @@ import { FC, memo, useMemo, useState } from "react";
 import cls from './Sidebar.module.scss';
 import { classNames } from "@/shared/lib/classNames/classNames";
 import { ThemeSwitcher } from "@/widgets/ThemeSwitcher";
-import { LangSwitcher } from "@/widgets/LangSwitcher/LangSwitcher";
 import { Button, ButtonSize, ThemeButton } from "@/shared/ui/Button/Button";
 import { SidebarItem } from "../../SidebarItem/SidebarItem";
 import { useSelector } from "react-redux";
 import { getSidebarItems } from "../../model/selectors/getSidebarItems";
 import { VStack } from "@/shared/ui/Stack/VStack/VStack";
+import { LangSwitcher } from "@/widgets/LangSwitcher";
 
 interface SidebarProps {
     className?: string

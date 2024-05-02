@@ -1,6 +1,4 @@
-import { useTheme } from "@/app/providers/ThemeProvider";
 import { MutableRefObject, useCallback, useEffect, useRef, useState } from "react";
-import { ModsType } from "@/shared/lib/classNames/classNames";
 
 
 interface UseModalProps {
@@ -9,6 +7,12 @@ interface UseModalProps {
     lazy?: boolean
     animationDelay: number
 }
+
+/**
+ * Переиспользуемый хук для модальных компонентов (drawer/modal)
+ * @param isOpen
+ * @param onClose
+ */
 
 export function useModal({animationDelay, lazy, isOpen, onClose}: UseModalProps) {
 

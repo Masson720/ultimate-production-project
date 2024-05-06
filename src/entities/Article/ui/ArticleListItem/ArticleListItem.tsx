@@ -13,6 +13,8 @@ import { AppLink } from "@/shared/ui/AppLink/AppLink";
 import { HTMLAttributeAnchorTarget } from "react";
 import { ArticleBlockType, ArticleView } from "@/entities/Article/model/consts/articleConsts";
 import { getRouteArticleDetails } from "@/shared/const/router";
+import { AppImage } from "@/shared/ui/AppImage";
+import { Skeleton } from "@/shared/ui/Skeleton/Skeleton";
 
 interface ArticleListItemProps {
     className?: string
@@ -54,7 +56,12 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
                     </div>
                     <Text title={article.title} className={cls.title} /> 
                     {typesJSXElement}
-                    <img src={article.img} className={cls.img} alt={article.title} />
+                    <AppImage 
+                        fallback={<Skeleton width='100%' height={250}/>}
+                        src={article.img} 
+                        className={cls.img} 
+                        alt={article.title}
+                    />
                     {textBlocks && (
                         <ArticleTextBlockComponent block={textBlocks} className={cls.textBlock}/>
                     )}
@@ -74,12 +81,17 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
     return (
         <AppLink
             target={target}
-            to={getRouteArticleDetails(article.id)} 
+            to={getRouteArticleDetails(article.id)}
             className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
         >
             <Card className={cls.card}>
                 <div className={cls.imageWrapper}>
-                    <img alt={article.title } src={article.img} className={cls.img}/>
+                    <AppImage 
+                        fallback={<Skeleton width={200} height={200}/>}
+                        src={article.img} 
+                        className={cls.img} 
+                        alt={article.title}
+                    />
                     <Text text={article.createdAt} className={cls.date} />
                 </div>
                 <div className={cls.infoWrapper} >

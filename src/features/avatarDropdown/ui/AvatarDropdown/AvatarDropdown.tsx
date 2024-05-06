@@ -45,7 +45,7 @@ export const AvatarDropdown = () => {
             className={cls.dropdown}
             direction="bottom left"
             items={dropdownItems} 
-            trigger={<Avatar size={30} src={authData.avatar}/>}
+            trigger={<Avatar size={30} fallbackInverted src={authData.avatar}/>}
         />   
     )
 }

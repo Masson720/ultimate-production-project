@@ -1,0 +1,1 @@
+export { ArticleTabsType } from './ui/ArticleTypeTabs/ArticleTabsType';

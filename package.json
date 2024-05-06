@@ -107,7 +107,6 @@
     "react-device-detect": "^2.2.2",
     "react-dom": "^18.2.0",
     "react-redux": "^7.2.6",
-    "react-virtualized": "^9.22.3",
     "sass": "^1.71.1",
     "sass-loader": "^14.1.1",
     "style-loader": "^3.3.4"

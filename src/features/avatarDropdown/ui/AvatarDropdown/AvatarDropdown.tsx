@@ -6,7 +6,7 @@ import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { Avatar } from "@/shared/ui/Avatar/Avatar";
 import { Dropdown } from "@/shared/ui/Popups";
 import cls from './AvatarDropdown.module.scss';
-import { RoutePath } from "@/shared/const/router";
+import { getRouteAdminPanel, getRouteProfile } from "@/shared/const/router";
 
 
 export const AvatarDropdown = () => {
@@ -21,24 +21,24 @@ export const AvatarDropdown = () => {
         dispatch(userActions.logout())
     }, [])
 
+    if(!authData){
+        return null;
+    }
+
     const dropdownItems = [
         ...(isAdminPanelAvailable ? [{
             content: t('Админ панель'),
-            href: RoutePath.admin_panel
+            href: getRouteAdminPanel()
         }]: []),
         {
             content: t('Профиль'),
-            href: RoutePath.profile + authData?.id
+            href: getRouteProfile(authData?.id)
         },
         {
             content: t('Выйти'),
             onClick: onLogout
         }
     ];
-
-    if(!authData){
-        return null;
-    }
 
     return (
         <Dropdown

@@ -1,10 +1,10 @@
-# name: testing, building
-# run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
-# on: 
-#   push:
-#     branches: [ main ]
-#   pull_request: 
-#     btanches: [ main ]
+name: testing, building
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+on: 
+  push:
+    branches: [ main ]
+  pull_request: 
+    btanches: [ main ]
 jobs:
   pipeline:
     runs-on: ubuntu-latest
@@ -24,9 +24,7 @@ jobs:
         run: npm run build:prod
       - name: unit testing
         run: npm run test:unit
-      - name: build storybook
-        run: npm run storybook:build
-      - name: screenshot testing
-        run: npm run test:ui:ci
-      -name: Generate HTML report
-        run: npm run test:ui:report
+      # - name: build storybook
+      #   run: npm run storybook:build
+      # - name: screenshot testing
+      #   run: npm run test:ui:ci

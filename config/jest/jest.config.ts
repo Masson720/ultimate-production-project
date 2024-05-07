@@ -6,7 +6,11 @@
 import path from "path";
 
 export default {
-
+    globals: {
+    __IS_DEV__: true,
+    __API__: '',
+    __PROJECT__: 'jest'
+  },
   clearMocks: true,
   testEnvironment: "jsdom",
   coveragePathIgnorePatterns: [
@@ -31,7 +35,7 @@ export default {
   testMatch: [
     "<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)"
   ],
-  setupFilesAfterEnv: ['<rootDir>config/jest/setupTests.ts'],
+  setupFilesAfterEnv: ["@testing-library/jest-dom", '<rootDir>config/jest/setupTests.ts'],
 
   rootDir: "../../",
   moduleNameMapper: {
@@ -40,22 +44,18 @@ export default {
     "^@/(.*)$": "<rootDir>/src/$1"
   },
  
-  globals: {
-    __IS_DEV__: true,
-    __API__: '',
-    __PROJECT__: 'jest'
-  },
+
   testResultsProcessor: "./node_modules/jest-html-reporter",
-  // reporters: [
-  //   "default",
-  //   ["./node_modules/jest-html-reporter", {
-  //     "pageTitle": "Test Report",
-  //     publicPath: '<rootDir>/reports/unit',
-  //     filename: 'report.html',
-  //     openReport: true,
-  //     inlineSource: false,
-  //   }]
-  // ]
+  reporters: [
+    "default",
+    ["./node_modules/jest-html-reporter", {
+      "pageTitle": "Test Report",
+      publicPath: '<rootDir>/reports/unit',
+      filename: 'report.html',
+      openReport: true,
+      inlineSource: false,
+    }]
+  ]
 
   // Indicates whether the coverage information should be collected while executing the test
   // collectCoverage: false,

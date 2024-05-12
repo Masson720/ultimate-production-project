@@ -5,26 +5,50 @@ import i18nForTests from "../../../config/i18n/i18nForTests";
 import { MemoryRouter } from "react-router-dom";
 import { StateSchema, StoreProvider } from "@/app/providers/StoreProvider";
 import { ReducersMapObject } from "@reduxjs/toolkit";
+import { Theme, ThemeProvider } from "@/app/providers/ThemeProvider";
+import '@/app/styles/index.scss';
 
 export interface ComponentRenderProps {
     route?: string
     initialState?: DeepPartial<StateSchema> 
     asyncReducers?: DeepPartial<ReducersMapObject<StateSchema>>
+    theme?: Theme
 }
 
-export function componentRender(component: ReactNode, options: ComponentRenderProps = {}) {
+interface TestProviderProps {
+    children: ReactNode
+    options?: ComponentRenderProps
+}
+
+export function TestProvider(props: TestProviderProps){
+    const {
+        children,
+        options = {}
+    } = props;
+
     const {
         route = '/',
         initialState,
-        asyncReducers
+        asyncReducers,
+        theme = Theme.LIGHT
     } = options;
-    return render(
+
+    return (
         <MemoryRouter initialEntries={[route]}>    
             <StoreProvider asyncReducers={asyncReducers} initialState={initialState}>
                 <I18nextProvider i18n={i18nForTests}>
-                    {component}
+                    <ThemeProvider initialTheme={theme}>
+                        <div className={`app ${theme}`} >
+                            {children}
+                        </div>
+                    </ThemeProvider>
                 </I18nextProvider>           
             </StoreProvider>
         </MemoryRouter>
     )
+}
+
+export function componentRender(component: ReactNode, options: ComponentRenderProps = {}) {
+
+    return render(<TestProvider options={options}>{component}</TestProvider>)
 }

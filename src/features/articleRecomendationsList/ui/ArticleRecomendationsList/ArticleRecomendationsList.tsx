@@ -4,6 +4,7 @@ import { memo } from 'react';
 import { TextSize, Text } from '@/shared/ui/Text/Text';
 import { ArticleList } from '@/entities/Article';
 import { useArticleRecomendationsList } from '../../api/articleRecommendationsApi';
+import { VStack } from '@/shared/ui/Stack';
 
 interface ArticleRecomendationsListProps {
     className?: string;
@@ -19,7 +20,10 @@ export const ArticleRecomendationsList = memo((props: ArticleRecomendationsListP
     }
     
     return (
-        <div className={classNames('', {}, [className])}>
+        <VStack 
+            data-testid='ArticleRecomendationsList' 
+            gap='8' className={classNames('', {}, [className])}
+        >
             <Text
                 size={TextSize.L}
                 title={t('Рекомендуем')}
@@ -28,6 +32,6 @@ export const ArticleRecomendationsList = memo((props: ArticleRecomendationsListP
                 articles={articles}
                 target='_blank'
             />
-        </div>
+        </VStack>
     );
 });

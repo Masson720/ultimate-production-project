@@ -10,6 +10,7 @@ import { initArticlesPage } from "@/pages/ArticlesPage/model/services/initArticl
 import { ArticlesPageFilters } from "../ArticlesPageFilters/ArticlesPageFilters";
 import { useSearchParams } from "react-router-dom";
 import { ArticleInfiniteList } from "../ArticlesInfiniteList/ArticleInfiniteList";
+import { useArticleItemById } from "../../model/selectors/articlesPageSelectors";
 
 const reducers: ReducersList = {
     articlesPage: articlesPageReducer

@@ -2,6 +2,8 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { User, UserSchema } from '../types/user';
 import { USER_LOCALSTORAGE_KEY } from '@/shared/const/localStorage';
 import { setFeatureFlags } from '@/shared/features';
+import { saveJsonSettings } from '../services/saveJsonSettings';
+import { JsonSettings } from '../types/jsonSettings';
 
 
 const initialState: UserSchema = {
@@ -20,7 +22,6 @@ export const userSlice = createSlice({
           const user = localStorage.getItem(USER_LOCALSTORAGE_KEY);
           if(user){
                 const jsonUser = JSON.parse(user) as User;
-                console.log(jsonUser)
                 state.authData = jsonUser ;
                 setFeatureFlags(jsonUser.features)
           }
@@ -31,6 +32,15 @@ export const userSlice = createSlice({
           localStorage.removeItem(USER_LOCALSTORAGE_KEY);
     }
   },
+  extraReducers: (builder) => {
+    builder
+        .addCase(saveJsonSettings.fulfilled, (state, {payload}: PayloadAction<JsonSettings>) => {
+            if(state.authData){
+                state.authData.jsonSettings = payload;
+            }
+            
+        })
+}
 })
 
 export const { actions: userActions  } = userSlice;

@@ -25,3 +25,11 @@ export type {
 export {
     UserRole
 } from './model/consts/consts';
+
+export {
+    useJsonSettingsByKey
+} from './model/selectors/jsonSettingsSelector';
+
+export {
+    saveJsonSettings
+} from './model/services/saveJsonSettings';

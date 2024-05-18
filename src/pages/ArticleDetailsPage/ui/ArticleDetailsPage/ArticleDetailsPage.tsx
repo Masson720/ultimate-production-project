@@ -10,6 +10,7 @@ import { VStack } from "@/shared/ui/Stack";
 import { ArticleRecomendationsList } from "@/features/articleRecomendationsList";
 import { ArticleDetailsComments } from "../ArticleDetailsComments/ArticleDetailsComments";
 import { ArticleRating } from "@/features/articleRating";
+import { getFeatureFlag } from "@/shared/features";
 
 const reducers: ReducersList = {
     articleDetailsPage: articleDetailsPageReducer
@@ -18,6 +19,7 @@ const reducers: ReducersList = {
 const ArticleDetailsPage = () => {
     const { id } = useParams<{id: string}>();
     const {t} = useTranslation('article');
+    const isArticleRatingEnabled = getFeatureFlag('isArticleRatingEnabled');
 
     if(!id){
         return null;
@@ -29,7 +31,7 @@ const ArticleDetailsPage = () => {
                 <VStack gap='16' max>
                     <ArticleDetailsPageHeader/>
                     <ArticleDetails id={id}/>
-                    <ArticleRating articleId={id} />
+                    {isArticleRatingEnabled && <ArticleRating articleId={id} />}
                     <ArticleRecomendationsList/>              
                     <ArticleDetailsComments id={id}/>
                 </VStack>

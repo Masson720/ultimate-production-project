@@ -624,7 +624,11 @@
       "roles": [
         "ADMIN"
       ],
-      "avatar": "https://tlgrm.ru/_/stickers/a93/ee9/a93ee975-aea5-4466-ba64-cbb4a0fb4fab/10.jpg"
+      "features": {
+        "isArticleRatingEnabled": true,
+        "isCounterEnabled": true
+      },
+      "avatar": "https://mobimg.b-cdn.net/v3/fetch/22/2207633df03a819cd72889249c8361a8.jpeg?w=1470&r=0.5625"
     },
     {
       "id": "2",
@@ -633,7 +637,11 @@
       "roles": [
         "USER"
       ],
-      "avatar": "https://sun9-23.userapi.com/impg/5Kd7hCD5_5lzNLaAJNPpCmru96aN1YwwWB314g/e1Stwn-UQLY.jpg?size=256x256&quality=95&sign=0f2f0006164370661a40025a5e9d256b&c_uniq_tag=rElTDO4oT-IARx7OWiNawz6ZB5TlwGynYdI3tjA-JKQ&type=album"
+      "features": {
+        "isArticleRatingEnabled": false,
+        "isCounterEnabled": false
+      },
+      "avatar": "https://i.pinimg.com/originals/9a/e0/2d/9ae02d4b4288396108ef77830a59e060.jpg"
     },
     {
       "id": "3",
@@ -642,7 +650,24 @@
       "roles": [
         "MANAGER"
       ],
-      "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIrU3MNFaBsSlX7uOwEC96CRa3UAW4qDhrZjZGa1SZr3pSh5QH0HFI6265hD_ek2Qs8A8&usqp=CAU"
+      "features": {
+        "isArticleRatingEnabled": false,
+        "isCounterEnabled": true
+      },
+      "avatar": "https://s1.1zoom.ru/big3/992/367659-alexfas01.jpg"
+    },
+    {
+      "id": "4",
+      "username": "testuser",
+      "password": "123",
+      "roles": [
+        "ADMIN"
+      ],
+      "features": {
+        "isArticleRatingEnabled": true,
+        "isCounterEnabled": true
+      },
+      "avatar": "https://s1.1zoom.ru/big3/992/367659-alexfas01.jpg"
     }
   ],
   "profile": [

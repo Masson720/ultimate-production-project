@@ -4,4 +4,5 @@ export interface JsonSettings {
     theme?: Theme
     isFirstVisit?: boolean
     settingsHasBeenOpen?: boolean
+    isArticlePageWasOpened?: boolean
 }

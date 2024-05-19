@@ -11,6 +11,7 @@ import { ArticlesPageFilters } from "../ArticlesPageFilters/ArticlesPageFilters"
 import { useSearchParams } from "react-router-dom";
 import { ArticleInfiniteList } from "../ArticlesInfiniteList/ArticleInfiniteList";
 import { useArticleItemById } from "../../model/selectors/articlesPageSelectors";
+import { ArticlePageGreeting } from "@/features/ArticlePageGreeting";
 
 const reducers: ReducersList = {
     articlesPage: articlesPageReducer
@@ -38,6 +39,7 @@ const ArticlesPage = () => {
             >
                 <ArticlesPageFilters />
                 <ArticleInfiniteList/>
+                <ArticlePageGreeting/>
             </Page>      
         </DynamicModuleLoader>
     )

@@ -3,10 +3,10 @@ import { classNames } from "@/shared/lib/classNames/classNames";
 import cls from './ThemeSwitcher.module.scss'
 import { useTheme } from "@/app/providers/ThemeProvider";
 import ThemeIcon from '@/shared/assets/icons/theme-light.svg';
-import { ThemeButton, Button } from "@/shared/ui/Button/Button";
+import { ThemeButton, Button } from "@/shared/ui/deprecated/Button/Button";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { saveJsonSettings } from "@/entities/User";
-import { Icon } from "@/shared/ui/Icon/Icon";
+import { Icon } from "@/shared/ui/deprecated/Icon/Icon";
 
 interface ThemeSwitcherProps {
     className?: string

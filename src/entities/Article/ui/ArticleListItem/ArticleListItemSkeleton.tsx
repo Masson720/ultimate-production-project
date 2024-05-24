@@ -1,7 +1,7 @@
 import cls from './ArticleListItem.module.scss';
-import { Skeleton } from "@/shared/ui/Skeleton/Skeleton";
+import { Skeleton } from "@/shared/ui/deprecated/Skeleton/Skeleton";
 import { classNames } from "@/shared/lib/classNames/classNames";
-import { Card } from "@/shared/ui/Card/Card";
+import { Card } from "@/shared/ui/deprecated/Card/Card";
 import { ArticleView } from '@/entities/Article/model/consts/articleConsts';
 
 interface ArticleListItemSkeletonProps {

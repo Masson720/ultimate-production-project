@@ -3,7 +3,7 @@ import { getArticlesPageIsLoading, getArticlesPageError, getArticlesPageView } f
 import { getArticles } from "@/pages/ArticlesPage/model/slices/articlesPageSlice";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
-import { Text } from '@/shared/ui/Text/Text';
+import { Text } from '@/shared/ui/deprecated/Text/Text';
 
 interface ArticleInfiniteListProps {
     className?: string

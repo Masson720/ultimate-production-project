@@ -7,9 +7,9 @@ import { useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
-import { Button, ThemeButton } from "@/shared/ui/Button/Button";
-import { Text } from '@/shared/ui/Text/Text';
-import { HStack } from "@/shared/ui/Stack";
+import { Button, ThemeButton } from "@/shared/ui/deprecated/Button/Button";
+import { Text } from '@/shared/ui/deprecated/Text/Text';
+import { HStack } from "@/shared/ui/deprecated/Stack";
 
 export const EditableProfileCardHeader = () => {
     const {t} = useTranslation('profile');

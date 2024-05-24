@@ -1,15 +1,15 @@
 import { memo, useMemo, useState } from "react";
 import cls from './Sidebar.module.scss';
 import { classNames } from "@/shared/lib/classNames/classNames";
-import { Button, ButtonSize, ThemeButton } from "@/shared/ui/Button/Button";
 import { SidebarItem } from "../../SidebarItem/SidebarItem";
 import { useSelector } from "react-redux";
 import { getSidebarItems } from "../../model/selectors/getSidebarItems";
-import { VStack } from "@/shared/ui/Stack/VStack/VStack";
 import { ThemeSwitcher } from "@/features/ThemeSwitcher";
 import { LangSwitcher } from "@/features/LangSwitcher";
 import { ToggleFeatures } from "@/shared/features";
-import { AppLogo } from "@/shared/ui/AppLogo";
+import { AppLogo } from "@/shared/ui/deprecated/AppLogo";
+import { Button, ButtonSize, ThemeButton } from "@/shared/ui/deprecated/Button/Button";
+import { VStack } from "@/shared/ui/deprecated/Stack";
 
 export const Sidebar = memo(() => {
     const [collapsed, setCollapsed] = useState(false);

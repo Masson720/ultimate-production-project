@@ -6,7 +6,6 @@ import { Currency } from '@/entities/Currency';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { TextTheme, Text } from '@/shared/ui/Text/Text';
 import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm';
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
 import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading';
@@ -16,9 +15,10 @@ import { getProfileValidateErrors } from '../../model/selectors/getProfileValida
 import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';
 import { profileActions, profileReducer } from '../../model/slice/profileSlice';
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModule/DynamicModuleLoader';
-import { VStack } from '@/shared/ui/Stack';
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
 import { ValidateProfileErrors } from '../../model/consts/consts';
+import { Text, TextTheme } from '@/shared/ui/deprecated/Text/Text';
+import { VStack } from '@/shared/ui/deprecated/Stack';
 
 
 interface EditableProfileCardProps {

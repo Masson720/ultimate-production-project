@@ -1,12 +1,12 @@
 import { useTranslation } from 'react-i18next';
 import { memo, useEffect, useState } from 'react';
-import { Modal } from '@/shared/ui/Modal/Modal';
-import { Text } from '@/shared/ui/Text/Text';
 import { useJsonSettings } from '@/entities/User/model/selectors/jsonSettingsSelector';
 import { saveJsonSettings } from '@/entities/User';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Drawer } from '@/shared/ui/Drawer/Drawer';
 import { isMobile } from 'react-device-detect';
+import { Text } from '@/shared/ui/deprecated/Text/Text';
+import { Drawer } from '@/shared/ui/deprecated/Drawer/Drawer';
+import { Modal } from '@/shared/ui/deprecated/Modal/Modal';
 
 
 

@@ -6,12 +6,12 @@ import { DynamicModuleLoader, ReducersList } from "@/shared/lib/components/Dynam
 import { Page } from "@/widgets/Page";
 import { articleDetailsPageReducer } from "../../model/slices";
 import { ArticleDetailsPageHeader } from "../ArticleDetailsPageHeader/ArticleDetailsPageHeader";
-import { VStack } from "@/shared/ui/Stack";
 import { ArticleRecomendationsList } from "@/features/articleRecomendationsList";
 import { ArticleDetailsComments } from "../ArticleDetailsComments/ArticleDetailsComments";
 import { ArticleRating } from "@/features/articleRating";
-import { ToggleFeatures, getFeatureFlag, toggleFeatures } from "@/shared/features";
-import { Card } from "@/shared/ui/Card/Card";
+import { ToggleFeatures } from "@/shared/features";
+import { VStack } from "@/shared/ui/deprecated/Stack";
+import { Card } from "@/shared/ui/deprecated/Card/Card";
 
 const reducers: ReducersList = {
     articleDetailsPage: articleDetailsPageReducer

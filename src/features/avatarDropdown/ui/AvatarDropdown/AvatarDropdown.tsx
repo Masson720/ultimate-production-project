@@ -3,8 +3,8 @@ import { useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
-import { Avatar } from "@/shared/ui/Avatar/Avatar";
-import { Dropdown } from "@/shared/ui/Popups";
+import { Avatar } from "@/shared/ui/deprecated/Avatar/Avatar";
+import { Dropdown } from "@/shared/ui/deprecated/Popups";
 import cls from './AvatarDropdown.module.scss';
 import { getRouteAdminPanel, getRouteProfile } from "@/shared/const/router";
 

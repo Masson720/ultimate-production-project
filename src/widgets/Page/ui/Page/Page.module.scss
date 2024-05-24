@@ -1,5 +1,4 @@
 
-
 .Page {
     flex-grow: 1;
     padding: 20px 21px 20px 40px;
@@ -7,6 +6,10 @@
     width: 100%;
     overflow-y: auto;
     flex-shrink: 100;
+}
+
+.PageRedesigned {
+    overflow-y: auto;
 }
 
 .trigger {

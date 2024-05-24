@@ -11,6 +11,7 @@ import { StateSchema } from '@/app/providers/StoreProvider';
 import { useSelector } from 'react-redux';
 import { useTrottle } from '@/shared/lib/hooks/useTrottle/useTrottle';
 import { TestProps } from '@/shared/types/test';
+import { toggleFeatures } from '@/shared/features';
 
 interface PageProps extends TestProps {
     className?: string
@@ -50,11 +51,21 @@ export const Page = (props: PageProps) => {
         }))
     }, 500); 
 
+    toggleFeatures({
+        name: 'isAppRedesigned',
+        on: () => cls.PageRedesigned,
+        off: () => cls.Page
+    })
+
     return (
         <main
             ref={wrapperRef} 
             onScroll={onScroll}
-            className={classNames(cls.Page, {}, [className])}
+            className={classNames(toggleFeatures({
+                name: 'isAppRedesigned',
+                on: () => cls.PageRedesigned,
+                off: () => cls.Page
+            }), {}, [className])}
             id={PAGE_ID}
             data-testid={props["data-testid"] ?? 'Page'}
         >

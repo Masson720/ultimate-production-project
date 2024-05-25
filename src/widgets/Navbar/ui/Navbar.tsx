@@ -11,7 +11,7 @@ import { getRouteArticlesCreate } from "@/shared/const/router";
 import { ToggleFeatures } from "@/shared/features";
 import { Text, TextTheme } from '@/shared/ui/deprecated/Text/Text';
 import { AppLink, AppLinkTheme } from "@/shared/ui/deprecated/AppLink/AppLink";
-import { HStack } from "@/shared/ui/deprecated/Stack";
+import { HStack } from "@/shared/ui/redesigned/Stack";
 import { Button, ThemeButton } from "@/shared/ui/deprecated/Button/Button";
 
 

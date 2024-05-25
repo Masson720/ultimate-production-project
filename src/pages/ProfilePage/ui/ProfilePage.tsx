@@ -1,7 +1,7 @@
 import { EditableProfileCard } from "@/features/editableProfileCard";
 import { useParams } from "react-router-dom";
 import { Page } from "@/widgets/Page";
-import { VStack } from "@/shared/ui/deprecated/Stack";
+import { VStack } from "@/shared/ui/redesigned/Stack";
 
 
 const ProfilePage = () => {

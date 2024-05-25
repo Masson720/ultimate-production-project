@@ -10,7 +10,7 @@ import { ArticleRecomendationsList } from "@/features/articleRecomendationsList"
 import { ArticleDetailsComments } from "../ArticleDetailsComments/ArticleDetailsComments";
 import { ArticleRating } from "@/features/articleRating";
 import { ToggleFeatures } from "@/shared/features";
-import { VStack } from "@/shared/ui/deprecated/Stack";
+import { VStack } from "@/shared/ui/redesigned/Stack";
 import { Card } from "@/shared/ui/deprecated/Card/Card";
 
 const reducers: ReducersList = {

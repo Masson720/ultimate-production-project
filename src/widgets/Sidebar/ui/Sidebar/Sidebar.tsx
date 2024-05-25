@@ -8,7 +8,7 @@ import { ThemeSwitcher } from "@/features/ThemeSwitcher";
 import { LangSwitcher } from "@/features/LangSwitcher";
 import { ToggleFeatures } from "@/shared/features";
 import { Button, ButtonSize, ThemeButton } from "@/shared/ui/deprecated/Button/Button";
-import { VStack } from "@/shared/ui/deprecated/Stack";
+import { VStack } from "@/shared/ui/redesigned/Stack";
 import { AppLogo } from "@/shared/ui/redesigned/AppLogo";
 import { Icon } from "@/shared/ui/redesigned/Icon/Icon";
 import ArrowIcon from '@/shared/assets/icons/arrow-bottom.svg';

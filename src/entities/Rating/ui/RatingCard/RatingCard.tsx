@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 import { BrowserView, MobileView } from "react-device-detect";
 import { Input } from "@/shared/ui/deprecated/Input/Input";
 import { Card } from "@/shared/ui/deprecated/Card/Card";
-import { HStack, VStack } from "@/shared/ui/deprecated/Stack";
+import { HStack, VStack } from "@/shared/ui/redesigned/Stack";
 import { StarRating } from "@/shared/ui/deprecated/StarRating/StartRating";
 import { Modal } from "@/shared/ui/deprecated/Modal/Modal";
 import { Button, ButtonSize, ThemeButton } from "@/shared/ui/deprecated/Button/Button";

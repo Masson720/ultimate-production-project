@@ -3,10 +3,13 @@ import { useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
-import { Avatar } from "@/shared/ui/deprecated/Avatar/Avatar";
-import { Dropdown } from "@/shared/ui/deprecated/Popups";
+import { Avatar as AvatarDeprecated } from "@/shared/ui/deprecated/Avatar/Avatar";
+import { Dropdown as DropdownDeprecated } from "@/shared/ui/deprecated/Popups";
 import cls from './AvatarDropdown.module.scss';
 import { getRouteAdminPanel, getRouteProfile } from "@/shared/const/router";
+import { ToggleFeatures } from "@/shared/features";
+import { Dropdown } from "@/shared/ui/redesigned/Popups";
+import { Avatar } from "@/shared/ui/redesigned/Avatar/Avatar";
 
 
 export const AvatarDropdown = () => {
@@ -41,11 +44,25 @@ export const AvatarDropdown = () => {
     ];
 
     return (
-        <Dropdown
-            className={cls.dropdown}
-            direction="bottom left"
-            items={dropdownItems} 
-            trigger={<Avatar size={30} fallbackInverted src={authData.avatar}/>}
-        />   
+        <ToggleFeatures
+            feature="isAppRedesigned"
+            off={
+                <DropdownDeprecated
+                    className={cls.dropdown}
+                    direction="bottom left"
+                    items={dropdownItems} 
+                    trigger={<AvatarDeprecated size={30} fallbackInverted src={authData.avatar}/>}
+                />                  
+            }
+            on={
+                <Dropdown
+                    className={cls.dropdown} 
+                    direction="bottom left"
+                    items={dropdownItems} 
+                    trigger={<Avatar size={40} src={authData.avatar}/>}
+                />                  
+            }
+        />
+ 
     )
 }

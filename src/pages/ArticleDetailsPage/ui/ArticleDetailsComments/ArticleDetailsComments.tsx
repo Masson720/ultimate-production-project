@@ -10,7 +10,7 @@ import { useSelector } from "react-redux";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { useInitialEffect } from "@/shared/lib/hooks/useInitialEffect/useInitialEffect";
 import { Text, TextSize } from '@/shared/ui/deprecated/Text/Text';
-import { VStack } from "@/shared/ui/deprecated/Stack";
+import { VStack } from "@/shared/ui/redesigned/Stack";
 import { Loader } from "@/shared/ui/deprecated/Loader/Loader";
 
 interface ArticleDetailsCommentsProps {

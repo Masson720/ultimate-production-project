@@ -11,7 +11,7 @@ import { Text } from '@/shared/ui/deprecated/Text/Text';
 import { Icon } from "@/shared/ui/deprecated/Icon/Icon";
 import { Card } from "@/shared/ui/deprecated/Card/Card";
 import { Avatar } from "@/shared/ui/deprecated/Avatar/Avatar";
-import { AppImage } from "@/shared/ui/deprecated/AppImage";
+import { AppImage } from "@/shared/ui/redesigned/AppImage";
 import { Skeleton } from "@/shared/ui/deprecated/Skeleton/Skeleton";
 import { AppLink } from "@/shared/ui/deprecated/AppLink/AppLink";
 import { Button, ThemeButton } from "@/shared/ui/deprecated/Button/Button";

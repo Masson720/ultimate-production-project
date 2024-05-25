@@ -8,7 +8,7 @@ import { AddCommentFormReducer, addCommentFormActions } from '@/features/AddComm
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModule/DynamicModuleLoader';
 import { Button, ThemeButton } from '@/shared/ui/deprecated/Button/Button';
 import { Input } from '@/shared/ui/deprecated/Input/Input';
-import { HStack } from '@/shared/ui/deprecated/Stack';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 
 export interface AddCommentFormProps {
     className?: string

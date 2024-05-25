@@ -6,13 +6,13 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { DropdownDirection } from '@/shared/types/ui';
 import { mapDirectionClass } from '../../styles/consts';
 import { Button } from '../../../Button/Button';
-import { HStack } from '@/shared/ui/redesigned/Stack';
+import { HStack } from '../../../Stack';
+
 interface ListBoxItem {
     value: string
     content: ReactNode
     disabled?: boolean
 }
-
 
 interface ListBoxProps { 
     items: ListBoxItem[]
@@ -24,11 +24,6 @@ interface ListBoxProps {
     readonly?: boolean
     direction?: DropdownDirection
 } 
-
-/**
- * Устарел, используйте новые компоненты из папки redesigned
- * @deprecated
- */
 
 export function ListBox(props: ListBoxProps) {
     const {
@@ -43,9 +38,9 @@ export function ListBox(props: ListBoxProps) {
     } = props;
 
     const optionsClasses = [
-        mapDirectionClass[direction]
+        mapDirectionClass[direction],
+        popupCls.menu
     ]
-
 
     return (
         <HStack gap='4'>

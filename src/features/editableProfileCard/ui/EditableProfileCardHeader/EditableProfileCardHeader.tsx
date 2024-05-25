@@ -9,7 +9,7 @@ import { useSelector } from "react-redux";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { Button, ThemeButton } from "@/shared/ui/deprecated/Button/Button";
 import { Text } from '@/shared/ui/deprecated/Text/Text';
-import { HStack } from "@/shared/ui/deprecated/Stack";
+import { HStack } from "@/shared/ui/redesigned/Stack";
 
 export const EditableProfileCardHeader = () => {
     const {t} = useTranslation('profile');

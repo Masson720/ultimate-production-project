@@ -1,3 +1,13 @@
-.notSelected {
-    opacity: 0.6;
+
+
+.ArticleViewSelector {
+    .notSelected {
+        color: var(--secondary-color);
+    }
+}
+
+.ArticleViewSelectorRedesigned {
+    .notSelected {
+        color: var(--light-bg-redesigned);
+    }
 }

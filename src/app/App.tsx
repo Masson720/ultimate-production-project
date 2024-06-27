@@ -34,7 +34,6 @@ const App: FC = () => {
                             header={<Navbar/>}
                             content={<AppRouter/>}
                             sidebar={<Sidebar/>}
-                            toolbar={<div>hfwiuhfiowq</div>}
                         />             
                     </Suspense>
                 </div>                  

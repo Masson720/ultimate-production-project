@@ -7,6 +7,8 @@ import { DropdownDirection } from '@/shared/types/ui';
 import { mapDirectionClass } from '../../styles/consts';
 import { Button } from '../../../Button/Button';
 import { HStack } from '../../../Stack';
+import { Icon } from '../../../Icon/Icon';
+import ArrowIcon from '@/shared/assets/icons/arrow-bottom.svg';
 
 interface ListBoxItem<T extends string> {
     value: T
@@ -57,7 +59,14 @@ export function ListBox<T extends string>(props: ListBoxProps<T>) {
                 onChange={onChange}
             > 
                 <HListbox.Button className={cls.trigger}>  
-                    <Button variant='filled' size='size_M' disabled={readonly}>{selectedItem?.content ?? defaultValue}</Button>
+                    <Button 
+                        variant='filled' 
+                        size='size_M' 
+                        disabled={readonly}
+                        addonRight={<Icon Svg={ArrowIcon}/>}
+                    >
+                            {selectedItem?.content ?? defaultValue}
+                    </Button>
                 </HListbox.Button>
                 <HListbox.Options className={classNames(cls.options, {}, optionsClasses)} >
                     {items?.map(item => (

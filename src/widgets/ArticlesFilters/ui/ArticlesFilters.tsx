@@ -8,6 +8,8 @@ import { useTranslation } from 'react-i18next';
 import { ArticleSortField, ArticleType } from '@/entities/Article';
 import { SortOrder } from '@/shared/types/sort';
 import { Input } from '@/shared/ui/redesigned/Input/Input';
+import SearchIcon from '@/shared/assets/icons/search.svg';
+import { Icon } from '@/shared/ui/redesigned/Icon/Icon';
 
 interface ArticlesFiltersProps {
     className?: string
@@ -44,7 +46,8 @@ export const ArticlesFilters = (props: ArticlesFiltersProps) => {
             <VStack gap='32'>
                 <Input 
                     onChange={onChangeSearch} 
-                    value={search} 
+                    value={search}
+                    addonLeft={<Icon Svg={SearchIcon}/>}
                     placeholder={t('Поиск')} 
                 />
                 <ArticleTabsType

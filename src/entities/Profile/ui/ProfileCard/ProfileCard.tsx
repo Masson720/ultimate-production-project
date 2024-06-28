@@ -1,16 +1,22 @@
 import { useTranslation } from "react-i18next";
-import { Text, TextAlign, TextTheme } from "@/shared/ui/deprecated/Text/Text";
+import { Text as TextDeprecated, TextAlign, TextTheme } from "@/shared/ui/deprecated/Text/Text";
 import cls from './ProfileCard.module.scss';
-import { Input } from "@/shared/ui/deprecated/Input/Input";
+import { Input as InputDeprecated } from "@/shared/ui/deprecated/Input/Input";
 import { Profile } from "@/entities/Profile/model/types/profile";
 import { Loader } from "@/shared/ui/deprecated/Loader/Loader";
 import { ModsType, classNames } from "@/shared/lib/classNames/classNames";
-import { Avatar } from "@/shared/ui/deprecated/Avatar/Avatar";
+import { Avatar as AvatarDeprecated } from "@/shared/ui/deprecated/Avatar/Avatar";
 import { Currency, CurrencySelect } from "@/entities/Currency";
 import { Country, CountrySelect } from "@/entities/Country";
 import { HStack, VStack } from "@/shared/ui/redesigned/Stack";
+import { ToggleFeatures } from "@/shared/features";
+import { Input } from "@/shared/ui/redesigned/Input/Input";
+import { Card } from "@/shared/ui/redesigned/Card/Card";
+import { Avatar } from "@/shared/ui/redesigned/Avatar/Avatar";
+import { ProfileCardDeprecated, ProfileCardDeprecatedLoader } from "../ProfileCardDeprecated/ProfileCardDeprecated";
+import { ProfileCardRedesigned, ProfileCardRedesignedSkeleton } from "../ProfileCardRedesigned/ProfileCardRedesigned";
 
-interface ProfileCardProps {
+export interface ProfileCardProps {
     className?: string
     data?: Profile
     isLoading?: boolean
@@ -28,36 +34,21 @@ interface ProfileCardProps {
 
 export const ProfileCard = (props: ProfileCardProps) => {
     const {
-        data, 
         isLoading, 
         error,
-        readonly,
-        className,
-        onChangeFirstname,
-        onChangeLastname,
-        onChangeAge,
-        onChangeCity,
-        onChangeUsername,
-        onChangeAvatar,
-        onChangeCountry,
-        onChangeCurrency
+        className
     } = props;
 
     const {t} = useTranslation('profile');
-    
-    const mods: ModsType = {
-        [cls.editing]: !readonly
-    }
 
     if(isLoading){
-        return( 
-            <HStack 
-                justify="center" 
-                max 
-                className={classNames(cls.ProfileCard, {}, [className, cls.loading])}
-            >
-                <Loader/>
-            </HStack>
+        return(
+            <ToggleFeatures
+                feature="isAppRedesigned"
+                off={<ProfileCardDeprecatedLoader/>}
+                on={<ProfileCardRedesignedSkeleton/>}
+            />
+            
         )
     }
 
@@ -67,7 +58,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
                 justify="center" 
                 max className={classNames(cls.ProfileCard, {}, [className, cls.error])}
             >
-                <Text
+                <TextDeprecated
                     theme={TextTheme.ERROR}
                     title={t('Произошла ошибка при загрузке профиля')}
                     text={t('Попробуйте обновить страницу')}
@@ -78,79 +69,14 @@ export const ProfileCard = (props: ProfileCardProps) => {
     }
 
     return (
-            <VStack 
-                gap='16' 
-                max
-                className={classNames(cls.ProfileCard, mods, [className])}
-            >
-                {data?.avatar && 
-                    <HStack 
-                        justify="center" 
-                        max 
-                        className={cls.avatarWrapper}
-                    >
-                        <Avatar 
-                            src={data.avatar}
-                            size={150}
-                        />
-                    </HStack>
-                }
-                <Input
-                    value={data?.first }
-                    placeholder={t('Ваше имя')}
-                    onChange={onChangeFirstname}
-                    readonly={readonly}
-                    className={cls.input}
-                    data-testid='ProfileCard.firstname'
-                />
-                <Input
-                    value={data?.lastname }
-                    placeholder={t('Ваша фамилия')}
-                    onChange={onChangeLastname}
-                    readonly={readonly}
-                    className={cls.input}
-                    data-testid='ProfileCard.lastname'              
-                />
-                <Input
-                    value={data?.age }
-                    placeholder={t('Возраст')}
-                    onChange={onChangeAge}
-                    readonly={readonly}
-                    className={cls.input}                
-                />
-                <Input
-                    value={data?.city }
-                    placeholder={t('Город')}
-                    onChange={onChangeCity}
-                    readonly={readonly}
-                    className={cls.input}               
-                />
-                <Input
-                    value={data?.username }
-                    placeholder={t('Введите имя пользователя')}
-                    onChange={onChangeUsername}
-                    readonly={readonly}
-                    className={cls.input}               
-                />
-                <Input
-                    value={data?.avatar }
-                    placeholder={t('Введите ссылку на аватар')}
-                    onChange={onChangeAvatar}
-                    readonly={readonly}
-                    className={cls.input}               
-                />
-                <CurrencySelect 
-                    value={data?.currency}
-                    className={cls.input}
-                    onChange={onChangeCurrency}
-                    readonly={readonly}
-                />
-                <CountrySelect
-                    value={data?.country}
-                    className={cls.input}
-                    onChange={onChangeCountry}
-                    readonly={readonly}
-                />
-            </VStack>
+        <ToggleFeatures
+            feature="isAppRedesigned"
+            off={
+                <ProfileCardDeprecated {...props}/>
+            }
+            on={
+                <ProfileCardRedesigned {...props}/>
+            }
+        />
     )
 }

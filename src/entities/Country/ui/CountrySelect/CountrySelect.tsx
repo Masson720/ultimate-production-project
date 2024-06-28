@@ -1,5 +1,7 @@
 import { Country } from "@/entities/Country/model/types/country";
-import { ListBox } from "@/shared/ui/deprecated/Popups";
+import { ToggleFeatures } from "@/shared/features";
+import { ListBox as ListBoxDeprecated } from "@/shared/ui/deprecated/Popups";
+import { ListBox } from "@/shared/ui/redesigned/Popups";
 import { memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 
@@ -26,15 +28,27 @@ export const CountrySelect = memo(({className, value, onChange, readonly}: Count
         onChange?.(value as Country) ;
     }, [onChange]);
 
+    const props = {
+        value: value,
+        readonly: readonly,
+        defaultValue: t('Укажите валюту'),
+        label: t('Укажите валюту'),
+        items: options ,
+        onChange: onChangehandler,
+        direction: "top right" as const
+    }
+
     return (
-        <ListBox 
-            value={value}
-            readonly={readonly}
-            defaultValue={t('Укажите страну')}
-            label={t('Укажите страну')} 
-            items={options} 
-            onChange={onChangehandler}
-            direction="top right"
-        />
+        <ToggleFeatures
+            feature='isAppRedesigned'
+            off={
+                <ListBoxDeprecated
+                    {...props}
+                />
+            }
+            on={
+                <ListBox {...props} />
+            }
+    />
     )
 })

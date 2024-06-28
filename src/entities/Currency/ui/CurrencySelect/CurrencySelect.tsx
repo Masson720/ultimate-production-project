@@ -1,7 +1,9 @@
 import { Currency } from "@/entities/Currency/model/types/currency"
 import { memo, useCallback } from "react";
 import { useTranslation } from "react-i18next"
-import { ListBox } from "@/shared/ui/deprecated/Popups";
+import { ListBox as ListBoxDeprecated } from "@/shared/ui/deprecated/Popups";
+import { ListBox } from "@/shared/ui/redesigned/Popups";
+import { ToggleFeatures } from "@/shared/features";
 
 const options = [
     {value: Currency.RUB, content: Currency.RUB},
@@ -22,17 +24,29 @@ export const CurrencySelect = memo(({className, value, onChange, readonly}: Curr
 
     const onChangehandler = useCallback((value: string) => {
         onChange?.(value as Currency) ;
-    }, [onChange])
+    }, [onChange]);
+
+    const props = {
+        value: value,
+        readonly: readonly,
+        defaultValue: t('Укажите валюту'),
+        label: t('Укажите валюту'),
+        items: options ,
+        onChange: onChangehandler,
+        direction: "top right" as const
+    }
 
     return (
-        <ListBox 
-            value={value}
-            readonly={readonly}
-            defaultValue={t('Укажите валюту')}
-            label={t('Укажите валюту')}
-            items={options} 
-            onChange={onChangehandler}
-            direction="top right"
+        <ToggleFeatures
+            feature='isAppRedesigned'
+            off={
+                <ListBoxDeprecated
+                    {...props}
+                />
+            }
+            on={
+                <ListBox {...props} />
+            }
         />
     )
 })

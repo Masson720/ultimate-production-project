@@ -44,7 +44,7 @@ export const Button = memo((props: ButtonProps) => {
         /**
          * Размер кнопки в соответствии с дизайн системой
          */
-        size = 'size_l',
+        size = 'size_M',
         addonLeft,
         addonRight,
         ...otherProps

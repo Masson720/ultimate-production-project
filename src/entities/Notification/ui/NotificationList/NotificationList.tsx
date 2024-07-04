@@ -2,7 +2,9 @@ import { VStack } from "@/shared/ui/redesigned/Stack";
 import { useNotifications } from "../../api/notificationApi"
 import { NotificationItem } from "../NotificationItem/NotificationItem";
 import { classNames } from "@/shared/lib/classNames/classNames";
-import { Skeleton } from "@/shared/ui/deprecated/Skeleton/Skeleton";
+import { Skeleton as SkeletonDeprecated } from "@/shared/ui/deprecated/Skeleton/Skeleton";
+import { Skeleton as SkeletonRedesigned } from "@/shared/ui/redesigned/Skeleton/Skeleton";
+import { toggleFeatures } from "@/shared/features";
 
 interface NotificationListProps {
     className?: string
@@ -16,6 +18,12 @@ export const NotificationList = (props: NotificationListProps) => {
     const {data, isLoading} = useNotifications(null, {
         pollingInterval: 5000
     });
+
+    const Skeleton = toggleFeatures({
+        name: 'isAppRedesigned',
+        off: () => SkeletonDeprecated,
+        on: () => SkeletonRedesigned
+    })
  
     if(isLoading){
         return (

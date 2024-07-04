@@ -6,7 +6,7 @@ import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { Avatar as AvatarDeprecated } from "@/shared/ui/deprecated/Avatar/Avatar";
 import { Dropdown as DropdownDeprecated } from "@/shared/ui/deprecated/Popups";
 import cls from './AvatarDropdown.module.scss';
-import { getRouteAdminPanel, getRouteProfile } from "@/shared/const/router";
+import { getRouteAdminPanel, getRouteProfile, getRouteSettings } from "@/shared/const/router";
 import { ToggleFeatures } from "@/shared/features";
 import { Dropdown } from "@/shared/ui/redesigned/Popups";
 import { Avatar } from "@/shared/ui/redesigned/Avatar/Avatar";
@@ -36,6 +36,10 @@ export const AvatarDropdown = () => {
         {
             content: t('Профиль'),
             href: getRouteProfile(authData?.id)
+        },
+        {
+            content: t('Настройки'),
+            href: getRouteSettings()
         },
         {
             content: t('Выйти'),

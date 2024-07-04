@@ -1,4 +1,4 @@
-import { FeatureFlags } from "../types/featureFlags";
+import { FeatureFlags } from "../../types/featureFlags";
 
 //Фичи не мняются в ходе сессии, их необязательно делать реактивными
 let featureFlags: FeatureFlags = {};
@@ -13,3 +13,6 @@ export function getFeatureFlag(flag: keyof FeatureFlags){
     return featureFlags[flag];
 }
 
+export function getAllFeatureFlags(){
+    return featureFlags;
+}

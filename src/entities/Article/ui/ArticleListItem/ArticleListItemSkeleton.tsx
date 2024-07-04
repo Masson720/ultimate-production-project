@@ -5,7 +5,7 @@ import { classNames } from "@/shared/lib/classNames/classNames";
 import { Card as CardDeprecated } from "@/shared/ui/deprecated/Card/Card";
 import { Card as CardRedesigned } from '@/shared/ui/redesigned/Card/Card';
 import { ArticleView } from '@/entities/Article/model/consts/articleConsts';
-import { toggleFeatures } from '@/shared/features';
+import { ToggleFeatures, toggleFeatures } from '@/shared/features';
 
 interface ArticleListItemSkeletonProps {
     className?: string
@@ -21,9 +21,17 @@ export const ArticleListItemSkeleton = (props: ArticleListItemSkeletonProps) => 
     const Skeleton = toggleFeatures({name: 'isAppRedesigned', on: () => SkeletonRedesigned, off: () => SkeletonDeprecated});
     const Card = toggleFeatures({name: 'isAppRedesigned', on: () => CardRedesigned, off: () => CardDeprecated});
 
+    const mainClass = toggleFeatures({
+        name: 'isAppRedesigned', 
+        off: () => cls.ArticleListItem, 
+        on: () => cls.ArticleListItemRedesigned
+    })
+
     if(view === ArticleView.BIG){
         return (
-            <div className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
+            <div 
+                className={classNames(mainClass, {}, [className, cls[view]])}
+            >
                 <Card className={cls.card}>
                     <div className={cls.header}>
                         <Skeleton border={'50%'} width={30} height={30}/>

@@ -20,16 +20,12 @@ const App: FC = () => {
         dispatch(initAuthData());
     }, [dispatch]);
 
-    if(!inited){
-        return <PageLoader/>
-    }
-
     return (
         <ToggleFeatures
             feature='isAppRedesigned'
             on={
-                <div className={classNames('app_redesigned', {}, [theme])}>
-                    <Suspense fallback=''>
+                <div id='app' className={classNames('app_redesigned', {}, [theme])}>
+                    <Suspense fallback={<PageLoader/>}>
                         <MainLayout
                             header={<Navbar/>}
                             content={<AppRouter/>}
@@ -39,8 +35,8 @@ const App: FC = () => {
                 </div>                  
             }
             off={
-                <div className={classNames('app', {}, [theme])}>
-                    <Suspense fallback=''>
+                <div id='app' className={classNames('app', {}, [theme])}>
+                    <Suspense fallback={<PageLoader/>}>
                         <Navbar/>
                         <div className="content-page">
                             <Sidebar/>

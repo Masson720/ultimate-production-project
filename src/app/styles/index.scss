@@ -10,17 +10,12 @@
 //     color: var(--primary-color);
 // }
 
-.app,
-.app_modal,
-.app_drawer {
+.app {
     font-size: var(--font-m);  
     font-family: var(--font-family-main);
-    color: var(--primary-color); 
-}
-
-.app {
+    color: var(--primary-color);
     background: var(--bg-color);
-    min-height: 100vh;
+    min-height: 100vh;    
 }
 
 .app_redesigned {
@@ -33,8 +28,6 @@
 .content-page {
     display: flex;
 }
-
-
 
 .test {
     color: var(--primary-color)

@@ -5,6 +5,7 @@ import { useTheme } from "@/app/providers/ThemeProvider";
 import { useModal } from "@/shared/lib/hooks/useModal/useModal";
 import { Portal } from "../../redesigned/Portal/Portal";
 import { Overlay } from "../../redesigned/Overlay/Overlay";
+import { toggleFeatures } from "@/shared/features";
 
 interface ModalProps {
     children?: ReactNode
@@ -13,11 +14,6 @@ interface ModalProps {
     onClose?: () => void
     lazy?: boolean
 }
-
-/**
- * Устарел, используйте новые компоненты из папки redesigned
- * @deprecated
- */
 
 const ANIMATION_DELAY = 300;
 
@@ -54,8 +50,12 @@ export const Modal: FC<ModalProps> = (props) => {
     }
 
     return (
-        <Portal>
-            <div className={classNames(cls.Modal, mods, [className, theme, 'app_modal'])}>
+        <Portal element={document.getElementById('app') ?? document.body}>
+            <div className={classNames(cls.Modal, mods, [className, theme, 'app_modal', toggleFeatures({
+                name: 'isAppRedesigned',
+                off: () => cls.modalOld,
+                on: () => cls.modalNew
+            })])}>
                 <Overlay className={cls.overlay} onClick={close}/>
                 <div className={cls.content }>
                     {children}

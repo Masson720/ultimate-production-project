@@ -5,6 +5,7 @@ import cls from './Drawer.module.scss';
 import { AnimationProvider, useAnimationLibs } from "../../../lib/components/AnimationProvider";
 import { Overlay } from "../../redesigned/Overlay/Overlay";
 import { Portal } from "../../redesigned/Portal/Portal";
+import { toggleFeatures } from "@/shared/features";
 
 interface DrawerProps {
     className?: string
@@ -13,11 +14,6 @@ interface DrawerProps {
     onClose?: () => void
     lazy?: boolean
 }
-
-/**
- * Устарел, используйте новые компоненты из папки redesigned
- * @deprecated
- */
 
 const height = window.innerHeight - 100;
 
@@ -81,8 +77,12 @@ export const DrawerContent = memo((props: DrawerProps) => {
     console.log(theme);
 
     return (
-        <Portal>
-            <div className={classNames(cls.Drawer, {}, [className, theme, 'add_drawer'])}>
+        <Portal element={document.getElementById('app') ?? document.body}>
+            <div className={classNames(cls.Drawer, {}, [className, theme, 'add_drawer', toggleFeatures({
+                name: 'isAppRedesigned',
+                off: () => cls.modalOld,
+                on: () => cls.modalNew
+            })])}>
                 <Overlay onClick={close} />
                 <Spring.a.div 
                     className={cls.sheet} 

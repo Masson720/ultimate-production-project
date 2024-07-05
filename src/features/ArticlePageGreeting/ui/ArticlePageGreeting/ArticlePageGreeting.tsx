@@ -5,8 +5,8 @@ import { saveJsonSettings } from '@/entities/User';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { isMobile } from 'react-device-detect';
 import { Text } from '@/shared/ui/deprecated/Text/Text';
-import { Drawer } from '@/shared/ui/deprecated/Drawer/Drawer';
-import { Modal } from '@/shared/ui/deprecated/Modal/Modal';
+import { Drawer } from '@/shared/ui/redesigned/Drawer/Drawer';
+import { Modal } from '@/shared/ui/redesigned/Modal/Modal';
 
 
 

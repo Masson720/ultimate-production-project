@@ -1,6 +1,6 @@
 import { ArticleCodeBlock } from "@/entities/Article/model/types/article";
 import { memo } from "react";
-import { Code } from "@/shared/ui/deprecated/Code/Code";
+import { Code } from "@/shared/ui/redesigned/Code/Code";
 import cls from './ArticleCodeBlockComponent.module.scss';
 
 interface ArticleCodeBlockComponent {

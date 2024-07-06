@@ -31,14 +31,14 @@ export const ArticleListItemRedesigned = memo((props: ArticleListItemProps) => {
 
     const viewsJSXElement = (
         <HStack gap='8'>
-            <Icon Svg={EyeIcon} /> 
+            <Icon Svg={EyeIcon}/> 
             <Text text={String(article.views)} className={cls.view}/> 
         </HStack>
     )
 
     const userInfo = (
         <>
-            <Avatar size={32} src={article.user.avatar}/>
+            <Avatar size={32} src={article.user.avatar} className={cls.avatar}/>
             <Text bold text={article.user.username}/>
         </>
     )
@@ -94,15 +94,15 @@ export const ArticleListItemRedesigned = memo((props: ArticleListItemProps) => {
             to={getRouteArticleDetails(article.id)}
             className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
         >
-            <Card className={cls.card} border="round">
+            <Card className={cls.card} border="round" padding='0'>
                 <AppImage 
-                    fallback={<Skeleton width={200} height={200}/>}
+                    fallback={<Skeleton width={'100%'} height={200}/>}
                     src={article.img} 
                     className={cls.img} 
                     alt={article.title}
                 />
                 <VStack className={cls.info} gap='4'>
-                    <Text text={article.createdAt} className={cls.date} />
+                    <Text title={article.title} size="m" />
                     <VStack className={cls.footer} gap='4' max>
                         <HStack justify="between" max>
                             <Text 

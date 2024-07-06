@@ -10,7 +10,7 @@ import { Text as TextDeprecated, TextAlign, TextSize } from '../../../../shared/
 import { Text } from '../../../../shared/ui/redesigned/Text/Text';
 import { useTranslation } from "react-i18next";
 import { Skeleton as SkeletonDeprecated } from "@/shared/ui/deprecated/Skeleton/Skeleton";
-import { Skeleton } from "@/shared/ui/redesigned/Skeleton/Skeleton";
+import { Skeleton as SkeletonRedesigned } from "@/shared/ui/redesigned/Skeleton/Skeleton";
 import { Avatar } from "@/shared/ui/deprecated/Avatar/Avatar";
 import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
 import CalendarIcon from '@/shared/assets/icons/calendar-20-20.svg';
@@ -18,7 +18,7 @@ import { Icon } from "@/shared/ui/deprecated/Icon/Icon";
 import { useInitialEffect } from "@/shared/lib/hooks/useInitialEffect/useInitialEffect";
 import { HStack, VStack } from "@/shared/ui/redesigned/Stack";
 import { RenderArticleBlock } from "./RenderArticleBlock";
-import { ToggleFeatures } from "@/shared/features";
+import { ToggleFeatures, toggleFeatures } from "@/shared/features";
 import { AppImage } from "@/shared/ui/redesigned/AppImage";
 
 interface ArticleDetailsProps {
@@ -29,6 +29,24 @@ interface ArticleDetailsProps {
 
 const reducers: ReducersList = {
     articleDetails: articleDetailsReducer
+}
+
+const ArticleDetailsSkeleton = () => {
+    const Skeleton = toggleFeatures({
+        name: 'isAppRedesigned',
+        off: () => SkeletonDeprecated,
+        on: () => SkeletonRedesigned
+    })
+
+    return (
+        <VStack gap='16' max>
+            <Skeleton className={cls.avatar} width={200} height={200} border='50%'/>
+            <Skeleton className={cls.title } width={200} height={24}/>
+            <Skeleton className={cls.skeleton} width={600} height={24}/>
+            <Skeleton className={cls.skeleton} width='100%' height={200}/>
+            <Skeleton className={cls.skeleton} width='100%' height={200}/>
+        </VStack>
+    )
 }
 
 const Deprecated = () => {
@@ -94,7 +112,7 @@ const Redesigned = () => {
                 align='left'
                 size='m'
             />
-            <AppImage className={cls.img} fallback={<Skeleton width='100%' height='420px' border='16px' />} src={article?.img} />
+            <AppImage className={cls.img} fallback={<SkeletonRedesigned width='100%' height='420px' border='16px' />} src={article?.img} />
             {article?.blocks.map(RenderArticleBlock)}
         </>         
     )
@@ -114,15 +132,10 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
 
     let content;
 
+
     if(isLoading){
         content = (
-            < >
-                <SkeletonDeprecated className={cls.avatar} width={200} height={200} border='50%'/>
-                <SkeletonDeprecated className={cls.title } width={200} height={24}/>
-                <SkeletonDeprecated className={cls.skeleton} width={600} height={24}/>
-                <SkeletonDeprecated className={cls.skeleton} width='100%' height={200}/>
-                <SkeletonDeprecated className={cls.skeleton} width='100%' height={200}/>
-            </ >
+            <ArticleDetailsSkeleton/>
         )
     } else if(error){
         content = (

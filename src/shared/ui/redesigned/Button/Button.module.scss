@@ -6,13 +6,13 @@
     display: flex;
     align-items: center;
 
-    &:hover {
-        color: var(--accent-redesigned);
-        .addonLeft svg, 
-        .addonRight svg {
-            color: var(--accent-redesigned);
-        } 
-    }
+    // &:hover {
+    //     color: var(--accent-redesigned);
+    //     .addonLeft svg, 
+    //     .addonRight svg {
+    //         color: var(--accent-redesigned);
+    //     } 
+    // }
 }
 
 .withAddon {
@@ -27,11 +27,22 @@
 }
 
 .outline {
-    border: 1px solid var(--icon-redesigned);
     background: none;
     border-radius: 34px;
     &:hover {
-        border: 1px solid var(--accent-redesigned);
+        opacity: 0.8;
+    }
+
+    &.normal {
+        border: 1px solid var(--icon-redesigned);
+    }
+
+    &.success {
+        border: 1px solid var(--save-redesigned);
+    }
+
+    &.error {
+        border: 1px solid var(--cancel-redesigned);
     }
 }
 

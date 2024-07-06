@@ -71,10 +71,11 @@ export const ProfileCardRedesigned = memo((props: ProfileCardProps) => {
     } = props;
 
     const { t } = useTranslation('profile');
-    
+    //починить валидацию
     return (
         <Card
             max
+            border='partial'
             padding="24"
             className={className}
         >

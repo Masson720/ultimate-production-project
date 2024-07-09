@@ -2,18 +2,18 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { useTheme } from './providers/ThemeProvider';
 import { AppRouter } from './providers/router';
 import { Navbar } from '@/widgets/Navbar';
-import { FC, Suspense, memo, useEffect} from 'react';
+import { Suspense, memo, useEffect} from 'react';
 import { useSelector } from 'react-redux';
 import { getUserInited, initAuthData } from '@/entities/User';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { PageLoader } from '@/widgets/PageLoader';
 import { ToggleFeatures } from '@/shared/features';
 import { MainLayout } from '@/shared/layouts/MainLayout';
 import { Sidebar } from '@/widgets/Sidebar';
 import { AppLoaderLayout } from '@/shared/layouts/AppLoaderLayout';
 import { useAppToolbar } from './lib/useAppToolbar';
+import { withTheme } from './providers/ThemeProvider/ui/WithTheme';
 
-const App: FC = () => {
+const App = memo(() => {
     const {theme} = useTheme();
     const dispatch = useAppDispatch();
     const inited = useSelector(getUserInited);
@@ -58,6 +58,7 @@ const App: FC = () => {
             }
         />
     )
-};
+});
 
-export default memo(App);
+
+export default withTheme(App);

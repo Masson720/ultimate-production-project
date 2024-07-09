@@ -21,8 +21,8 @@ const ThemeProvider = (props: ThemeProviderProps) => {
     const [theme, setTheme] = useState<Theme>(initialTheme || fallbackTheme || Theme.LIGHT);
 
     useEffect(() => {
-        if(!isThemeInited && defaultTheme){
-            setTheme(defaultTheme);
+        if(!isThemeInited && initialTheme){
+            setTheme(initialTheme);
             setIsThemeInited(true);            
         }
     }, [defaultTheme, isThemeInited]);

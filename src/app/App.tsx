@@ -10,6 +10,7 @@ import { PageLoader } from '@/widgets/PageLoader';
 import { ToggleFeatures } from '@/shared/features';
 import { MainLayout } from '@/shared/layouts/MainLayout';
 import { Sidebar } from '@/widgets/Sidebar';
+import { AppLoaderLayout } from '@/shared/layouts/AppLoaderLayout';
 
 const App: FC = () => {
     const {theme} = useTheme();
@@ -20,12 +21,18 @@ const App: FC = () => {
         dispatch(initAuthData());
     }, [dispatch]);
 
+    if(!inited){
+        return (
+            <div className='app_redesigned'><AppLoaderLayout/></div>
+        )
+    }
+
     return (
         <ToggleFeatures
             feature='isAppRedesigned'
             on={
                 <div id='app' className={classNames('app_redesigned', {}, [theme])}>
-                    <Suspense fallback={<PageLoader/>}>
+                    <Suspense fallback=''>
                         <MainLayout
                             header={<Navbar/>}
                             content={<AppRouter/>}
@@ -36,7 +43,7 @@ const App: FC = () => {
             }
             off={
                 <div id='app' className={classNames('app', {}, [theme])}>
-                    <Suspense fallback={<PageLoader/>}>
+                    <Suspense fallback=''>
                         <Navbar/>
                         <div className="content-page">
                             <Sidebar/>

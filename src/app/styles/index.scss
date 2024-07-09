@@ -32,3 +32,34 @@
 .test {
     color: var(--primary-color)
 }
+
+.app *::-webkit-scroolbar {
+    width: 12px;
+    height: 8px;
+}
+
+.app *::-webkit-scrollbar-track {
+    background: var(--card-bg);
+}
+
+.app *::-webkit-scrollbar-thumb {
+    background-color: var(--inverted-primary-color);
+    border-radius: 20px;
+    border: 2px solid var(--primary-color);
+}
+
+
+*::-webkit-scroolbar {
+    width: 12px;
+    height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+    background: var(--light-bg-redesigned);
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: var(--icon-redesigned);
+    border-radius: 20px;
+    border: 2px solid var(--accent-redesigned);
+}

@@ -103,7 +103,14 @@ const LoginForm = memo(({className, onSuccess }: LoginFormProps) => {
                                     value={password}
                                     className={cls.input}
                                     placeholder={t('Введите пароль')}/>
-                               
+                                <Button 
+                                    variant='outline'
+                                    className={cls.loginBtn}
+                                    onClick={onLoginClick}
+                                    disabled={isLoading} 
+                                >
+                                    {t('Войти')}
+                                </Button>                                
                             </VStack>
 
                         </div>

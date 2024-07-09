@@ -10,8 +10,10 @@ export function setFeatureFlags(newFeatureFlags? : FeatureFlags){
 }
 
 export function getFeatureFlag(flag: keyof FeatureFlags){
-    return featureFlags[flag] || true;
+    return featureFlags[flag];
 }
+
+//Сделать перезагрузку страницы в случае старого дизайна
 
 export function getAllFeatureFlags(){
     return featureFlags;

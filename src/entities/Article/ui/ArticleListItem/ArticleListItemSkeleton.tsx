@@ -27,23 +27,40 @@ export const ArticleListItemSkeleton = (props: ArticleListItemSkeletonProps) => 
         on: () => cls.ArticleListItemRedesigned
     })
 
+    const cardContent = (
+        <>
+            <div className={cls.header}>
+                <Skeleton border={'50%'} width={30} height={30}/>
+                <Skeleton width={150} height={16} className={cls.username}/>
+                <Skeleton width={150} height={16} className={cls.username}/>
+            </div>
+            <Skeleton width={250} height={24} className={cls.title} />
+            <Skeleton height={200} className={cls.img} />
+            <div className={cls.footer} >
+                <Skeleton height={36} width={200} />
+            </div>  
+        </>
+    )
+
     if(view === ArticleView.BIG){
         return (
             <div 
                 className={classNames(mainClass, {}, [className, cls[view]])}
             >
-                <Card className={cls.card}>
-                    <div className={cls.header}>
-                        <Skeleton border={'50%'} width={30} height={30}/>
-                        <Skeleton width={150} height={16} className={cls.username}/>
-                        <Skeleton width={150} height={16} className={cls.username}/>
-                    </div>
-                    <Skeleton width={250} height={24} className={cls.title} />
-                    <Skeleton height={200} className={cls.img} />
-                    <div className={cls.footer} >
-                        <Skeleton height={36} width={200} />
-                    </div>
-                </Card>
+                <ToggleFeatures
+                    feature='isAppRedesigned'
+                    off={
+                        <Card className={cls.card}>
+                            {cardContent}
+                        </Card>
+                    }
+                    on={
+                        <Card border='round' className={cls.card}>
+                            {cardContent}
+                        </Card>
+                    }
+                />
+
             </div>
         )
     }

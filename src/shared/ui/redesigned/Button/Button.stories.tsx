@@ -5,7 +5,7 @@ import { Theme } from '@/app/providers/ThemeProvider';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: 'shared/Button',
+  title: 'shared/ButtonRedesigned',
   component: Button,
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ['autodocs'],
@@ -34,7 +34,7 @@ export const OutlineSizeM: Story = {
     args: {
         children: 'text',
         variant: 'outline',
-        size: 'size_M'
+        size: 'size_m'
     },
 };
 
@@ -68,7 +68,7 @@ export const SquareSizeM: Story = {
         children: '>',
         variant: 'outline',
         square: true,
-        size: 'size_M'
+        size: 'size_m'
     },
 };
 

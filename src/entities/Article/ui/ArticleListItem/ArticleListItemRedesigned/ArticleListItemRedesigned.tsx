@@ -14,7 +14,7 @@ import { getRouteArticleDetails } from "@/shared/const/router";
 import { AppLink } from "@/shared/ui/redesigned/AppLink/AppLink";
 import { Avatar } from "@/shared/ui/redesigned/Avatar/Avatar";
 import { ArticleTextBlock } from "@/entities/Article/model/types/article";
-import { ArticleBlockType, ArticleView } from "@/entities/Article/model/consts/articleConsts";
+import { ArticleBlockType } from "@/entities/Article/model/consts/articleConsts";
 import { Skeleton } from "@/shared/ui/redesigned/Skeleton/Skeleton";
 
 

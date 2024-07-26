@@ -14,6 +14,7 @@ import { AppLink, AppLinkTheme } from "@/shared/ui/deprecated/AppLink/AppLink";
 import { HStack } from "@/shared/ui/redesigned/Stack";
 import { Button as ButtonDeprecated, ThemeButton } from "@/shared/ui/deprecated/Button/Button";
 import { Button } from "@/shared/ui/redesigned/Button/Button";
+import { CreateArticleButton } from "@/features/CreateArticleButton";
 
 
 interface NavbarProps {
@@ -67,6 +68,7 @@ export const Navbar = memo(({className}: NavbarProps) => {
                 on={
                     <header  className={classNames(mainClass, {}, [className])}>
                     <HStack gap='16' className={cls.actions}>
+                        <CreateArticleButton/>
                         <NotificationButton/>
                         <AvatarDropdown/>           
                     </HStack>

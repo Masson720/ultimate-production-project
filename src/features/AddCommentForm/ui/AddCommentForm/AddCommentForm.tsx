@@ -16,7 +16,7 @@ import { Card } from '@/shared/ui/redesigned/Card/Card';
 
 export interface AddCommentFormProps {
     className?: string
-     onSendComment: (text: string) => void
+    onSendComment: (text: string) => void
 }
 
 const reducers: ReducersList = {

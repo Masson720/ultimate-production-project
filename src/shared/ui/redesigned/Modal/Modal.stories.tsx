@@ -6,7 +6,7 @@ import { Theme } from '@/app/providers/ThemeProvider';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: 'shared/Modal',
+  title: 'shared/ModalRedesigned',
   component: Modal,
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ['autodocs'],

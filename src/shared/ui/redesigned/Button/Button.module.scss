@@ -46,6 +46,14 @@
     }
 }
 
+.close {
+    background: var(--text-redesigned);
+    border: none;
+    outline: none;
+    color: var(--light-bg-redesigned);
+    border-radius: 50%;
+}
+
 .filled {
     background: var(--light-bg-redesigned);
     border: none;
@@ -94,7 +102,12 @@
     color: var(--hint-redesigned);
 }
 
-.size_M {
+.size_s {
+    font: var(--font-s-redesigned);
+    padding: 4px 12px;
+}
+
+.size_m {
     font: var(--font-m-redesigned);
 }
 

@@ -9,7 +9,7 @@ const items = [
 ]
 
 const meta = {
-    title: 'shared/Dropdown',
+    title: 'shared/DropdownRedesigned',
     component: Dropdown,
     tags: ['autodocs'],
 } satisfies Meta<typeof Dropdown>;

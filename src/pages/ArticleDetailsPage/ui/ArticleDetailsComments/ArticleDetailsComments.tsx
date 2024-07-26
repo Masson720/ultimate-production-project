@@ -23,7 +23,7 @@ interface ArticleDetailsCommentsProps {
 export const ArticleDetailsComments = (props: ArticleDetailsCommentsProps) => {
     const { className, id } = props;
 
-    const {t} = useTranslation('article');
+    const { t } = useTranslation('article');
     const comments = useSelector(getArticleComments.selectAll);
     const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
     const dispatch = useAppDispatch();

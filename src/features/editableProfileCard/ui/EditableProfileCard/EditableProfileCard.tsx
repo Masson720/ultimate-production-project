@@ -20,7 +20,6 @@ import { ValidateProfileErrors } from '../../model/consts/consts';
 import { Text, TextTheme } from '@/shared/ui/deprecated/Text/Text';
 import { VStack } from '@/shared/ui/redesigned/Stack';
 
-
 interface EditableProfileCardProps {
     className?: string;
     id?: string

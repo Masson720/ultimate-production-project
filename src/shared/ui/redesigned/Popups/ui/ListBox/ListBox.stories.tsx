@@ -12,7 +12,7 @@ const people = [
 ]
 
 const meta = {
-    title: 'shared/ListBox',
+    title: 'shared/ListBoxRedesigned',
     component: ListBox,
     tags: ['autodocs'],
     decorators: [

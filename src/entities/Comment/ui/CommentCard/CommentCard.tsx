@@ -33,8 +33,6 @@ export const CommentCard = (props: CommentCardProps) => {
         on: () => SkeletonRedesigned
     })
 
-    console.log(comment)
-
     if(isLoading){
         return (
             <VStack data-testid='CommentCard.Loading' gap='8' max className={classNames(cls.CommentCard, {}, [className])}>

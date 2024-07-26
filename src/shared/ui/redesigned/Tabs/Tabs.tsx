@@ -1,8 +1,8 @@
-import { ReactNode, useCallback } from 'react';
+import { ReactNode } from 'react';
 import cls from './Tabs.module.scss';
-import { Card } from '../Card/Card';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Flex, FlexDirection } from '../Stack/Flex/Flex';
+import { TabItemButton } from '../TabItem/TabItem';
 
 export interface TabItem {
     value: string
@@ -26,12 +26,6 @@ export const Tabs = (props: TabsProps) => {
         direction = 'row' 
     } = props;
 
-    const clickHandler = useCallback((tab: TabItem) => {
-        return () => {
-            onTabClick(tab);
-        }
-    }, [])
-
     return (
         <Flex 
             direction={direction} 
@@ -42,15 +36,11 @@ export const Tabs = (props: TabsProps) => {
             {tabs.map(tab => {
                 const isSelected = tab.value === value;
                 return (
-                    <Card 
-                        className={classNames(cls.tab, {[cls.selected]: isSelected}, [])} 
-                        key={tab.value}
-                        variant={isSelected ? 'light' : 'normal'}
-                        onClick={clickHandler(tab)}
-                        border='round'
-                    >
-                        {tab.content}
-                    </Card>
+                    <TabItemButton
+                        isSelected={isSelected}
+                        onClick={onTabClick}
+                        tab={tab}
+                    />
                 )
             })}
         </Flex>

@@ -1,4 +1,4 @@
-import { ReactNode, Suspense, memo, useCallback } from "react";
+import { Suspense, memo, useCallback } from "react";
 import { RequireAuth } from "./RequireAuth";
 import { Routes, Route } from "react-router-dom";
 import { PageLoader } from "@/widgets/PageLoader";

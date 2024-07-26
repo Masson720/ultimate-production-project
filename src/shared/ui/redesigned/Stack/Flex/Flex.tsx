@@ -6,6 +6,7 @@ export type FlexJustify = 'start' | 'center' | 'end' | 'between';
 export type FlexAlign = 'start' | 'center' | 'end';
 export type FlexDirection = 'row' | 'column';
 export type FlexGap = '4' | '8' | '16' | '24' | '32';
+export type FlexMargin = '4' | '8' | '16' | '24' | '32';
 export type FlexWrap = 'wrap' | 'nowrap';
 
 const justifyClasses: Record<FlexJustify, string> = {
@@ -34,6 +35,14 @@ const gapClasses: Record<FlexGap, string> = {
     32: cls.gap32,
 }
 
+const marginClasses: Record<FlexGap, string> = {
+    4: cls.margin4,
+    8: cls.margin8,
+    16: cls.margin16,
+    24: cls.margin24,
+    32: cls.margin32,
+}
+
 type DivProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
 
 export interface FlexProps extends DivProps {
@@ -44,6 +53,7 @@ export interface FlexProps extends DivProps {
     direction?: FlexDirection
     gap?: FlexGap
     max?: boolean
+    margin?: FlexMargin
     wrap?: FlexWrap
 }
 
@@ -56,6 +66,7 @@ export const Flex = (props: FlexProps ) => {
         direction = 'row',
         gap,
         max,
+        margin,
         wrap = 'nowrap',
         ...otherProps
     } = props;
@@ -66,7 +77,8 @@ export const Flex = (props: FlexProps ) => {
         alignClasses[align],
         directionClasses[direction],
         cls[wrap],
-        gap && gapClasses[gap]
+        gap && gapClasses[gap],
+        margin && marginClasses[margin]
     ]
 
     const mods: ModsType = {

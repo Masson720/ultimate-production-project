@@ -57,7 +57,7 @@ const ArticleDetailsPage = () => {
                                     <ArticleRecomendationsList/>              
                                     <ArticleDetailsComments id={id}/>
                                 </VStack>
-                            </Page>                              
+                            </Page>                           
                         }
                         right={<AdditionalInfoContainer/>}
                     />

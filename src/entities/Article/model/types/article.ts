@@ -8,17 +8,20 @@ export interface ArticleBlockBase {
 
 export interface ArticleCodeBlock extends ArticleBlockBase {
     type: ArticleBlockType.CODE
+    userId?: string
     code: string
 }
 
 export interface ArticleImageBlock extends ArticleBlockBase {
     type: ArticleBlockType.IMAGE
+    userId?: string
     src: string
     title: string
 }
 
 export interface ArticleTextBlock extends ArticleBlockBase {
     type: ArticleBlockType.TEXT
+    userId?: string
     title: string
     paragraphs: string[]
 }   

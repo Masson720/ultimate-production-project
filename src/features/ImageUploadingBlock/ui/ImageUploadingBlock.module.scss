@@ -1,0 +1,15 @@
+.loadPreviewImage {
+    width: 180px;
+    height: 120px;   
+}
+
+.imgBlock {
+    position: relative;
+    border: 1px solid var(--accent-redesigned);
+}
+
+.deleteBtn {
+    position: absolute;
+    right: 1px;
+    bottom: 1px;
+}

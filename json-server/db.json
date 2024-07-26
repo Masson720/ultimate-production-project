@@ -52,7 +52,7 @@
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
-      "createdAt": "26.04.2022",
+      "createdAt": "26.04.2024",
       "userId": "1",
       "type": [
         "IT"
@@ -549,6 +549,28 @@
           ]
         }
       ]
+    },
+    {
+      "title": "мой Чпоньк",
+      "subtitle": "",
+      "img": "https://siniyej.ru/image/cache/catalog/animals/spiders/subsidiary/tarantula-brachypelma-smithi-spider-1080x720.jpg",
+      "views": 0,
+      "userId": "1",
+      "type": [
+        "SCIENCE"
+      ],
+      "blocks": [
+        {
+          "id": "18449",
+          "type": "TEXT",
+          "title": "Готовится к линьке",
+          "paragraphs": [
+            "Жирненький"
+          ]
+        }
+      ],
+      "id": "26701",
+      "createdAt": "26.7.2024"
     }
   ],
   "comments": [
@@ -620,6 +642,18 @@
       "userId": "1",
       "text": "Колян секс",
       "id": "V4VUGn3"
+    },
+    {
+      "articleId": "7",
+      "userId": "1",
+      "text": "Чпоньк",
+      "id": "NYxQACQ"
+    },
+    {
+      "articleId": "7",
+      "userId": "1",
+      "text": "Hello world",
+      "id": "rzmybyT"
     }
   ],
   "users": [

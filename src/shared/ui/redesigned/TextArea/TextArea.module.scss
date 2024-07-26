@@ -1,0 +1,13 @@
+.TextArea {
+    border: 1px solid var(--icon-redesigned);
+    border-radius: 20px;
+    padding: 16px;
+}
+
+.textAreaBody {
+    background: none;
+}
+
+.focused {
+    border: 2px solid var(--accent-redesigned);
+}

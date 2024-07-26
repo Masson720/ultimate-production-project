@@ -1,4 +1,4 @@
-import { Currency } from "@/entities/Currency/model/types/currency"
+import { Currency } from "../../../Currency/model/types/currency"
 import { memo, useCallback } from "react";
 import { useTranslation } from "react-i18next"
 import { ListBox as ListBoxDeprecated } from "@/shared/ui/deprecated/Popups";

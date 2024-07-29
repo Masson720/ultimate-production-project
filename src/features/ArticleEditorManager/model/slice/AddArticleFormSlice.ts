@@ -1,11 +1,10 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { AddArticleFormSchema } from '../types/AddArticleFormSchema';
 import { getDate } from '@/shared/lib/getDate/getDate';
-import { ArticleBlockType, ArticleType } from '@/entities/Article';
+import { ArticleType } from '@/entities/Article';
 import { ArticleBlock } from '@/entities/Article/model/types/article';
 import { generateId } from '@/shared/lib/generateId/generateId';
-import { addNewArticle } from '@/pages/ArticleCreatePage/model/services/addNewArticle';
-
+import { addNewArticle } from '../services/addNewArticle';
+import { AddArticleFormSchema } from '../types/AddArticleFormSchema';
 
 const initialState: AddArticleFormSchema = {
     articleForm: {
@@ -21,7 +20,8 @@ const initialState: AddArticleFormSchema = {
         createdAt: getDate()
     },
     isLoading: false,
-    error: ''
+    errors: '',
+    success: false
 }
 
 export const addArticleFormSlice = createSlice({
@@ -40,6 +40,9 @@ export const addArticleFormSlice = createSlice({
         setImg: (state, action: PayloadAction<string>) => {
             state.articleForm.img = action.payload;
         },
+        setSuccess: (state, action: PayloadAction<boolean>) => {
+            state.success = action.payload;
+        },
         createBlock: (state, action: PayloadAction<ArticleBlock>) => {
             state.articleForm.blocks = [...state.articleForm.blocks, action.payload]
         },
@@ -50,12 +53,25 @@ export const addArticleFormSlice = createSlice({
                 replacedObject[i] = action.payload;
             }
             state.articleForm.blocks = replacedObject;
+        },
+        resetForm: (state) => {
+            state.articleForm = {
+                title: '',
+                subtitle: '',
+                img: '',
+                views: 0,
+                userId: '',
+                type: [],
+                blocks: [],
+                id: generateId(),
+                createdAt: getDate()
+            }
         }
     },
     extraReducers: (builder) => {
         builder
             .addCase(addNewArticle.pending, (state) => {
-                state.error = ''
+                state.errors = ''
                 state.isLoading = true;
             })
             .addCase(addNewArticle.fulfilled, (state) => {
@@ -63,7 +79,7 @@ export const addArticleFormSlice = createSlice({
             })
             .addCase(addNewArticle.rejected, (state, action) => {
                 state.isLoading = false;
-                state.error = action.payload
+                state.errors = action.payload
             })
     }
 })

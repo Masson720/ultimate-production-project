@@ -571,6 +571,225 @@
       ],
       "id": "26701",
       "createdAt": "26.7.2024"
+    },
+    {
+      "title": "Брахипельмус",
+      "subtitle": "",
+      "img": "https://siniyej.ru/image/cache/catalog/animals/spiders/subsidiary/tarantula-brachypelma-smithi-spider-1080x720.jpg",
+      "views": 0,
+      "userId": "1",
+      "type": [
+        "SCIENCE"
+      ],
+      "blocks": [
+        {
+          "id": "66352",
+          "type": "TEXT",
+          "title": "Чпоньк",
+          "paragraphs": [
+            "Красивый, мохнатый, шерстяной."
+          ]
+        }
+      ],
+      "id": "53597",
+      "createdAt": "29.7.2024"
+    },
+    {
+      "title": "Тест",
+      "subtitle": "",
+      "img": "https://exo-life.ru/upload/iblock/668/g9e3wtulp816a1qfrz32fy1a5o0pihrf.jpg",
+      "views": 0,
+      "userId": "1",
+      "type": [
+        "IT"
+      ],
+      "blocks": [
+        {
+          "id": "19796",
+          "type": "TEXT",
+          "title": "Тестовый паук",
+          "paragraphs": [
+            "Тест"
+          ]
+        }
+      ],
+      "id": "34632",
+      "createdAt": "29.7.2024"
+    },
+    {
+      "title": "Тест",
+      "subtitle": "",
+      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwPKgHsGNuEYFBXGxwiIKiMvGx7cvNmw6Rrw&s",
+      "views": 0,
+      "userId": "1",
+      "type": [
+        "IT",
+        "SCIENCE"
+      ],
+      "blocks": [
+        {
+          "id": "66167",
+          "type": "TEXT",
+          "title": "Тест",
+          "paragraphs": [
+            "Тест"
+          ]
+        }
+      ],
+      "id": "4503",
+      "createdAt": "29.7.2024"
+    },
+    {
+      "title": "Еще тест",
+      "subtitle": "",
+      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwPKgHsGNuEYFBXGxwiIKiMvGx7cvNmw6Rrw&s",
+      "views": 0,
+      "userId": "1",
+      "type": [
+        "SCIENCE"
+      ],
+      "blocks": [
+        {
+          "id": "60446",
+          "type": "TEXT",
+          "title": "Тест",
+          "paragraphs": [
+            "Тест павук 2"
+          ]
+        }
+      ],
+      "id": "44522",
+      "createdAt": "29.7.2024"
+    },
+    {
+      "title": "Тест 3",
+      "subtitle": "",
+      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwPKgHsGNuEYFBXGxwiIKiMvGx7cvNmw6Rrw&s",
+      "views": 0,
+      "userId": "1",
+      "type": [
+        "SCIENCE"
+      ],
+      "blocks": [
+        {
+          "id": "34668",
+          "type": "TEXT",
+          "title": "Тест ",
+          "paragraphs": [
+            "Тест 3 павук"
+          ]
+        }
+      ],
+      "id": "2869",
+      "createdAt": "29.7.2024"
+    },
+    {
+      "title": "Брахипельмус",
+      "subtitle": "",
+      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwPKgHsGNuEYFBXGxwiIKiMvGx7cvNmw6Rrw&s",
+      "views": 0,
+      "userId": "1",
+      "type": [],
+      "blocks": [
+        {
+          "id": "22712",
+          "type": "TEXT",
+          "title": "Тест 4",
+          "paragraphs": [
+            "Тест павук 4"
+          ]
+        }
+      ],
+      "id": "71448",
+      "createdAt": "29.7.2024"
+    },
+    {
+      "title": "Тест 5",
+      "subtitle": "",
+      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwPKgHsGNuEYFBXGxwiIKiMvGx7cvNmw6Rrw&s",
+      "views": 0,
+      "userId": "1",
+      "type": [
+        "SCIENCE"
+      ],
+      "blocks": [
+        {
+          "id": "33778",
+          "type": "TEXT",
+          "title": "Брахипельмус",
+          "paragraphs": [
+            "Чпоньк"
+          ]
+        }
+      ],
+      "id": "31013",
+      "createdAt": "29.7.2024"
+    },
+    {
+      "title": " Тест 6",
+      "subtitle": "",
+      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwPKgHsGNuEYFBXGxwiIKiMvGx7cvNmw6Rrw&s",
+      "views": 0,
+      "userId": "1",
+      "type": [
+        "SCIENCE"
+      ],
+      "blocks": [
+        {
+          "id": "75878",
+          "type": "TEXT",
+          "title": "Браха",
+          "paragraphs": [
+            "Хамори"
+          ]
+        }
+      ],
+      "id": "3606",
+      "createdAt": "29.7.2024"
+    },
+    {
+      "title": "Тест 7",
+      "subtitle": "",
+      "img": "https://givnost.ru/wp-content/uploads/2022/12/pauk-brahipelma-opisanie-osobennosti-obraz-zhizni-i-sreda-obitaniya-7.jpg",
+      "views": 0,
+      "userId": "1",
+      "type": [
+        "SCIENCE"
+      ],
+      "blocks": [
+        {
+          "id": "64281",
+          "type": "TEXT",
+          "title": "Браха",
+          "paragraphs": [
+            "..."
+          ]
+        }
+      ],
+      "id": "89157",
+      "createdAt": "29.7.2024"
+    },
+    {
+      "title": "Тест 8",
+      "subtitle": "",
+      "img": "https://givnost.ru/wp-content/uploads/2022/12/pauk-brahipelma-opisanie-osobennosti-obraz-zhizni-i-sreda-obitaniya-7.jpg",
+      "views": 0,
+      "userId": "1",
+      "type": [
+        "SCIENCE"
+      ],
+      "blocks": [
+        {
+          "id": "83299",
+          "type": "TEXT",
+          "title": "Чпоня",
+          "paragraphs": [
+            "..."
+          ]
+        }
+      ],
+      "id": "94980",
+      "createdAt": "29.7.2024"
     }
   ],
   "comments": [
@@ -688,7 +907,7 @@
       "features": {
         "isArticleRatingEnabled": false,
         "isCounterEnabled": false,
-        "isAppRedesigned": false
+        "isAppRedesigned": true
       },
       "avatar": "https://i.pinimg.com/originals/9a/e0/2d/9ae02d4b4288396108ef77830a59e060.jpg",
       "jsonSettings": {
@@ -835,6 +1054,13 @@
       "rate": 3,
       "feedback": "Говно",
       "id": "U-gjIsD"
+    },
+    {
+      "userId": "1",
+      "articleId": "44522",
+      "rate": 4,
+      "feedback": "",
+      "id": "LS4maB7"
     }
   ],
   "profile-ratings": [

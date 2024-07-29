@@ -1,11 +1,19 @@
 import { Page } from "@/widgets/Page";
 import { ArticleCreateContainer } from "../ArticleCreateContainer/ArticleCreateContainer";
+import { DynamicModuleLoader, ReducersList } from "@/shared/lib/components/DynamicModule/DynamicModuleLoader";
+import { AddArticleFormReducer } from "@/features/ArticleEditorManager";
+
+const reducers: ReducersList = {
+    addArticleForm: AddArticleFormReducer
+}
 
 export const ArticleCreatePage = () => {
     return (
-        <Page>
-            <ArticleCreateContainer/>
-        </Page>
+        <DynamicModuleLoader reducers={reducers}>
+            <Page>
+                <ArticleCreateContainer/>
+            </Page>            
+        </DynamicModuleLoader>
     )
 }
 

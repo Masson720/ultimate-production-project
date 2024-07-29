@@ -11,9 +11,11 @@ import { Button } from "@/shared/ui/redesigned/Button/Button";
 interface ArticleAdditionalInfoProps {
     className?: string
     author: User
+    id?: string
     createdAt: string
     views: number
     onEdit: () => void
+    onBackToList: () => void
 }
 
 export const ArticleAdditionalInfo = (props: ArticleAdditionalInfoProps) => {
@@ -21,22 +23,29 @@ export const ArticleAdditionalInfo = (props: ArticleAdditionalInfoProps) => {
         className,
         author,
         createdAt,
-        views ,
-        onEdit
+        id,
+        views,
+        onEdit,
+        onBackToList
     } = props;
     const { t } = useTranslation();
+
+    console.log(id, author)
      
     return (
         <VStack 
-            gap='32'
+            gap='8'
             className={classNames(cls.ArticleAdditionalInfo, {}, [className])}
         >
-            <HStack gap='8'>
+            <HStack gap='16'>
                     <Avatar src={author.avatar} size={32}/>
                     <Text text={author.username} bold/>
                     <Text text={createdAt}/>
             </HStack>
-            <Button onClick={onEdit}>{t('Редактировать')}</Button>
+            <VStack gap='8'>
+                {id === author.id &&  <Button onClick={onEdit}>{t('Редактировать')}</Button>}
+                <Button onClick={onBackToList} >{t('Назад к списку')}</Button>                
+            </VStack>
             <Text text={t('{{count}} просмотров', {count: views})}/>
         </VStack>
     )

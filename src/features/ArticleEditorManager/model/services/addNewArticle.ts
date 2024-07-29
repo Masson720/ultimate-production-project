@@ -1,9 +1,9 @@
 import { ThunkConfig } from "@/app/providers/StoreProvider";
 import { Article } from "@/entities/Article";
 import { getUserAuthData } from "@/entities/User";
-import { getFormData } from "@/widgets/AddArticleForm";
-import { ArticleForm } from "@/widgets/AddArticleForm/model/types/AddArticleFormSchema";
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import { getFormData } from "../selectors/addArticleFormSelectors";
+import { ArticleForm } from "../types/AddArticleFormSchema";
 
 
 export const addNewArticle = createAsyncThunk<any, ArticleForm, ThunkConfig<string>>(

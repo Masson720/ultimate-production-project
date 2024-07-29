@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 import { classNames } from "@/shared/lib/classNames/classNames";
 import { useNavigate } from "react-router-dom";
 import { getRouteArticleEdit, getRouteArticles } from "@/shared/const/router";
+import { getUserAuthData } from "@/entities/User";
 
 interface AdditionalInfoContainerProps {
     className?: string
@@ -18,7 +19,8 @@ export const AdditionalInfoContainer = memo((props: AdditionalInfoContainerProps
     } = props;
     const article = useSelector(getArticleDetailsData);
     const navigate = useNavigate();
-    const onbackToList = useCallback(()=> {
+    const user = useSelector(getUserAuthData);
+    const onBackToList = useCallback(()=> {
         navigate(getRouteArticles())
     }, [navigate]);
     const onEditArticle = useCallback(()=> {
@@ -34,7 +36,9 @@ export const AdditionalInfoContainer = memo((props: AdditionalInfoContainerProps
     return (
         <Card padding="24" border='round' className={classNames(cls.card, {}, [className])}>
             <ArticleAdditionalInfo
+                id={user?.id}
                 onEdit={onEditArticle}
+                onBackToList={onBackToList}
                 author={article.user}
                 createdAt={article.createdAt}
                 views={article.views}

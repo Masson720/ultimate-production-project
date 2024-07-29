@@ -12,7 +12,6 @@ import { generateId } from '@/shared/lib/generateId/generateId';
 // }
 
 interface RenderCreateArticleBlockProps {
-    userId: string
     blocks: ArticleBlock[]
     addBlock: (block: ArticleBlock) => void
     onChangeBlock: (block: ArticleBlock) => void

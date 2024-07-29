@@ -9,7 +9,7 @@ import { UISchema } from "@/features/ScrollSave";
 import { ArticleDetailsPageSchema } from "@/pages/ArticleDetailsPage";
 import { rtkApi } from "@/shared/api/rtkApi";
 import { ProfileSchema } from "@/features/editableProfileCard";
-import { AddArticleFormSchema } from "@/widgets/AddArticleForm/model/types/AddArticleFormSchema";
+import { AddArticleFormSchema } from "@/features/ArticleEditorManager";
 
 export interface StateSchema {
     user: UserSchema

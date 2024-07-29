@@ -8,6 +8,7 @@ export interface ArticleForm extends AddArticle {
 
 export interface AddArticleFormSchema {
     articleForm: ArticleForm
+    success: boolean
     isLoading?: boolean
-    error?: string
+    errors?: string
 }

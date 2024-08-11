@@ -5,13 +5,13 @@ import { VStack } from "@/shared/ui/redesigned/Stack";
 import { HStack } from "@/shared/ui/redesigned/Stack/HStack/HStack";
 import { memo } from "react";
 import { useTranslation } from "react-i18next";
-import { ArticleType } from "@/entities/Article";
+import { ArticleForm, ArticleType } from "@/entities/Article";
 import { ArticleBlock } from "@/entities/Article/model/types/article";
 import { CreateArticleBlock } from "@/features/CreateArticleBlock";
 import { ImageUploadingBlock } from "@/features/ImageUploadingBlock";
 import { ArticleTypeSelect } from '@/entities/ArticleTypeSelector';
 import { Text } from '@/shared/ui/redesigned/Text/Text';
-import { ArticleForm } from '@/features/ArticleEditorManager';
+import { Errors } from '@/entities/Article/model/types/articleHooksType';
 
 interface AddArticleFormProps {
     className?: string
@@ -21,12 +21,14 @@ interface AddArticleFormProps {
     addBlock: (block: ArticleBlock) => void
     onChangeBlock: (block: ArticleBlock) => void
     onSendArticle: () => void
-    formData: ArticleForm
+    formData?: ArticleForm
     errors?: string
+    validateErrors?: Errors
     success?: boolean
 }
 
 const AddArticleForm = (props: AddArticleFormProps) => {
+
     const { 
         className,
         onChangeTitle,
@@ -37,16 +39,25 @@ const AddArticleForm = (props: AddArticleFormProps) => {
         onSendArticle,
         success = false,
         errors,
-        formData
+        formData,
+        validateErrors
     } = props;
+
     const { t } = useTranslation();
+
+    if(!formData){
+        return null;
+    }
 
     const form = (
         <>
             <Text text={errors} />
-            <Input size="m" value={formData.title} placeholder={t("Заголовок статьи")} onChange={onChangeTitle} />
+            {validateErrors?.title && <Text variant='error' text={validateErrors.title}/>}
+            <Input size="m" value={formData.title} placeholder={t("Заголовок статьи")} onChange={onChangeTitle}/>
             <ImageUploadingBlock onChange={onChangeImg} img={formData.img} />
+            {validateErrors?.blocks && <Text variant='error' text={validateErrors.blocks}/>}
             <CreateArticleBlock onChangeBlock={onChangeBlock} addBlock={addBlock} blocks={formData.blocks} />
+            {validateErrors?.type && <Text variant='error' text={validateErrors.type}/>}
             <ArticleTypeSelect onClick={onChangeType} types={formData.type} />
             <HStack gap='32' max>
                 {/* <Button>{t('В черновик')}</Button>
@@ -57,7 +68,7 @@ const AddArticleForm = (props: AddArticleFormProps) => {
     )
 
     const successForm = (
-        <Text title={t('Статья успешно добавлена')} />
+        <Text title={t('Статья успешно отредактирована')} />
     )
     
     return (

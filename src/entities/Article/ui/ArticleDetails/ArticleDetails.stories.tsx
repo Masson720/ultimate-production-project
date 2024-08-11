@@ -3,6 +3,7 @@ import { ArticleDetails } from './ArticleDetails';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { Article } from '../../model/types/article';
 import { ArticleBlockType, ArticleType } from '../../model/consts/articleConsts';
+import { FeaturesFlagsDecorator } from '@/shared/config/storybook/FeaturesFlagsDecorator/FeaturesFlagsDecorator';
 
 
 const meta = {
@@ -134,3 +135,48 @@ Loading.decorators = [StoreDecorator({
         isLoading: true
     }
 })]
+
+
+export const PrimaryRedesigned: Story = {
+  args: {
+      id: '1'
+  },
+};
+
+PrimaryRedesigned.decorators = [
+  StoreDecorator({
+    articleDetails: {
+        data: articleData
+    }
+  }),
+  FeaturesFlagsDecorator({isAppRedesigned: true})
+]
+
+export const ErrorRedesigned: Story = {
+  args: {
+      id: '1'
+  },
+};
+
+ErrorRedesigned.decorators = [
+  StoreDecorator({
+    articleDetails: {
+        error: 'error'
+    }
+  }),
+  FeaturesFlagsDecorator({isAppRedesigned: true})
+];
+
+export const LoadingRedesigned: Story = {
+  args: {
+      id: '1'
+  },
+};
+
+LoadingRedesigned.decorators = [StoreDecorator({
+  articleDetails: {
+      isLoading: true
+  }
+}),
+  FeaturesFlagsDecorator({isAppRedesigned: true})
+]

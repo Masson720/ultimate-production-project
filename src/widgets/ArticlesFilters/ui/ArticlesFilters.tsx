@@ -11,7 +11,7 @@ import { Input } from '@/shared/ui/redesigned/Input/Input';
 import SearchIcon from '@/shared/assets/icons/search.svg';
 import { Icon } from '@/shared/ui/redesigned/Icon/Icon';
 
-interface ArticlesFiltersProps {
+export interface ArticlesFiltersProps {
     className?: string
     sort: ArticleSortField
     order: SortOrder

@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { CountrySelect } from '@/entities/Country';
+import { FeaturesFlagsDecorator } from '@/shared/config/storybook/FeaturesFlagsDecorator/FeaturesFlagsDecorator';
 
 const meta = {
   title: 'entities/CountrySelect',
@@ -17,15 +18,26 @@ export const Primary: Story = {
 };
 
 
-export const WithError: Story = {
+export const Readonly: Story = {
     args: {
-
+        readonly: true
     },
 };
 
-
-export const IsLoading: Story = {
+export const PrimaryRedesigned: Story = {
     args: {
-
+        
     },
 };
+PrimaryRedesigned.decorators = [
+    FeaturesFlagsDecorator({isAppRedesigned: true})
+];
+
+export const ReadonlyRedesigned: Story = {
+    args: {
+        readonly: true
+    },
+};
+ReadonlyRedesigned.decorators = [
+    FeaturesFlagsDecorator({isAppRedesigned: true})    
+];

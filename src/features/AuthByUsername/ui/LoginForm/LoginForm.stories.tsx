@@ -1,6 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import LoginForm from './LoginForm';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
+import { FeaturesFlagsDecorator } from '@/shared/config/storybook/FeaturesFlagsDecorator/FeaturesFlagsDecorator';
+
+const loginForm = {username: '123', password: 'ddpt'}
 
 const meta = {
   title: 'feature/loginFrom',
@@ -17,7 +20,7 @@ export const Primary: Story = {
     },
 };
 Primary.decorators = [StoreDecorator({
-    loginForm: {username: '123', password: 'ddpt'}
+    loginForm: loginForm
 })];
 
 export const WithError: Story = {
@@ -26,7 +29,7 @@ export const WithError: Story = {
   },
 };
 WithError.decorators = [StoreDecorator({
-  loginForm: {username: '123', password: 'ddpt', error: 'error'}
+  loginForm: loginForm
 })];
 
 export const IsLoading: Story = {
@@ -37,3 +40,36 @@ export const IsLoading: Story = {
 IsLoading.decorators = [StoreDecorator({
   loginForm: {isLoading: true}
 })];
+
+export const PrimaryRedesigned: Story = {
+  args: {
+
+  },
+};
+PrimaryRedesigned.decorators = [StoreDecorator({
+  loginForm: loginForm
+}),
+FeaturesFlagsDecorator({isAppRedesigned: true})
+];
+
+export const WithErrorRedesigned: Story = {
+args: {
+
+},
+};
+WithErrorRedesigned.decorators = [StoreDecorator({
+    loginForm: loginForm
+}),
+    FeaturesFlagsDecorator({isAppRedesigned: true})
+];
+
+export const IsLoadingRedesigned: Story = {
+args: {
+
+},
+};
+IsLoadingRedesigned.decorators = [StoreDecorator({
+  loginForm: {isLoading: true}
+}),
+  FeaturesFlagsDecorator({isAppRedesigned: true})
+];

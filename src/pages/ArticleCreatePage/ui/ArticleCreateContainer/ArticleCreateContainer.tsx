@@ -2,19 +2,30 @@ import { Card } from "@/shared/ui/redesigned/Card/Card"
 import { useTranslation } from "react-i18next";
 import { Text } from '@/shared/ui/redesigned/Text/Text';
 import { VStack } from "@/shared/ui/redesigned/Stack";
-import { Suspense } from "react";
+import { Suspense, useEffect } from "react";
 import { Skeleton } from "@/shared/ui/redesigned/Skeleton/Skeleton";
 import { AddArticleForm } from "@/widgets/AddArticleForm";
 import { useSelector } from "react-redux";
 import { getUserAuthData } from "@/entities/User";
-import { getErrors, getFormData, getSuccess, useCreateArticle } from "@/features/ArticleEditorManager";
+import { addArticleFormActions, getErrors, getFormData, getSuccess, useEditArticle } from "@/entities/Article";
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 
 export const ArticleCreateContainer = () => {
     const { t } = useTranslation();
+    const dispatch = useAppDispatch();
     const formData = useSelector(getFormData);
     const userId = useSelector(getUserAuthData);
     const success = useSelector(getSuccess);
     const errors =  useSelector(getErrors);
+
+    useEffect(()=> {
+        if(userId){
+            dispatch(addArticleFormActions.setUserId(userId.id));
+        }
+        return () => {
+            dispatch(addArticleFormActions.setSuccess(false));
+        }
+    }, [userId, dispatch]);
 
     const {
         onChangeTitle, 
@@ -22,15 +33,9 @@ export const ArticleCreateContainer = () => {
         onChangeImg, 
         addBlock, 
         onChangeBlock, 
-        onSendArticle
-    } = useCreateArticle({
-        userId,
-        formData
-    });
-
-    if(!formData || !userId){
-        return null;
-    }
+        onSendArticle,
+        validateErrors
+    } = useEditArticle(formData);
 
     return (
             <Card padding='24' max>
@@ -46,6 +51,7 @@ export const ArticleCreateContainer = () => {
                             addBlock={addBlock}
                             onChangeBlock={onChangeBlock}
                             onSendArticle={onSendArticle}
+                            validateErrors={validateErrors}
                             formData={formData}
                         />     
                     </Suspense>

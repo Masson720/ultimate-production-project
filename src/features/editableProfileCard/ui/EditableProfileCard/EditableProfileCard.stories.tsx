@@ -3,6 +3,7 @@ import { EditableProfileCard } from './EditableProfileCard';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from '@/app/providers/ThemeProvider';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
+import { FeaturesFlagsDecorator } from '@/shared/config/storybook/FeaturesFlagsDecorator/FeaturesFlagsDecorator';
 
 const meta = {
     title: 'features/EditableProfileCard',
@@ -29,3 +30,27 @@ export const Orange: Story = {
 };
 
 Orange.decorators = [ThemeDecorator(Theme.ORANGE)];
+
+export const PrimaryRedesigned: Story = {
+    args: {},
+};
+PrimaryRedesigned.decorators = [
+    FeaturesFlagsDecorator({isAppRedesigned: true})
+]
+
+export const DarkRedesigned: Story = {
+    args: {},
+};
+DarkRedesigned.decorators = [
+    ThemeDecorator(Theme.DARK),
+    FeaturesFlagsDecorator({isAppRedesigned: true})
+];
+
+export const OrangeRedesigned: Story = {
+    args: {},
+};
+
+OrangeRedesigned.decorators = [
+    ThemeDecorator(Theme.ORANGE),
+    FeaturesFlagsDecorator({isAppRedesigned: true})
+];

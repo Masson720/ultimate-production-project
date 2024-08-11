@@ -3,6 +3,7 @@ import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDe
 import { Theme } from '@/app/providers/ThemeProvider';
 import { Sidebar } from './Sidebar';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
+import { FeaturesFlagsDecorator } from '@/shared/config/storybook/FeaturesFlagsDecorator/FeaturesFlagsDecorator';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
@@ -10,6 +11,13 @@ const meta = {
   component: Sidebar,
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ['autodocs'],
+  decorators: [
+    StoreDecorator({
+        user: {
+            authData: {}
+        }
+    })
+  ]
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
 } satisfies Meta<typeof Sidebar>;
 
@@ -33,6 +41,18 @@ Light.decorators = [
   })
 ]
 
+export const LightRedesigned: Story = {
+    args: {
+
+    },
+};
+LightRedesigned.decorators = [
+  ThemeDecorator(Theme.LIGHT), 
+  FeaturesFlagsDecorator({
+    isAppRedesigned: true
+  })
+]
+
 export const Dark: Story = {
     args: {
 
@@ -47,6 +67,18 @@ Dark.decorators = [
     })
 ]
 
+export const DarkRedesigned: Story = {
+    args: {
+
+    },
+};
+DarkRedesigned.decorators = [
+  ThemeDecorator(Theme.LIGHT), 
+  FeaturesFlagsDecorator({
+    isAppRedesigned: true
+  })
+]
+
 export const NoAuth: Story = {
   args: {
 
@@ -58,3 +90,4 @@ NoAuth.decorators = [
         user: {}
     })
 ]
+

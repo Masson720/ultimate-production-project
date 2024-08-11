@@ -1,7 +1,7 @@
 import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoading } from "@/entities/Article/model/selector/articleDetailsSelectors";
 import { fetchArticleById } from "@/entities/Article/model/services/fetchArticleById/fetchArticleById";
 import { articleDetailsReducer } from "@/entities/Article/model/slice/articleDetailsSlice";
-import { memo } from "react";
+import { memo, useEffect } from "react";
 import cls from './ArticleDetails.module.scss';
 import { useSelector } from "react-redux";
 import { DynamicModuleLoader, ReducersList } from "@/shared/lib/components/DynamicModule/DynamicModuleLoader";
@@ -20,11 +20,12 @@ import { HStack, VStack } from "@/shared/ui/redesigned/Stack";
 import { RenderArticleBlock } from "./RenderArticleBlock";
 import { ToggleFeatures, toggleFeatures } from "@/shared/features";
 import { AppImage } from "@/shared/ui/redesigned/AppImage";
+import { Article } from "../../model/types/article";
+import { incrementViews } from "../../model/services/fetchArticleById/incrementViews";
 
 interface ArticleDetailsProps {
     id?: string
     className?: string
-    
 }
 
 const reducers: ReducersList = {
@@ -49,8 +50,11 @@ const ArticleDetailsSkeleton = () => {
     )
 }
 
-const Deprecated = () => {
-    const article = useSelector(getArticleDetailsData);
+interface RedesignedProps {
+    article?: Article
+}
+
+const Deprecated = ({article}: RedesignedProps) => {
     return (
         <>
             <HStack 
@@ -97,8 +101,7 @@ const Deprecated = () => {
     )
 }
 
-const Redesigned = () => {
-    const article = useSelector(getArticleDetailsData);
+const Redesigned = ({article}: RedesignedProps) => {
     return (
         <>
             <Text 
@@ -123,15 +126,19 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
     const dispatch = useAppDispatch();
     const { t } = useTranslation('article');
     const isLoading = useSelector(getArticleDetailsIsLoading);
-    const article = useSelector(getArticleDetailsData);
     const error = useSelector(getArticleDetailsError);
-
+    const article = useSelector(getArticleDetailsData);
+    let content;
+    
     useInitialEffect(() => {
         dispatch(fetchArticleById(id));
     }, [id]);
 
-    let content;
-
+    useEffect(()=> {
+        if(article){
+            dispatch(incrementViews(article));
+        }
+    }, [article])
 
     if(isLoading){
         content = (
@@ -139,22 +146,22 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
         )
     } else if(error){
         content = (
-            < >
+            <>
                 <TextDeprecated 
                     align={TextAlign.CENTER}
                     title={t('Произошла ошибка при загрузке статьи')}
-                    />
-            </ >
+                />
+            </>
         )
     } else {
         content = (
             <ToggleFeatures
                 feature="isAppRedesigned"
                 off={
-                    <Deprecated/>
+                    <Deprecated article={article} />
                 }
                 on={
-                    <Redesigned/>
+                    <Redesigned article={article} />
                 }
             />
         )

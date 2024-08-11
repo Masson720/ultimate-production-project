@@ -1,14 +1,15 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from '@/app/providers/ThemeProvider';
-import MainPage from './MainPage';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
+import ArticleCreatePage from './ArticleCreatePage';
 
 const meta = {
-  title: 'pages/MainPage',
-  component: MainPage,
-  tags: ['autodocs'],
-} satisfies Meta<typeof MainPage>;
+    title: 'pages/ArticleCreatePage',
+    component: ArticleCreatePage,
+    tags: ['autodocs'],
+    decorators: [StoreDecorator({})]
+} satisfies Meta<typeof ArticleCreatePage>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -18,11 +19,10 @@ export const Light: Story = {
 
     },
 };
-Light.decorators = [StoreDecorator({})];
 
 export const Dark: Story = {
     args: {
-      
+
     },
 };
-Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({})];
+Dark.decorators = [ThemeDecorator(Theme.DARK)];

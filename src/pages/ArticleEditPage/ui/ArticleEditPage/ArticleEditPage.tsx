@@ -1,14 +1,22 @@
 import { useParams } from "react-router-dom";
 import { Page } from "@/widgets/Page";
+import { DynamicModuleLoader, ReducersList } from "@/shared/lib/components/DynamicModule/DynamicModuleLoader";
+import { ArticleEditPageContainer } from "../ArticleEditPageContainer/ArticleEditPageContainer";
+import { AddArticleFormReducer } from "@/entities/Article";
+
+const reducers: ReducersList = {
+    addArticleForm: AddArticleFormReducer
+}
 
 const ArticleEditPage = () => {
-    const {id} = useParams<{id: string}>();
-    const isEdit = Boolean(id);
 
     return (
-        <Page>
-            {isEdit ? 'Редактирование статьи с id ' + id : "Создание новой статьи"}
-        </Page>
+        <DynamicModuleLoader reducers={reducers}>
+            <Page>
+                <ArticleEditPageContainer/>
+            </Page>            
+        </DynamicModuleLoader>
+
     )
 }
 

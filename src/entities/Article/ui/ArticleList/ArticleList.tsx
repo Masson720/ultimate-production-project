@@ -10,10 +10,9 @@ import { ArticleView } from "../../model/consts/articleConsts";
 import { ToggleFeatures } from "@/shared/features";
 import { HStack } from "@/shared/ui/redesigned/Stack";
 
-
 interface ArticleListProps {
     className?: string
-    articles: Article[]
+    articles?: Article[]
     isLoading?: boolean
     target?: HTMLAttributeAnchorTarget
     view?: ArticleView
@@ -43,7 +42,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
     } = props;
     const {t} = useTranslation('article');
 
-    if(!isLoading && !articles.length){
+    if(!isLoading && !articles?.length){
         return (
             <div className={classNames(cls.ArticleList, {}, [className])}>
                 <Text 
@@ -63,7 +62,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
                             data-testid={'ArticleList'}
                         >
                         {
-                            articles.map(item => (
+                            articles?.map(item => (
                                 <ArticleListItem 
                                     article={item}
                                     target={target}
@@ -84,7 +83,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
                             data-testid={'ArticleList'}
                         >
                             {
-                                articles.map(item => (
+                                articles?.map(item => (
                                     <ArticleListItem 
                                         article={item}
                                         target={target}

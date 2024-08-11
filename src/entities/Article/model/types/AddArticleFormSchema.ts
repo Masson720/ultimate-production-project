@@ -3,7 +3,7 @@ import { Article } from "@/entities/Article";
 type AddArticle = Omit<Article, 'user'>
 
 export interface ArticleForm extends AddArticle {
-    userId: string
+    userId?: string
 }
 
 export interface AddArticleFormSchema {

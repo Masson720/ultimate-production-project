@@ -5,7 +5,7 @@ import { ArticleDetailsComments } from './ArticleDetailsComments';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 
 const meta = {
-  title: 'pages/ArticleDetailsComments',
+  title: 'pages/ArticleDetailsPage/ArticleDetailsComments',
   component: ArticleDetailsComments,
   tags: ['autodocs'],
   decorators: [StoreDecorator({})]

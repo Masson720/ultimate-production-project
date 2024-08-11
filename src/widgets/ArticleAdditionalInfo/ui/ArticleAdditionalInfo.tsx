@@ -29,8 +29,6 @@ export const ArticleAdditionalInfo = (props: ArticleAdditionalInfoProps) => {
         onBackToList
     } = props;
     const { t } = useTranslation();
-
-    console.log(id, author)
      
     return (
         <VStack 

@@ -2,8 +2,8 @@ import { ThunkConfig } from "@/app/providers/StoreProvider";
 import { Article } from "@/entities/Article";
 import { getUserAuthData } from "@/entities/User";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { getFormData } from "../selectors/addArticleFormSelectors";
-import { ArticleForm } from "../types/AddArticleFormSchema";
+import { getFormData } from "../../selector/addArticleFormSelectors";
+import { ArticleForm } from "../../types/AddArticleFormSchema";
 
 
 export const addNewArticle = createAsyncThunk<any, ArticleForm, ThunkConfig<string>>(
@@ -31,7 +31,6 @@ export const addNewArticle = createAsyncThunk<any, ArticleForm, ThunkConfig<stri
             if(!response.data){
                 throw new Error();
             }
-            console.log(response.data);
             return response.data
         } catch(e){
             console.log(e)

@@ -6,9 +6,10 @@ import ArticleDetailsPage from './ArticleDetailsPage';
 import { Article } from '@/entities/Article/model/types/article';
 import { ArticleType } from '@/entities/Article';
 import { ArticleBlockType } from '@/entities/Article';
+import { FeaturesFlagsDecorator } from '@/shared/config/storybook/FeaturesFlagsDecorator/FeaturesFlagsDecorator';
 
 const meta = {
-  title: 'pages/ArticleDetailsPage',
+  title: 'pages/ArticleDetailsPage/ArticleDetailsPage',
   component: ArticleDetailsPage,
   tags: ['autodocs'],
 } satisfies Meta<typeof ArticleDetailsPage>;
@@ -113,9 +114,24 @@ Primary.decorators = [StoreDecorator({
   }
 })]
 
+export const PrimaryRedesigned: Story = {
+  args: {
+    id: '1'
+  },
+};
+PrimaryRedesigned.decorators = [FeaturesFlagsDecorator({
+    isAppRedesigned: true
+  }),
+  StoreDecorator({
+    articleDetails: {
+        data: articleData
+    }
+  })
+]
+
 export const Dark: Story = {
     args: {
-
+      id: '1'
     },
 };
 Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({

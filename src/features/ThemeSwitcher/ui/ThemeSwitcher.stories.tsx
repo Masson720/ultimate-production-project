@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from '@/app/providers/ThemeProvider';
 import { ThemeSwitcher } from './ThemeSwitcher';
+import { FeaturesFlagsDecorator } from '@/shared/config/storybook/FeaturesFlagsDecorator/FeaturesFlagsDecorator';
 
 const meta = {
   title: 'widgets/ThemeSwitcher',
@@ -24,3 +25,20 @@ export const Dark: Story = {
     },
 };
 Dark.decorators = [ThemeDecorator(Theme.DARK)]
+
+export const LightRedesigned: Story = {
+  args: {
+
+  },
+};
+LightRedesigned.decorators = [FeaturesFlagsDecorator({isAppRedesigned: true})];
+
+export const DarkRedesigned: Story = {
+  args: {
+
+  },
+};
+DarkRedesigned.decorators = [
+  ThemeDecorator(Theme.DARK),
+  FeaturesFlagsDecorator({isAppRedesigned: true})
+];

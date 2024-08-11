@@ -1,4 +1,4 @@
-import { ArticleDetails} from "@/entities/Article";
+import { ArticleDetails, useEditArticle} from "@/entities/Article";
 import { memo } from "react";
 import { useTranslation } from "react-i18next"
 import { useParams } from "react-router-dom";
@@ -22,11 +22,7 @@ const reducers: ReducersList = {
 
 const ArticleDetailsPage = () => {
     const { id } = useParams<{id: string}>();
-    const {t} = useTranslation('article');
-
-    if(!id){
-        return null;
-    }
+    const { t } = useTranslation('article');
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
@@ -40,7 +36,7 @@ const ArticleDetailsPage = () => {
                             <ToggleFeatures 
                                 feature={'isArticleRatingEnabled'}
                                 on={<ArticleRating articleId={id} />}
-                                off={<Card>Оценка статей скоро появится</Card>}
+                                off={<Card>{t('Оценка статей скоро появится')}</Card>}
                             />
                             <ArticleRecomendationsList/>              
                             <ArticleDetailsComments id={id}/>

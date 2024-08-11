@@ -1,3 +1,4 @@
+import { ArticleForm } from "./AddArticleFormSchema"
 import { Article } from "./article"
 
 export interface ArticleDetailsSchema {

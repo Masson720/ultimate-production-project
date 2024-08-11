@@ -1,10 +1,11 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { getDate } from '@/shared/lib/getDate/getDate';
 import { ArticleType } from '@/entities/Article';
-import { ArticleBlock } from '@/entities/Article/model/types/article';
+import { Article, ArticleBlock } from '@/entities/Article/model/types/article';
 import { generateId } from '@/shared/lib/generateId/generateId';
-import { addNewArticle } from '../services/addNewArticle';
+import { addNewArticle } from '../services/fetchArticleById/addNewArticle';
 import { AddArticleFormSchema } from '../types/AddArticleFormSchema';
+import { fetchArticleById } from '@/entities/Article/model/services/fetchArticleById/fetchArticleById';
 
 const initialState: AddArticleFormSchema = {
     articleForm: {
@@ -48,7 +49,7 @@ export const addArticleFormSlice = createSlice({
         },
         changeBlock: (state, action: PayloadAction<ArticleBlock>) => {
             let replacedObject = state.articleForm.blocks
-            for(let i = 0;i<replacedObject.length;i++){
+            for(let i = 0; i < replacedObject.length; i++){
                 if(replacedObject[i].id != action.payload.id) continue;
                 replacedObject[i] = action.payload;
             }
@@ -78,6 +79,18 @@ export const addArticleFormSlice = createSlice({
                 state.isLoading = false;
             })
             .addCase(addNewArticle.rejected, (state, action) => {
+                state.isLoading = false;
+                state.errors = action.payload
+            })
+            .addCase(fetchArticleById.pending, (state) => {
+                state.errors = ''
+                state.isLoading = true;
+            })
+            .addCase(fetchArticleById.fulfilled, (state, action: PayloadAction<Article>) => {
+                state.isLoading = false;
+                state.articleForm = {...action.payload};
+            })
+            .addCase(fetchArticleById.rejected, (state, action) => {
                 state.isLoading = false;
                 state.errors = action.payload
             })

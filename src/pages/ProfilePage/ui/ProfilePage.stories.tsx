@@ -5,6 +5,19 @@ import ProfilePage from './ProfilePage';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { Currency } from '@/entities/Currency';
 import { Country } from '@/entities/Country';
+import { FeaturesFlagsDecorator } from '@/shared/config/storybook/FeaturesFlagsDecorator/FeaturesFlagsDecorator';
+
+const profileInfo = {
+    form: {
+      username: 'admin',
+      age: 22,
+      country: Country.Ukraine,
+      lastname: 'ulbi tv',
+      first: 'admin',
+      city: 'Moscow',
+      currency: Currency.RUB,
+    }
+}
 
 const meta = {
     title: 'pages/ProfilePage',
@@ -21,34 +34,47 @@ export const Light: Story = {
     },
 };
 Light.decorators = [StoreDecorator({
-    profile: {
-        form: {
-          username: 'admin',
-          age: 22,
-          country: Country.Ukraine,
-          lastname: 'ulbi tv',
-          first: 'admin',
-          city: 'Moscow',
-          currency: Currency.RUB,
-        }
-    }
+    profile: profileInfo
 })]
+
+export const LightRedesigned: Story = {
+    args: {
+
+    },
+};
+LightRedesigned.decorators = [
+    StoreDecorator({
+        profile: profileInfo
+    }),
+    FeaturesFlagsDecorator({
+        isAppRedesigned: true
+    })
+]
 
 export const Dark: Story = {
     args: {
-        profile: {
-            form: {
-                username: 'admin',
-                age: 22,
-                country: Country.Ukraine,
-                lastname: 'ulbi tv',
-                first: 'admin',
-                city: 'Moscow',
-                currency: Currency.RUB,
-            }
-      }
+
     },
 };
-Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
+Dark.decorators = [
+    ThemeDecorator(Theme.DARK), 
+    StoreDecorator({
+        profile: profileInfo
+    })
+]
 
-})]
+
+export const DarkRedesigned: Story = {
+    args: {
+
+    },
+};
+DarkRedesigned.decorators = [
+    ThemeDecorator(Theme.DARK), 
+    StoreDecorator({
+        profile: profileInfo
+    }),
+    FeaturesFlagsDecorator({
+        isAppRedesigned: true
+    })
+]

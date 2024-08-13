@@ -1,18 +1,27 @@
-import { ArticleForm, ArticleType } from "@/entities/Article";
-import { ArticleBlock } from "@/entities/Article/model/types/article";
-import { editArticle } from "@/entities/Article/model/services/fetchArticleById/editArticles";
-import { addArticleFormActions } from "@/entities/Article/model/slice/AddArticleFormSlice";
-import { UseEditArticleResult } from "@/entities/Article/model/types/articleHooksType";
+import { ArticleBlock } from "../../../../model/types/article";
+import { addArticleFormActions } from "../../../../model/slice/AddArticleFormSlice";
+import { UseEditArticleResult } from "../../../../model/types/articleHooksType";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
-import { useCallback, useMemo, useState } from "react";
-import { addNewArticle } from "../../../services/fetchArticleById/addNewArticle";
-import { validateArticle } from "./validateArticle";
+import { useCallback, useEffect, useMemo, useState } from "react";
+import { addNewArticle } from "../../../services/addNewArticle/addNewArticle";
+import { useSelector } from "react-redux";
+import { ArticleForm } from "../../../types/AddArticleFormSchema";
+import { getValidateErrors } from "../../../selector/addArticleFormSelectors";
+import { ArticleType } from "../../../consts/articleConsts";
+import { editArticle } from "../../../services/editArticles/editArticles";
 
 export function useEditArticle (
     formData?: ArticleForm
 ): UseEditArticleResult {
     const dispatch = useAppDispatch();
-    const [validateErrors, setValidateErrors] = useState({});
+    const validateErrors = useSelector(getValidateErrors);
+    const [validateSuccess, setValidateSuccess] = useState(false);
+
+    useEffect(() => {
+        return () => {
+            dispatch(addArticleFormActions.resetValidate());
+        }
+    }, [formData]);
     
     const onChangeTitle = useCallback((title: string) => {
         dispatch(addArticleFormActions.setTitle(title));
@@ -34,26 +43,47 @@ export function useEditArticle (
         dispatch(addArticleFormActions.changeBlock(block));
     }, [dispatch]);
 
-    const onSendArticle = useCallback(() => {
-        if(formData){
-            setValidateErrors(validateArticle(formData));
-            if(Object.keys(validateErrors).length === 0){
-                dispatch(addNewArticle(formData));  
-                dispatch(addArticleFormActions.setSuccess(true));
-                dispatch(addArticleFormActions.resetForm());
-            }
+    const validateArticle = useCallback(() => {
+        let isValid = true;
+
+        if (!formData?.title || formData?.title.trim() === '') {
+            dispatch(addArticleFormActions.validateTitle('Введите название статьи'));
+            isValid = false;
+        } else {
+            dispatch(addArticleFormActions.validateTitle(''));
         }
+
+        if (!formData?.type || formData?.type.length === 0) {
+            dispatch(addArticleFormActions.validateType('Выберите хотя бы одну тему'));
+            isValid = false;
+        } else {
+            dispatch(addArticleFormActions.validateType(''));
+        }
+
+        if (!formData?.blocks || formData?.blocks.length === 0) {
+            dispatch(addArticleFormActions.validateBlocks('Отсутствует тело статьи'));
+            isValid = false;
+        } else {
+            dispatch(addArticleFormActions.validateBlocks(''));
+        }
+        setValidateSuccess(isValid);
     }, [dispatch, formData]);
 
-    const onEditArticle = useCallback(() => { 
-        if(formData){
-            setValidateErrors(validateArticle(formData));
-            console.log(Object.keys(validateErrors).length);
-            if(Object.keys(validateErrors).length === 0){
-                dispatch(editArticle(formData)); 
-                dispatch(addArticleFormActions.setSuccess(true));
-                dispatch(addArticleFormActions.resetForm());                
-            }
+    const onSendArticle = useCallback(() => {
+        validateArticle();
+        if(formData && validateSuccess){
+            dispatch(addNewArticle(formData));  
+            dispatch(addArticleFormActions.setSuccess(true));
+            dispatch(addArticleFormActions.resetForm());
+        }
+    }, [dispatch, formData, validateErrors, validateSuccess]);
+
+    const onEditArticle = useCallback(() => {
+        validateArticle();
+        if(formData && validateSuccess){
+            dispatch(editArticle(formData)); 
+            dispatch(addArticleFormActions.setSuccess(true));
+            dispatch(addArticleFormActions.resetForm());                
         }
     }, [dispatch, formData]);
 
@@ -65,8 +95,7 @@ export function useEditArticle (
         addBlock, 
         onChangeBlock, 
         onSendArticle,
-        onEditArticle,
-        validateErrors
+        onEditArticle
     }), 
     [onChangeTitle, onChangeType, onChangeImg, addBlock, onChangeBlock, onSendArticle])
 }

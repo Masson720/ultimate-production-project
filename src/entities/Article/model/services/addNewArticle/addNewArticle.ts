@@ -15,8 +15,7 @@ export const addNewArticle = createAsyncThunk<any, ArticleForm, ThunkConfig<stri
         const {
             getState,
             extra,
-            rejectWithValue,
-            dispatch
+            rejectWithValue
         } = thunkApi;
 
         const userData = getUserAuthData(getState());

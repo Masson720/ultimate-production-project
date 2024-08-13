@@ -1,7 +1,8 @@
 export {
     getErrors,
     getFormData,
-    getSuccess
+    getSuccess,
+    getValidateErrors
 } from './model/selector/addArticleFormSelectors'
 
 export {
@@ -36,3 +37,8 @@ export { getArticleDetailsData } from './model/selector/articleDetailsSelectors'
 export { AddArticleFormReducer, addArticleFormActions } from './model/slice/AddArticleFormSlice';
 
 export { useEditArticle } from './model/lib/hooks/useEditArticle/useEditArticle';
+
+export { deleteArticle } from './model/services/deleteArticle/deleteArticle';
+export { addNewArticle } from './model/services/addNewArticle/addNewArticle';
+export { editArticle } from './model/services/editArticles/editArticles';
+export { incrementViews } from './model/services/incrementViews/incrementViews';

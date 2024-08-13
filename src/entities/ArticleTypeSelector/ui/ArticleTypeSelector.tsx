@@ -3,7 +3,6 @@ import { useCallback, useMemo } from 'react';
 import { HStack } from '@/shared/ui/redesigned/Stack';
 import { TabItem } from '@/shared/ui/redesigned/Tabs/Tabs';
 import { ArticleType } from '@/entities/Article';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { TabItemButton } from '@/shared/ui/redesigned/TabItem/TabItem';
 import { Text } from '@/shared/ui/redesigned/Text/Text';
 
@@ -54,7 +53,7 @@ export const ArticleTypeSelect = (props: ArticletypeSelectProps) => {
             {typeTabs.map((tab) => {
                 //@ts-ignore
                 const isSelected = types.includes(tab.value);
-                return <TabItemButton isSelected={isSelected} onClick={tabClickHandler} tab={tab}/>
+                return <TabItemButton key={tab.value} isSelected={isSelected} onClick={tabClickHandler} tab={tab}/>
             })}
         </HStack>
     )

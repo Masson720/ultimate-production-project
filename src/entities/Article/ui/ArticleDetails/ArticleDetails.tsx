@@ -21,7 +21,7 @@ import { RenderArticleBlock } from "./RenderArticleBlock";
 import { ToggleFeatures, toggleFeatures } from "@/shared/features";
 import { AppImage } from "@/shared/ui/redesigned/AppImage";
 import { Article } from "../../model/types/article";
-import { incrementViews } from "../../model/services/fetchArticleById/incrementViews";
+import { incrementViews } from "../../model/services/incrementViews/incrementViews";
 
 interface ArticleDetailsProps {
     id?: string

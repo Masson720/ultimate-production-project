@@ -16,6 +16,7 @@ interface ArticleAdditionalInfoProps {
     views: number
     onEdit: () => void
     onBackToList: () => void
+    onDelete: () => void
 }
 
 export const ArticleAdditionalInfo = (props: ArticleAdditionalInfoProps) => {
@@ -26,7 +27,8 @@ export const ArticleAdditionalInfo = (props: ArticleAdditionalInfoProps) => {
         id,
         views,
         onEdit,
-        onBackToList
+        onBackToList,
+        onDelete
     } = props;
     const { t } = useTranslation();
      
@@ -42,6 +44,7 @@ export const ArticleAdditionalInfo = (props: ArticleAdditionalInfoProps) => {
             </HStack>
             <VStack gap='8'>
                 {id === author.id &&  <Button onClick={onEdit}>{t('Редактировать')}</Button>}
+                {id === author.id &&  <Button onClick={onDelete} color="error">{t('Удалить')}</Button>}
                 <Button onClick={onBackToList} >{t('Назад к списку')}</Button>                
             </VStack>
             <Text text={t('{{count}} просмотров', {count: views})}/>

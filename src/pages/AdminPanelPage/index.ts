@@ -1,4 +1,4 @@
 
 export {
     AdminPanelPageAsync as AdminPanelPage
-} from './ui/AdminPanelPage.async';
+} from './ui/AdminPanelPage/AdminPanelPage.async';

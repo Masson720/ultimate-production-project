@@ -2,9 +2,9 @@ import { ArticleType } from "@/entities/Article";
 import { ArticleBlock } from "@/entities/Article/model/types/article";
 
 export interface Errors {
-    title?: string
-    blocks?: string
-    type?: string
+    title: string
+    blocks: string
+    type: string
 }
 
 export interface UseEditArticleResult {
@@ -15,5 +15,4 @@ export interface UseEditArticleResult {
     onChangeBlock: (block: ArticleBlock) => void
     onEditArticle: () => void
     onSendArticle: () => void
-    validateErrors: Errors
 }

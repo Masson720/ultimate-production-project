@@ -10,7 +10,6 @@ import { initArticlesPage } from "@/pages/ArticlesPage/model/services/initArticl
 import { ArticlesPageFilters } from "../ArticlesPageFilters/ArticlesPageFilters";
 import { useSearchParams } from "react-router-dom";
 import { ArticleInfiniteList } from "../ArticlesInfiniteList/ArticleInfiniteList";
-import { useArticleItemById } from "../../model/selectors/articlesPageSelectors";
 import { ArticlePageGreeting } from "@/features/ArticlePageGreeting";
 import { ToggleFeatures } from "@/shared/features";
 import { StickyContentLayout } from "@/shared/layouts/StickyContentLayout/StickyContentLayout";

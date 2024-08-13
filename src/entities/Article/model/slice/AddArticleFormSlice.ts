@@ -3,7 +3,7 @@ import { getDate } from '@/shared/lib/getDate/getDate';
 import { ArticleType } from '@/entities/Article';
 import { Article, ArticleBlock } from '@/entities/Article/model/types/article';
 import { generateId } from '@/shared/lib/generateId/generateId';
-import { addNewArticle } from '../services/fetchArticleById/addNewArticle';
+import { addNewArticle } from '../services/addNewArticle/addNewArticle';
 import { AddArticleFormSchema } from '../types/AddArticleFormSchema';
 import { fetchArticleById } from '@/entities/Article/model/services/fetchArticleById/fetchArticleById';
 
@@ -13,7 +13,7 @@ const initialState: AddArticleFormSchema = {
         subtitle: '',
         img: '',
         views: 0,
-        userId: '',
+        userId: '1',
         type: [],
         blocks: [],
         //Дата и время обычно присваивается на бэке.
@@ -22,6 +22,11 @@ const initialState: AddArticleFormSchema = {
     },
     isLoading: false,
     errors: '',
+    validateErrors: {
+        title: '',
+        blocks: '',
+        type: ''
+    },
     success: false
 }
 
@@ -33,6 +38,7 @@ export const addArticleFormSlice = createSlice({
             state.articleForm.title = action.payload
         },
         setUserId: (state, action) => {
+            console.log('Отработал')
             state.articleForm.userId = action.payload
         },
         setType: (state, action: PayloadAction<ArticleType[]>) => {
@@ -54,6 +60,20 @@ export const addArticleFormSlice = createSlice({
                 replacedObject[i] = action.payload;
             }
             state.articleForm.blocks = replacedObject;
+        },
+        validateTitle: (state, action) => {
+            state.validateErrors.title = action.payload;
+        },
+        validateType: (state, action) => {
+            state.validateErrors.type = action.payload;
+        },
+        validateBlocks: (state, action) => {
+            state.validateErrors.blocks = action.payload;
+        },
+        resetValidate: (state) => {
+            state.validateErrors.title = '';
+            state.validateErrors.type = '';
+            state.validateErrors.blocks = '';
         },
         resetForm: (state) => {
             state.articleForm = {

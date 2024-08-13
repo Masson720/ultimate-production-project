@@ -7,7 +7,13 @@ import { Skeleton } from "@/shared/ui/redesigned/Skeleton/Skeleton";
 import { AddArticleForm } from "@/widgets/AddArticleForm";
 import { useSelector } from "react-redux";
 import { getUserAuthData } from "@/entities/User";
-import { addArticleFormActions, getErrors, getFormData, getSuccess, useEditArticle } from "@/entities/Article";
+import { 
+    addArticleFormActions, 
+    getErrors, getFormData, 
+    getSuccess, 
+    getValidateErrors, 
+    useEditArticle 
+} from "@/entities/Article";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 
 export const ArticleCreateContainer = () => {
@@ -17,10 +23,11 @@ export const ArticleCreateContainer = () => {
     const userId = useSelector(getUserAuthData);
     const success = useSelector(getSuccess);
     const errors =  useSelector(getErrors);
+    const validateErrors = useSelector(getValidateErrors);
 
     useEffect(()=> {
         if(userId){
-            dispatch(addArticleFormActions.setUserId(userId.id));
+            dispatch(addArticleFormActions.setUserId(userId?.id));
         }
         return () => {
             dispatch(addArticleFormActions.setSuccess(false));
@@ -33,15 +40,14 @@ export const ArticleCreateContainer = () => {
         onChangeImg, 
         addBlock, 
         onChangeBlock, 
-        onSendArticle,
-        validateErrors
+        onSendArticle
     } = useEditArticle(formData);
 
     return (
             <Card padding='24' max>
                 <VStack gap='32'>
-                    <Text size="l" title={t('Создание новой статьи')} />
-                    <Suspense fallback={<Skeleton width={600} height={100} />} >
+                    <Suspense fallback={<Skeleton width={600} height={100}/>} >
+                        <Text size="l" title={t('Создание новой статьи')}/>
                         <AddArticleForm 
                             onChangeTitle={onChangeTitle}
                             success={success}

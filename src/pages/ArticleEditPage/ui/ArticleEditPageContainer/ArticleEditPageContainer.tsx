@@ -7,7 +7,7 @@ import { Skeleton } from "@/shared/ui/redesigned/Skeleton/Skeleton";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
-import { addArticleFormActions, getErrors, getFormData, getSuccess, useEditArticle } from "@/entities/Article";
+import { addArticleFormActions, getErrors, getFormData, getSuccess, getValidateErrors, useEditArticle } from "@/entities/Article";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { fetchArticleById } from "@/entities/Article/model/services/fetchArticleById/fetchArticleById";
 
@@ -18,6 +18,7 @@ export const ArticleEditPageContainer = () => {
     const formData = useSelector(getFormData);
     const success = useSelector(getSuccess);
     const errors =  useSelector(getErrors);
+    const validateErrors = useSelector(getValidateErrors);
 
     useEffect(() => {
         if(id){
@@ -34,8 +35,7 @@ export const ArticleEditPageContainer = () => {
         onChangeType,
         onChangeImg,
         addBlock,
-        onEditArticle,
-        validateErrors
+        onEditArticle
     } = useEditArticle(formData);
 
     return (

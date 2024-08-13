@@ -369,7 +369,7 @@
       "title": "Руби",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://res.cloudinary.com/practicaldev/image/fetch/s--oqV3akcU--/c_imagga_scale,f_auto,fl_progressive,h_500,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/i/pgnw91fs7tpxn0wyeqh2.jpg",
-      "views": 234,
+      "views": 237,
       "createdAt": "21.02.2022",
       "userId": "1",
       "type": [
@@ -1044,13 +1044,297 @@
     {
       "title": "Чпоньк",
       "subtitle": "",
+      "img": "https://sun9-48.userapi.com/impg/d88F1wj1V95ITWLlLZFXR5z89OjV_edHFvSeFQ/CLdDpYI3ztM.jpg?size=1600x1078&quality=96&sign=ecbcea2e789e4df7092b4084357351d8&type=album",
+      "views": 3,
+      "userId": "1",
+      "type": [
+        "SCIENCE"
+      ],
+      "blocks": [
+        {
+          "id": "72822",
+          "type": "TEXT",
+          "title": "",
+          "paragraphs": [
+            "— вид пауков-птицеедов, обитающих в Мексике. Данных пауков часто путают с представителями вида брахипельм Смита; оба в английском языке называются мексиканскими краснокожими тарантулами.\n\nОписание\nВеличина взрослой Brachypelma hamorii особи может составлять 6-7см, а размах лап - 15-16 см.\n\nВнешний вид\nКарапас может быть всех оттенков коричневого цвета, лапки серые и довольно сильные, брюшко с длинными яркими волосками, которые могут быть красно цвета, оранжевого и розового.\n\nСкорость роста:\nНизкая. Птицееды вида Brachypelma hamorii достигают половой зрелости очень долго. Самцы около 2,5-3 года, самки 3-4 года.\n\nЯд\nКак и все пауки, этот птицеед ядовит, но его токсин не опасен для человека.\n\nРаздражающие волоски\nИмеет раздражительные волоски, которыми с радостью воспользуется. Попадая на кожу человека, эти волоски могут вызвать раздражение или зуд."
+          ]
+        }
+      ],
+      "id": "66716",
+      "createdAt": "12.8.2024",
+      "user": {
+        "id": "1",
+        "username": "admin",
+        "password": "123",
+        "roles": [
+          "ADMIN"
+        ],
+        "features": {
+          "isArticleRatingEnabled": true,
+          "isCounterEnabled": true,
+          "isAppRedesigned": true
+        },
+        "avatar": "https://mobimg.b-cdn.net/v3/fetch/22/2207633df03a819cd72889249c8361a8.jpeg?w=1470&r=0.5625",
+        "jsonSettings": {
+          "theme": "app_light_theme",
+          "isFirstVisit": true,
+          "settingsPageHasBeenOpen": false,
+          "isArticlesPageWasOpened": false,
+          "isArticlePageWasOpened": true
+        }
+      }
+    },
+    {
+      "title": "",
+      "subtitle": "",
       "img": "",
       "views": 0,
       "userId": "1",
       "type": [],
       "blocks": [],
-      "id": "52666",
-      "createdAt": "11.8.2024"
+      "id": "79605",
+      "createdAt": "13.8.2024"
+    },
+    {
+      "title": "",
+      "subtitle": "",
+      "img": "",
+      "views": 0,
+      "userId": "1",
+      "type": [],
+      "blocks": [],
+      "id": "47809",
+      "createdAt": "13.8.2024"
+    },
+    {
+      "title": "",
+      "subtitle": "",
+      "img": "",
+      "views": 0,
+      "userId": "1",
+      "type": [],
+      "blocks": [],
+      "id": "70559",
+      "createdAt": "13.8.2024"
+    },
+    {
+      "title": "",
+      "subtitle": "",
+      "img": "",
+      "views": 0,
+      "userId": "1",
+      "type": [],
+      "blocks": [],
+      "id": "99675",
+      "createdAt": "13.8.2024"
+    },
+    {
+      "title": "",
+      "subtitle": "",
+      "img": "",
+      "views": 0,
+      "userId": "1",
+      "type": [],
+      "blocks": [],
+      "id": "92122",
+      "createdAt": "13.8.2024"
+    },
+    {
+      "title": "",
+      "subtitle": "",
+      "img": "",
+      "views": 0,
+      "userId": "1",
+      "type": [],
+      "blocks": [],
+      "id": "67862",
+      "createdAt": "13.8.2024"
+    },
+    {
+      "title": "",
+      "subtitle": "",
+      "img": "",
+      "views": 0,
+      "userId": "1",
+      "type": [],
+      "blocks": [],
+      "id": "70570",
+      "createdAt": "13.8.2024"
+    },
+    {
+      "title": "",
+      "subtitle": "",
+      "img": "",
+      "views": 0,
+      "userId": "1",
+      "type": [],
+      "blocks": [],
+      "id": "7690",
+      "createdAt": "13.8.2024"
+    },
+    {
+      "title": "",
+      "subtitle": "",
+      "img": "",
+      "views": 0,
+      "userId": "1",
+      "type": [],
+      "blocks": [],
+      "id": "50930",
+      "createdAt": "13.8.2024"
+    },
+    {
+      "title": "",
+      "subtitle": "",
+      "img": "",
+      "views": 0,
+      "userId": "1",
+      "type": [],
+      "blocks": [],
+      "id": "75311",
+      "createdAt": "13.8.2024"
+    },
+    {
+      "title": "",
+      "subtitle": "",
+      "img": "",
+      "views": 0,
+      "userId": "1",
+      "type": [],
+      "blocks": [],
+      "id": "94887",
+      "createdAt": "13.8.2024"
+    },
+    {
+      "title": "",
+      "subtitle": "",
+      "img": "",
+      "views": 0,
+      "userId": "1",
+      "type": [],
+      "blocks": [],
+      "id": "54952",
+      "createdAt": "13.8.2024"
+    },
+    {
+      "title": "",
+      "subtitle": "",
+      "img": "",
+      "views": 0,
+      "userId": "1",
+      "type": [],
+      "blocks": [],
+      "id": "39494",
+      "createdAt": "13.8.2024"
+    },
+    {
+      "title": "",
+      "subtitle": "",
+      "img": "",
+      "views": 0,
+      "userId": "1",
+      "type": [],
+      "blocks": [],
+      "id": "84052",
+      "createdAt": "13.8.2024"
+    },
+    {
+      "title": "",
+      "subtitle": "",
+      "img": "",
+      "views": 0,
+      "userId": "1",
+      "type": [],
+      "blocks": [],
+      "id": "15265",
+      "createdAt": "13.8.2024"
+    },
+    {
+      "title": "",
+      "subtitle": "",
+      "img": "",
+      "views": 0,
+      "userId": "1",
+      "type": [],
+      "blocks": [],
+      "id": "86114",
+      "createdAt": "13.8.2024"
+    },
+    {
+      "title": "",
+      "subtitle": "",
+      "img": "",
+      "views": 0,
+      "userId": "1",
+      "type": [],
+      "blocks": [],
+      "id": "98104",
+      "createdAt": "13.8.2024"
+    },
+    {
+      "title": "",
+      "subtitle": "",
+      "img": "",
+      "views": 0,
+      "userId": "1",
+      "type": [],
+      "blocks": [],
+      "id": "77610",
+      "createdAt": "13.8.2024"
+    },
+    {
+      "title": "Тест",
+      "subtitle": "",
+      "img": "",
+      "views": 1,
+      "userId": "1",
+      "type": [],
+      "blocks": [],
+      "id": "64565",
+      "createdAt": "13.8.2024",
+      "user": {
+        "id": "1",
+        "username": "admin",
+        "password": "123",
+        "roles": [
+          "ADMIN"
+        ],
+        "features": {
+          "isArticleRatingEnabled": true,
+          "isCounterEnabled": true,
+          "isAppRedesigned": true
+        },
+        "avatar": "https://mobimg.b-cdn.net/v3/fetch/22/2207633df03a819cd72889249c8361a8.jpeg?w=1470&r=0.5625",
+        "jsonSettings": {
+          "theme": "app_light_theme",
+          "isFirstVisit": true,
+          "settingsPageHasBeenOpen": false,
+          "isArticlesPageWasOpened": false,
+          "isArticlePageWasOpened": true
+        }
+      }
+    },
+    {
+      "title": "Тест",
+      "subtitle": "",
+      "img": "",
+      "views": 0,
+      "userId": "1",
+      "type": [],
+      "blocks": [],
+      "id": "98505",
+      "createdAt": "13.8.2024"
+    },
+    {
+      "title": "Тест",
+      "subtitle": "",
+      "img": "",
+      "views": 0,
+      "userId": "1",
+      "type": [],
+      "blocks": [],
+      "id": "62289",
+      "createdAt": "13.8.2024"
     }
   ],
   "comments": [

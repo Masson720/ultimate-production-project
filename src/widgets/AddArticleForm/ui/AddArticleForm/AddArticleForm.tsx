@@ -48,7 +48,6 @@ const AddArticleForm = (props: AddArticleFormProps) => {
     if(!formData){
         return null;
     }
-
     const form = (
         <>
             <Text text={errors} />

@@ -9,6 +9,7 @@ import { UISchema } from "@/features/ScrollSave";
 import { ArticleDetailsPageSchema } from "@/pages/ArticleDetailsPage";
 import { rtkApi } from "@/shared/api/rtkApi";
 import { ProfileSchema } from "@/features/editableProfileCard";
+import { RegistrationSchema } from "@/features/RegistrationUser";
 
 export interface StateSchema {
     user: UserSchema
@@ -17,6 +18,7 @@ export interface StateSchema {
 
     //Асинхронные редюсеры
     loginForm?: LoginSchema
+    registrationForm?: RegistrationSchema
     profile?: ProfileSchema
     articleDetails?: ArticleDetailsSchema
     addCommentForm?: AddCommentFormSchema

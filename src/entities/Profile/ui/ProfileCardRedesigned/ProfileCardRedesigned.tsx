@@ -71,7 +71,6 @@ export const ProfileCardRedesigned = memo((props: ProfileCardProps) => {
     } = props;
 
     const { t } = useTranslation('profile');
-    //починить валидацию
     return (
         <Card
             max
@@ -121,9 +120,9 @@ export const ProfileCardRedesigned = memo((props: ProfileCardProps) => {
                     </VStack>
                     <VStack gap='16' max>
                         <Input
-                            value={data?.username }
+                            value={data?.first }
                             label={t('Имя пользователя')}
-                            onChange={onChangeUsername}
+                            onChange={onChangeFirstname}
                             readonly={readonly}              
                         />
                         <Input

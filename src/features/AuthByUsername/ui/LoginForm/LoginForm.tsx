@@ -18,6 +18,7 @@ import { Button as ButtonDeprecated, ThemeButton } from "@/shared/ui/deprecated/
 import { Button } from "@/shared/ui/redesigned/Button/Button";
 import { ToggleFeatures } from "@/shared/features";
 import { VStack } from "@/shared/ui/redesigned/Stack";
+import { Card } from "@/shared/ui/redesigned/Card/Card";
 
 export interface LoginFormProps {
     className?: string
@@ -52,7 +53,8 @@ const LoginForm = memo(({className, onSuccess }: LoginFormProps) => {
         }
     }, [onSuccess, dispatch, password, username]);
 
-    return (<DynamicModuleLoader
+    return (
+            <DynamicModuleLoader
                 removeAfterUnmount={true} 
                 reducers={initialReducers}
             >
@@ -86,7 +88,7 @@ const LoginForm = memo(({className, onSuccess }: LoginFormProps) => {
                         </div>
                     }
                     on={
-                        <div className={cls.LoginForm}>
+                        <Card padding="24" className={cls.LoginForm}>
                             <VStack gap='16'>
                                 <Text title={t('Форма авторизации')}/>
                                 {error && (<Text text={t('Неверный логин или пароль')} variant="error"/>)} 
@@ -113,7 +115,7 @@ const LoginForm = memo(({className, onSuccess }: LoginFormProps) => {
                                 </Button>                                
                             </VStack>
 
-                        </div>
+                        </Card>
                     }
                 />
             </DynamicModuleLoader>)

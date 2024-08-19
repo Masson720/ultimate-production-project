@@ -45,7 +45,6 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
         [ValidateProfileErrors.INCORRECT_AGE]: t('Некорректный возраст'),
         [ValidateProfileErrors.INCORRECT_COUNTRY]: t('Некорректный регион'),
         [ValidateProfileErrors.NO_DATA]: t('Нет данных'),
-
     }
 
     useInitialEffect(() => {

@@ -13,7 +13,7 @@ const initialState: AddArticleFormSchema = {
         subtitle: '',
         img: '',
         views: 0,
-        userId: '1',
+        userId: '',
         type: [],
         blocks: [],
         //Дата и время обычно присваивается на бэке.
@@ -38,7 +38,6 @@ export const addArticleFormSlice = createSlice({
             state.articleForm.title = action.payload
         },
         setUserId: (state, action) => {
-            console.log('Отработал')
             state.articleForm.userId = action.payload
         },
         setType: (state, action: PayloadAction<ArticleType[]>) => {

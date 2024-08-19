@@ -16,10 +16,9 @@
 
 .content {
     border-radius: 12px;
-    padding: 20px;
     transition: 0.3s transform;
     transform: scale(0.5);
-    max-width: 60%;
+    max-width: 70%;
     z-index: var(--modal-z-index);
 }
 // color: var(--inverted-primary-color);

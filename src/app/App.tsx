@@ -19,16 +19,17 @@ const App = memo(() => {
     const inited = useSelector(getUserInited);
     const toolbar = useAppToolbar();
 
-
     useEffect(() => {
-        dispatch(initAuthData());
-    }, [dispatch]);
+        if (!inited) {
+            dispatch(initAuthData());
+        }
+    }, [dispatch, inited]);
 
-    if(!inited){
-        return (
-            <div className='app_redesigned'><AppLoaderLayout/></div>
-        )
-    }
+    // if(!inited){
+    //     return (
+    //         <div className='app_redesigned'><AppLoaderLayout/></div>
+    //     )
+    // }
 
     return (
         <ToggleFeatures

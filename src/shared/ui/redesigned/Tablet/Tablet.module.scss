@@ -1,0 +1,20 @@
+.Tablet {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.size_s {
+    min-width: 40vw;
+    min-height: 20vh;
+}
+
+.size_m {
+    min-width: 60vw;
+    min-height: 40vh;
+}
+
+.size_l {
+    min-width: 80vw;
+    min-height: 60vh;
+}

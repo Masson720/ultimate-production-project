@@ -8,7 +8,7 @@ import { Overlay } from "../../redesigned/Overlay/Overlay";
 import { toggleFeatures } from "@/shared/features";
 
 interface ModalProps {
-    children?: ReactNode
+    children?: ReactNode | ((close: () => void) => ReactNode);
     className?: string
     isOpen?: boolean 
     onClose?: () => void
@@ -38,8 +38,6 @@ export const Modal: FC<ModalProps> = (props) => {
         isOpen
     });
 
-    console.log(theme);
-
     const mods: ModsType = {
         [cls.opened]: isOpen,
         [cls.isClosing]: isClosing
@@ -58,7 +56,7 @@ export const Modal: FC<ModalProps> = (props) => {
             })])}>
                 <Overlay className={cls.overlay} onClick={close}/>
                 <div className={cls.content }>
-                    {children}
+                    {typeof children === 'function' ? children(close) : children}
                 </div>
             </div> 
         </Portal>    

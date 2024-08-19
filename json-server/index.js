@@ -3,13 +3,24 @@ const jsonServer = require('json-server');
 const path = require('path');
 
 const server = jsonServer.create();
-
 const router = jsonServer.router(path.resolve(__dirname, 'db.json'));
 
 server.use(jsonServer.defaults({}));
 server.use(jsonServer.bodyParser);
 
+server.use((req, res, next) => {
+    const publicRoutes = ['/register', '/login'];
 
+    if (publicRoutes.includes(req.path)) {
+        return next();
+    }
+
+    if (!req.headers.authorization) {
+        return res.status(403).json({ message: 'AUTH ERROR' });
+    }
+
+    next();
+});
 
 // Эндпоинт для логина
 server.post('/login', (req, res) => {
@@ -33,8 +44,38 @@ server.post('/login', (req, res) => {
     }
 });
 
+// Эндпоинт для регистрации
+server.post('/register', (req, res) => {
+    try {
+        const { user, profile } = req.body;
+        const db = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'db.json'), 'UTF-8'));
+
+        // Генерация id
+        const id = String(Math.floor(Math.random() * 10000000));
+
+        // Присваиваем id пользователю и профилю
+        const newUser = { ...user, id };
+        const newProfile = { ...profile, id };
+
+        // Добавляем пользователя
+        db.users = db.users || [];
+        db.users.push(newUser);
+
+        // Добавляем профиль
+        db.profile = db.profile || [];
+        db.profile.push(newProfile);
+
+        // Сохраняем изменения в файл db.json
+        fs.writeFileSync(path.resolve(__dirname, 'db.json'), JSON.stringify(db, null, 2));
+
+        return res.status(201).json({ user, profile });
+    } catch (e) {
+        console.log(e);
+        return res.status(500).json({ message: e.message });
+    }
+});
+
 // проверяем, авторизован ли пользователь
-// eslint-disable-next-line
 server.use((req, res, next) => {
     if (!req.headers.authorization) {
         return res.status(403).json({ message: 'AUTH ERROR' });

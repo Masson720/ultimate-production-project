@@ -15,6 +15,7 @@ import { HStack } from "@/shared/ui/redesigned/Stack";
 import { Button as ButtonDeprecated, ThemeButton } from "@/shared/ui/deprecated/Button/Button";
 import { Button } from "@/shared/ui/redesigned/Button/Button";
 import { CreateArticleButton } from "@/features/CreateArticleButton";
+import { RegistrationModal } from "@/features/RegistrationUser";
 
 
 interface NavbarProps {
@@ -25,15 +26,25 @@ interface NavbarProps {
 export const Navbar = memo(({className}: NavbarProps) => {
     const {t} = useTranslation();
     const [isAuthModal, setIsAuthModal] = useState(false);
+    const [registrationModal, setRegistrationModal] = useState(false);
     const authData = useSelector(getUserAuthData); 
 
-    const onCloseModal = useCallback(() => {
+    const onCloseAuthModal = useCallback(() => {
         setIsAuthModal(false);
-    }, []);
+    }, [isAuthModal]);
 
-    const onShowModal = useCallback(() => {
+    const onShowAuthModal = useCallback(() => {
         setIsAuthModal(true);
-    }, []);
+    }, [isAuthModal]);
+
+    const onCloseRegistrationModal = useCallback(() => {
+        setRegistrationModal(false);
+    }, [isAuthModal]);
+
+    const onShowRegistrationModal = useCallback(() => {
+        setRegistrationModal(true);
+    }, [isAuthModal]);
+
 
     const mainClass = toggleFeatures({
         name: 'isAppRedesigned',
@@ -83,18 +94,26 @@ export const Navbar = memo(({className}: NavbarProps) => {
             <ToggleFeatures
                 feature="isAppRedesigned"
                 off={
-                    <ButtonDeprecated theme={ThemeButton.CLEAR_INVERTED} className={cls.links} onClick={onShowModal}>
+                    <ButtonDeprecated theme={ThemeButton.CLEAR_INVERTED} className={cls.links} onClick={onShowAuthModal}>
                         {t('Войти')}
                     </ButtonDeprecated>
                 }
                 on={
-                    <Button variant='clear' className={cls.links} onClick={onShowModal}>
-                        {t('Войти')}
-                    </Button>
+                    <HStack gap='16'>
+                        <Button variant='clear' className={cls.links} onClick={onShowRegistrationModal}>
+                            {t('Регистрация')}
+                        </Button>
+                        <Button variant='outline' className={cls.links} onClick={onShowAuthModal}>
+                            {t('Войти')}
+                        </Button>                       
+                    </HStack>
                 }
             />
             {isAuthModal && (
-                <LoginModal isOpen={isAuthModal} onClose={onCloseModal }/>
+                <LoginModal isOpen={isAuthModal} onClose={onCloseAuthModal }/>
+            )}
+            {registrationModal && (
+                <RegistrationModal isOpen={registrationModal} onClose={onCloseRegistrationModal }/>
             )}
         </header>
     )

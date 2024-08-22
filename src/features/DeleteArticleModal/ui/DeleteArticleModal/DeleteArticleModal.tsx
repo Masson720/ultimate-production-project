@@ -1,12 +1,16 @@
 import { deleteArticle } from "@/entities/Article";
+import { getUserAuthData } from "@/entities/User";
+import { UserActions } from "@/shared/const/logs";
 import { getRouteArticles } from "@/shared/const/router";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
+import { sendLog } from "@/shared/lib/sendLog/sendLog";
 import { Button } from "@/shared/ui/redesigned/Button/Button";
 import { Modal } from "@/shared/ui/redesigned/Modal/Modal";
 import { HStack, VStack } from "@/shared/ui/redesigned/Stack";
 import { Text } from '@/shared/ui/redesigned/Text/Text';
 import { memo, useCallback, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 interface DeleteArticleModalProps {
@@ -26,10 +30,15 @@ const DeleteArticleModal = (props: DeleteArticleModalProps) => {
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
     const { t } = useTranslation();
+    const user = useSelector(getUserAuthData);
     const [deleteSuccess, setDeleteSuccess] = useState(false);
     const onDelete = useCallback(() => {
         setDeleteSuccess(true);
         dispatch(deleteArticle(articleId));
+        sendLog(UserActions.DELETE_ACTICLE, {
+            userName: user?.username,
+            userId: user?.id
+        })
     }, [articleId]);
     
     const returnArticle = useCallback(() => {

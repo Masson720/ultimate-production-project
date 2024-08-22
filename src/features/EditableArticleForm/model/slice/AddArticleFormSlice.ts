@@ -5,7 +5,8 @@ import { Article, ArticleBlock } from '@/entities/Article/model/types/article';
 import { generateId } from '@/shared/lib/generateId/generateId';
 import { addNewArticle } from '../services/addNewArticle/addNewArticle';
 import { AddArticleFormSchema } from '../types/AddArticleFormSchema';
-import { fetchArticleById } from '@/entities/Article/model/services/fetchArticleById/fetchArticleById';
+import { editArticle } from '../services/editArticles/editArticles';
+import { fetchArticleById } from '../services/fetchArticleById/fetchArticleById';
 
 const initialState: AddArticleFormSchema = {
     articleForm: {
@@ -21,12 +22,7 @@ const initialState: AddArticleFormSchema = {
         createdAt: getDate()
     },
     isLoading: false,
-    errors: '',
-    validateErrors: {
-        title: '',
-        blocks: '',
-        type: ''
-    },
+    errors: [],
     success: false
 }
 
@@ -60,20 +56,6 @@ export const addArticleFormSlice = createSlice({
             }
             state.articleForm.blocks = replacedObject;
         },
-        validateTitle: (state, action) => {
-            state.validateErrors.title = action.payload;
-        },
-        validateType: (state, action) => {
-            state.validateErrors.type = action.payload;
-        },
-        validateBlocks: (state, action) => {
-            state.validateErrors.blocks = action.payload;
-        },
-        resetValidate: (state) => {
-            state.validateErrors.title = '';
-            state.validateErrors.type = '';
-            state.validateErrors.blocks = '';
-        },
         resetForm: (state) => {
             state.articleForm = {
                 title: '',
@@ -91,21 +73,36 @@ export const addArticleFormSlice = createSlice({
     extraReducers: (builder) => {
         builder
             .addCase(addNewArticle.pending, (state) => {
-                state.errors = ''
+                state.errors = []
                 state.isLoading = true;
             })
             .addCase(addNewArticle.fulfilled, (state) => {
                 state.isLoading = false;
+                state.success = true;
             })
             .addCase(addNewArticle.rejected, (state, action) => {
                 state.isLoading = false;
                 state.errors = action.payload
             })
+            .addCase(editArticle.pending, (state) => {
+                state.errors = []
+                state.isLoading = true;
+            })
+            .addCase(editArticle.fulfilled, (state) => {
+                console.log('fulfilled triggered');
+                state.isLoading = false;
+                state.success = true;
+            })
+            .addCase(editArticle.rejected, (state, action) => {
+                state.isLoading = false;
+                state.errors = action.payload
+            })
             .addCase(fetchArticleById.pending, (state) => {
-                state.errors = ''
+                state.errors = []
                 state.isLoading = true;
             })
             .addCase(fetchArticleById.fulfilled, (state, action: PayloadAction<Article>) => {
+                console.log('Отработал')
                 state.isLoading = false;
                 state.articleForm = {...action.payload};
             })

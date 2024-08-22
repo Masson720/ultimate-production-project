@@ -2,6 +2,7 @@ import { Card } from "@/shared/ui/redesigned/Card/Card"
 import { VStack } from "@/shared/ui/redesigned/Stack";
 import { useTranslation } from "react-i18next";
 import { Text } from '@/shared/ui/redesigned/Text/Text';
+import { ActivityBar } from "@/features/ActivityBar";
 
 export const AdminPanelContainer = () => {
     const { t } = useTranslation();
@@ -10,9 +11,7 @@ export const AdminPanelContainer = () => {
             <Card max padding="24">
                 <Text size="l" title={t('Админ панель')}/>
             </Card>
-            <Card max padding="16">
-                <Text title={t('Админ панель')}/>
-            </Card>                   
+            <ActivityBar/>                
         </VStack>
 
     )

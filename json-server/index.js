@@ -5,11 +5,13 @@ const path = require('path');
 const server = jsonServer.create();
 const router = jsonServer.router(path.resolve(__dirname, 'db.json'));
 
+// Middleware для обработки стандартных роутов JSON Server
 server.use(jsonServer.defaults({}));
 server.use(jsonServer.bodyParser);
 
+// Middleware для обработки публичных маршрутов
 server.use((req, res, next) => {
-    const publicRoutes = ['/register', '/login'];
+    const publicRoutes = ['/register', '/login', '/activityLog'];
 
     if (publicRoutes.includes(req.path)) {
         return next();
@@ -68,25 +70,16 @@ server.post('/register', (req, res) => {
         // Сохраняем изменения в файл db.json
         fs.writeFileSync(path.resolve(__dirname, 'db.json'), JSON.stringify(db, null, 2));
 
-        return res.status(201).json({ user, profile });
+        return res.status(201).json({ user: newUser, profile: newProfile });
     } catch (e) {
         console.log(e);
         return res.status(500).json({ message: e.message });
     }
 });
 
-// проверяем, авторизован ли пользователь
-server.use((req, res, next) => {
-    if (!req.headers.authorization) {
-        return res.status(403).json({ message: 'AUTH ERROR' });
-    }
-
-    next();
-});
-
 server.use(router);
 
-// запуск сервера
+// Запуск сервера
 server.listen(8000, () => {
     console.log('server is running on 8000 port');
 });

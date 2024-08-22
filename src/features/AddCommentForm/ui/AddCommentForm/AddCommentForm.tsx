@@ -13,6 +13,9 @@ import { Input } from '@/shared/ui/redesigned/Input/Input';
 import { HStack } from '@/shared/ui/redesigned/Stack';
 import { ToggleFeatures } from '@/shared/features';
 import { Card } from '@/shared/ui/redesigned/Card/Card';
+import { UserActions } from '@/shared/const/logs';
+import { getUserAuthData } from '@/entities/User';
+import { sendLog } from '@/shared/lib/sendLog/sendLog';
 
 export interface AddCommentFormProps {
     className?: string
@@ -31,7 +34,8 @@ const AddCommentForm = (props: AddCommentFormProps) => {
 
     const {t} = useTranslation();
     const text = useSelector(getAddCommentFormText);
-    const error = useSelector(getCommentFormError); 
+    const error = useSelector(getCommentFormError);
+    const user = useSelector(getUserAuthData);
     const dispatch = useAppDispatch();
 
     const onCommentTextChange = useCallback((value: string ) => {
@@ -40,6 +44,10 @@ const AddCommentForm = (props: AddCommentFormProps) => {
 
     const onSendhandler = useCallback(() => {
         onSendComment(text || '');
+        sendLog(UserActions.SEND_COMMENT, {
+            userName: user?.username,
+            userId: user?.id
+        })
         onCommentTextChange('')
     }, [onCommentTextChange, onSendComment, text])
 

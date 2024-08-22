@@ -1,10 +1,10 @@
 import { ThunkConfig } from "@/app/providers/StoreProvider";
 import { getUserAuthData } from "@/entities/User";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { ArticleForm } from "../../types/AddArticleFormSchema";
+import { Article } from "../../types/article";
 
 
-export const incrementViews = createAsyncThunk<any, ArticleForm, ThunkConfig<string>>(
+export const incrementViews = createAsyncThunk<any, Article, ThunkConfig<string>>(
     'article/incrementViews',
     async (
         article,
@@ -25,7 +25,7 @@ export const incrementViews = createAsyncThunk<any, ArticleForm, ThunkConfig<str
         }
 
         try {
-            const response = await extra.api.put<ArticleForm>(`/articles/${articleId}`, updateArticle);
+            const response = await extra.api.put<Article>(`/articles/${articleId}`, updateArticle);
             if(!response.data){
                 throw new Error();
             }

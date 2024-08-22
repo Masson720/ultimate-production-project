@@ -1,6 +1,6 @@
 import { ThunkConfig } from "@/app/providers/StoreProvider";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { ArticleForm } from "../../types/AddArticleFormSchema";
+import { Article } from "../../types/article";
 
 export const deleteArticle = createAsyncThunk<any, string, ThunkConfig<string>>(
     'deleteArticle',
@@ -14,7 +14,7 @@ export const deleteArticle = createAsyncThunk<any, string, ThunkConfig<string>>(
         } = thunkApi;
 
         try {
-            const response = await extra.api.delete<ArticleForm>(`/articles/${articleId}`);
+            const response = await extra.api.delete<Article>(`/articles/${articleId}`);
             if(!response.data){
                 throw new Error();
             }

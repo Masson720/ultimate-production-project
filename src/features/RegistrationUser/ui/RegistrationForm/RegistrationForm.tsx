@@ -16,6 +16,8 @@ import { ValidateRegistrationErrors } from "../../model/consts/consts";
 import { registrationUserData } from "../../model/services/registrationUserData/registrationUserData";
 import { Tablet } from "@/shared/ui/redesigned/Tablet/Tablet";
 import { Loader } from "@/shared/ui/deprecated/Loader/Loader";
+import { sendLog } from "@/shared/lib/sendLog/sendLog";
+import { UserActions } from "@/shared/const/logs";
 
 const reducers: ReducersList = {
     registrationForm: registrationReducer
@@ -100,6 +102,9 @@ const RegistrationForm = (props: RegistrationFormProps) => {
     
     const onSubmitForm = useCallback(() => {
         dispatch(registrationUserData());
+        sendLog(UserActions.REGISTRATION_USER, {
+            userName: profileForm?.username
+        })
     }, [dispatch]);
 
     const resetForm = useCallback(() => {

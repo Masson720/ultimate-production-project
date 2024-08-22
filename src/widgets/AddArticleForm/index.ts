@@ -1,1 +1,0 @@
-export { AddArticleFormAsync as AddArticleForm } from './ui/AddArticleForm/AddArticleForm.async';

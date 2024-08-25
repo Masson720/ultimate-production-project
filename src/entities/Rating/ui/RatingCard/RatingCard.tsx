@@ -169,7 +169,7 @@ export const RatingCard = (props: RatingCardProps) => {
                 </CardDeprecated>
             }
             on={
-                <Card data-testid='RatingCard' border='partial' padding='24' max className={classNames(cls.RatingCard, {}, [className])}>
+                <Card data-testid='RatingCard' borderRadius='partial' padding='24' max className={classNames(cls.RatingCard, {}, [className])}>
                     {content}
                 </Card>
             }

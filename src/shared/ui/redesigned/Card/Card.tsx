@@ -5,7 +5,8 @@ import cls from './Card.module.scss';
 export type CardVariant = 'normal' | 'outlined' | 'light';
 export type CardPadding = '0' | '8' | '16' | '24';
 export type CardHeight = 'base' | 'small' | 'middle' | 'big';
-export type CardBorder = 'round' | 'normal' | 'partial';
+export type CardBorderRadius = 'round' | 'normal' | 'partial';
+export type CardBorder = 'none' | 'solid';
  
 interface CardProps extends HTMLAttributes<HTMLDivElement> {
     className?: string
@@ -13,6 +14,7 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
     variant?: CardVariant
     max?: boolean
     padding?: CardPadding
+    borderRadius?: CardBorderRadius
     border?: CardBorder
     height?: CardHeight
     fullHeigt?: boolean
@@ -32,7 +34,8 @@ export const Card = (props: CardProps) => {
         variant = 'normal',
         max,
         padding = '8',
-        border ='normal',
+        borderRadius ='normal',
+        border = 'none',
         height = 'base',
         fullHeigt,
         ...otherProps
@@ -40,10 +43,19 @@ export const Card = (props: CardProps) => {
 
     const paddingsClass = mapPaddingToClass[padding];
 
+    const classList = [
+        className, 
+        cls[variant], 
+        cls[height], 
+        cls[paddingsClass], 
+        cls[borderRadius],
+        cls[border]
+    ];
+
     const additionalClasses = {[cls.max]: max, [cls.fullHeigt]: fullHeigt}
 
     return (
-        <div className={classNames(cls.Card, additionalClasses, [className, cls[variant], cls[height], cls[paddingsClass], cls[border]])} {...otherProps}>
+        <div className={classNames(cls.Card, additionalClasses, classList)} {...otherProps}>
             {children}
         </div>
     )

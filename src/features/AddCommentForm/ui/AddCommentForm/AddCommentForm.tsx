@@ -78,7 +78,7 @@ const AddCommentForm = (props: AddCommentFormProps) => {
                     </HStack>
                 }
                 on={ 
-                    <Card padding='16' border='partial' max>
+                    <Card padding='16' borderRadius='partial' max>
                         <HStack 
                             data-testid='AddCommentForm'
                             justify='between'

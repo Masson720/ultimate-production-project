@@ -62,7 +62,7 @@ export const CommentCard = (props: CommentCardProps) => {
                 </VStack>
             }
             on={ 
-                <Card padding='24' border='partial' max>
+                <Card padding='24' borderRadius='partial' max>
                     <VStack data-testid='CommentCard.Content' max gap='8' className={classNames(cls.CommentCardRedesigned, {}, [className])}>
                         <AppLink to={getRouteProfile(comment.user.id)} className={cls.header}>
                             <HStack gap='8'>

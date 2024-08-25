@@ -45,7 +45,7 @@ export const AdditionalInfoContainer = memo((props: AdditionalInfoContainerProps
     }
 
     return (
-        <Card padding="24" border='round' className={classNames(cls.card, {}, [className])}>
+        <Card padding="24" borderRadius='round' className={classNames(cls.card, {}, [className])}>
             {onOpenModal && <DeleteArticleModal articleId={article.id} isOpen={onOpenModal} onClose={onCloseDeleteModal}/>}
             <ArticleAdditionalInfo
                 id={user?.id}

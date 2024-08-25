@@ -542,7 +542,8 @@
         "settingsPageHasBeenOpen": false,
         "isArticlesPageWasOpened": false,
         "isArticlePageWasOpened": true
-      }
+      },
+      "banned": false
     },
     {
       "id": "2",
@@ -561,7 +562,8 @@
         "isArticlesPageWasOpened": false,
         "isArticlePageWasOpened": true,
         "theme": "app_dark_theme"
-      }
+      },
+      "banned": false
     },
     {
       "id": "3",
@@ -578,14 +580,15 @@
       "avatar": "https://s1.1zoom.ru/big3/992/367659-alexfas01.jpg",
       "jsonSettings": {
         "isArticlesPageWasOpened": false
-      }
+      },
+      "banned": false
     },
     {
       "id": "4",
       "username": "testuser",
       "password": "123",
       "roles": [
-        "ADMIN"
+        "USER"
       ],
       "features": {
         "isArticleRatingEnabled": true,

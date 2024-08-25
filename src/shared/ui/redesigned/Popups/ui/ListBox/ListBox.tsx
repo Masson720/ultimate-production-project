@@ -1,4 +1,4 @@
-import { Fragment, ReactNode, useMemo, useState } from 'react';
+import { Fragment, ReactNode, useMemo } from 'react';
 import { Listbox as HListbox } from '@headlessui/react';
 import cls from './ListBox.module.scss';
 import popupCls from '../../styles/popup.module.scss';

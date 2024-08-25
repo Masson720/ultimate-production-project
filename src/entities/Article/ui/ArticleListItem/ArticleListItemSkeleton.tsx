@@ -55,7 +55,7 @@ export const ArticleListItemSkeleton = (props: ArticleListItemSkeletonProps) => 
                         </Card>
                     }
                     on={
-                        <Card border='round' className={cls.card}>
+                        <Card borderRadius='round' className={cls.card}>
                             {cardContent}
                         </Card>
                     }

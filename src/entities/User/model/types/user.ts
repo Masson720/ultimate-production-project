@@ -8,6 +8,7 @@ export interface User {
     username: string
     avatar?: string
     roles?: UserRole[]
+    banned?: boolean
     features?: FeatureFlags
     jsonSettings?: JsonSettings
 }

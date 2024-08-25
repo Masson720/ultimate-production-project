@@ -25,7 +25,7 @@ export const TabItemButton = (props: TabItemProps) => {
             key={tab.value}
             variant={isSelected ? 'light' : 'normal'}
             onClick={() => onClick(tab)}
-            border='round'
+            borderRadius='round'
         >
             {tab.content}
         </Card>

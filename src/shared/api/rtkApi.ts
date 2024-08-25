@@ -11,7 +11,8 @@ export const rtkApi = createApi({
                     headers.set('Authorization', token)
                 }
                 return headers;
-            }
+            },
     }),
+    tagTypes: ['Data'],
     endpoints: (builder) => ({}),
 })

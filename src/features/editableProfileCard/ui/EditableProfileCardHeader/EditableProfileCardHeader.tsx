@@ -74,7 +74,7 @@ export const EditableProfileCardHeader = () => {
                 </HStack>
             }
             on={
-                <Card border='partial' padding='24' max>
+                <Card borderRadius='partial' padding='24' max>
                     <HStack max justify="between">
                         <Text 
                             title={t('Профиль')}

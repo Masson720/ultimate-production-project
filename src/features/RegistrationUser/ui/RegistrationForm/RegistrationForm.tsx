@@ -17,7 +17,7 @@ import { registrationUserData } from "../../model/services/registrationUserData/
 import { Tablet } from "@/shared/ui/redesigned/Tablet/Tablet";
 import { Loader } from "@/shared/ui/deprecated/Loader/Loader";
 import { sendLog } from "@/shared/lib/sendLog/sendLog";
-import { UserActions } from "@/shared/const/logs";
+import { UserActions } from "@/shared/lib/sendLog/types/logs";
 
 const reducers: ReducersList = {
     registrationForm: registrationReducer

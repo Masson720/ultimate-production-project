@@ -39,6 +39,8 @@
     height: 100%;
 }
 
+//flex-gap
+
 .gap_0 {
     padding: 0px;
 }
@@ -53,4 +55,21 @@
 
 .gap_24 {
     padding: 24px;
+}
+
+//height
+
+.small {
+    height: 150px;
+    overflow: auto;
+}
+
+.middle {
+    height: 350px;
+    overflow: auto;
+}
+
+.big {
+    height: 100vh;
+    overflow: auto;
 }

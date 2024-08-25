@@ -50,7 +50,7 @@
       "title": "Тест",
       "subtitle": "",
       "img": "https://www.terrarium.com.pl/wp-content/uploads/11172.jpg",
-      "views": 9,
+      "views": 11,
       "userId": "",
       "type": [
         "SCIENCE"
@@ -371,7 +371,7 @@
       "title": "Тест",
       "subtitle": "",
       "img": "https://www.terrarium.com.pl/wp-content/uploads/11172.jpg",
-      "views": 3,
+      "views": 4,
       "userId": "1",
       "type": [
         "SCIENCE"
@@ -966,16 +966,6 @@
   ],
   "activityLog": [
     {
-      "action": "Create Article",
-      "details": {
-        "user": "Иван",
-        "userId": "1",
-        "date": "21:21"
-      },
-      "timestamp": "2024-08-19T20:52:34.999Z",
-      "id": 1
-    },
-    {
       "action": "EDIT_ARTICLE",
       "details": {
         "userName": "admin",
@@ -1304,6 +1294,17 @@
       },
       "timestamp": "22.8.2024 10:36",
       "id": 31
+    },
+    {
+      "action": "CREATE_ARTICLE",
+      "details": {
+        "userName": "admin",
+        "userId": "1",
+        "articleId": "50706",
+        "articleName": ""
+      },
+      "timestamp": "22.8.2024 15:16",
+      "id": 32
     }
   ]
 }

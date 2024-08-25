@@ -1,6 +1,6 @@
 import { deleteArticle } from "@/entities/Article";
 import { getUserAuthData } from "@/entities/User";
-import { UserActions } from "@/shared/const/logs";
+import { UserActions } from "@/shared/lib/sendLog/types/logs";
 import { getRouteArticles } from "@/shared/const/router";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { sendLog } from "@/shared/lib/sendLog/sendLog";
@@ -35,7 +35,7 @@ const DeleteArticleModal = (props: DeleteArticleModalProps) => {
     const onDelete = useCallback(() => {
         setDeleteSuccess(true);
         dispatch(deleteArticle(articleId));
-        sendLog(UserActions.DELETE_ACTICLE, {
+        sendLog(UserActions.DELETE_ARTICLE, {
             userName: user?.username,
             userId: user?.id
         })

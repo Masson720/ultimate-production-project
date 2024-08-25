@@ -1,12 +1,5 @@
-import { UserActions } from "@/shared/const/logs";
+import { DetailsLog, UserActions } from "@/shared/lib/sendLog/types/logs";
 import { getDate, getTime } from "../getDate/getDate";
-
-interface DetailsLog {
-    userName?: string
-    userId?: string
-    articleName?: string
-    articleId?: string
-}
 
 export const sendLog = async (action: UserActions, details: DetailsLog) => {
     try {

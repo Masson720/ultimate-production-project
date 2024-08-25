@@ -13,7 +13,7 @@ import { Input } from '@/shared/ui/redesigned/Input/Input';
 import { HStack } from '@/shared/ui/redesigned/Stack';
 import { ToggleFeatures } from '@/shared/features';
 import { Card } from '@/shared/ui/redesigned/Card/Card';
-import { UserActions } from '@/shared/const/logs';
+import { UserActions } from '@/shared/lib/sendLog/types/logs';
 import { getUserAuthData } from '@/entities/User';
 import { sendLog } from '@/shared/lib/sendLog/sendLog';
 

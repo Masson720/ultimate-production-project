@@ -16,11 +16,12 @@ import { sendLog } from "@/shared/lib/sendLog/sendLog";
 import { useSelector } from "react-redux";
 import { getErrors, getFormData, getSuccess } from "../../model/selectors/addArticleFormSelectors";
 import { addNewArticle } from "../../model/services/addNewArticle/addNewArticle";
-import { UserActions } from "@/shared/const/logs";
+import { UserActions } from "@/shared/lib/sendLog/types/logs";
 import { getUserAuthData } from "@/entities/User";
 import { editArticle } from "../../model/services/editArticles/editArticles";
 import { fetchArticleById } from "../../model/services/fetchArticleById/fetchArticleById";
 import { useParams } from "react-router-dom";
+import { ValidateErrors } from "../../model/consts/validateTypes";
 
 interface EditableArticleFormProps {
     className?: string
@@ -38,13 +39,22 @@ export const EditableArticleForm = ({ className, editMode }: EditableArticleForm
 
     useEffect(() => {
         if(editMode){
-            dispatch(fetchArticleById(id))
+            dispatch(fetchArticleById(id));
         }
         return () => {
             dispatch(addArticleFormActions.resetForm());
             dispatch(addArticleFormActions.setSuccess(false));
         }
-    }, [])
+    }, [editMode, dispatch])
+
+    const validateFormTranslates = {
+        [ValidateErrors.NO_AUTH]: t('Пользователь не авторизован'),
+        [ValidateErrors.NO_BLOCKS]: t('Добавьте хотя бы один блок'),
+        [ValidateErrors.NO_DATA]: t('Ошибка, данные не получены'),
+        [ValidateErrors.NO_TITLE]: t('Напишите заголовок статьи'),
+        [ValidateErrors.NO_TYPE]: t('Выберите хотя бы один тип статьи'),
+        [ValidateErrors.SERVER_ERROR]: t('Серверная ошибка')
+    }
 
     const onChangeTitle = useCallback((title: string) => {
         dispatch(addArticleFormActions.setTitle(title));
@@ -97,7 +107,7 @@ export const EditableArticleForm = ({ className, editMode }: EditableArticleForm
     }
     const form = (
         <>
-            {errors?.map(error => <Text text={error} />)}
+            {errors?.map(error => <Text variant='error' text={validateFormTranslates[error]} />)}
             <Input size="m" value={formData.title} placeholder={t("Заголовок статьи")} onChange={onChangeTitle}/>
             <ImageUploadingBlock onChange={onChangeImg} img={formData.img} />
             <CreateArticleBlock onChangeBlock={onChangeBlock} addBlock={addBlock} blocks={formData.blocks} />

@@ -3,7 +3,7 @@ import { ThunkConfig } from "@/app/providers/StoreProvider";
 import { Article } from "@/entities/Article";
 import { ValidateErrors } from "../../consts/validateTypes";
 
- export const fetchArticleById = createAsyncThunk<Article, string | undefined, ThunkConfig<string[]>>(
+ export const fetchArticleById = createAsyncThunk<Article, string | undefined, ThunkConfig<ValidateErrors[]>>(
     'editArticleForm/fetchArticleById',
     async (articleId, thunkApi) => {
         const {

@@ -12,5 +12,5 @@ export interface AddArticleFormSchema {
     articleForm: ArticleForm
     success: boolean
     isLoading?: boolean
-    errors?: string[]
+    errors?: ValidateErrors[]
 }

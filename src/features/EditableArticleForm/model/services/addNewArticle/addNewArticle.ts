@@ -8,7 +8,7 @@ import { validateArticle } from "../validateArticle/validateArticle";
 import { ValidateErrors } from "../../consts/validateTypes";
 
 
-export const addNewArticle = createAsyncThunk<any, ArticleForm, ThunkConfig<Array<string>>>(
+export const addNewArticle = createAsyncThunk<any, ArticleForm, ThunkConfig<Array<ValidateErrors>>>(
     'addCreatePage/addNewewArticle',
     async (
         article,

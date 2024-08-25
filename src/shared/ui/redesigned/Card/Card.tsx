@@ -4,6 +4,7 @@ import cls from './Card.module.scss';
 
 export type CardVariant = 'normal' | 'outlined' | 'light';
 export type CardPadding = '0' | '8' | '16' | '24';
+export type CardHeight = 'base' | 'small' | 'middle' | 'big';
 export type CardBorder = 'round' | 'normal' | 'partial';
  
 interface CardProps extends HTMLAttributes<HTMLDivElement> {
@@ -13,6 +14,7 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
     max?: boolean
     padding?: CardPadding
     border?: CardBorder
+    height?: CardHeight
     fullHeigt?: boolean
 }
 
@@ -31,6 +33,7 @@ export const Card = (props: CardProps) => {
         max,
         padding = '8',
         border ='normal',
+        height = 'base',
         fullHeigt,
         ...otherProps
     } = props;
@@ -40,7 +43,7 @@ export const Card = (props: CardProps) => {
     const additionalClasses = {[cls.max]: max, [cls.fullHeigt]: fullHeigt}
 
     return (
-        <div className={classNames(cls.Card, additionalClasses, [className, cls[variant], cls[paddingsClass], cls[border]])} {...otherProps}>
+        <div className={classNames(cls.Card, additionalClasses, [className, cls[variant], cls[height], cls[paddingsClass], cls[border]])} {...otherProps}>
             {children}
         </div>
     )

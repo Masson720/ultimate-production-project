@@ -744,7 +744,8 @@
         "isAppRedesigned": true,
         "isCounterEnabled": true,
         "isArticleRatingEnabled": true
-      }
+      },
+      "banned": true
     }
   ],
   "profile": [

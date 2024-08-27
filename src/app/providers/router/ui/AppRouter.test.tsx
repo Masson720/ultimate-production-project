@@ -1,10 +1,12 @@
 import { componentRender } from "@/shared/lib/tests/componentWithRender/componentWithRender";
 import AppRouter from "./AppRouter";
-import { getRouteAbout, getRouteAdminPanel, getRouteProfile } from "@/shared/const/router";
+import { 
+    getRouteAbout, 
+    getRouteAdminPanel, 
+    getRouteProfile 
+} from "@/shared/const/router";
 import { screen } from "@testing-library/react";
 import { UserRole } from "@/entities/User";
-
-//Заставить тест работать
 
 describe('app/router/AppRouter', () => {
     test('Страница должна отрисоваться', async () => {
@@ -18,7 +20,7 @@ describe('app/router/AppRouter', () => {
 
     test('Страница не найдена', async () => {
         componentRender(<AppRouter/>, {
-            route: 'ejfejfk'
+            route: '/ejfejfk'
         });
 
         const page = await screen.findByTestId('NotFoundPage');
@@ -34,18 +36,15 @@ describe('app/router/AppRouter', () => {
         expect(page).toBeInTheDocument();
     });
 
-    test('Доступ к закрытой странице для авторизованного пользователя', async () => {
-        componentRender(<AppRouter/>, {
+    test('Доступ к закрытой страницы для авторизованного пользователя', async () => {
+        componentRender(<AppRouter />, {
             route: getRouteProfile('1'),
             initialState: {
-                user: {
-                    _inited: true,
-                    authData: {}
-                }
-            }
+                user: { _inited: true, authData: {} },
+            },
         });
 
-        const page = await screen.findByTestId('ProfilePage'); 
+        const page = await screen.findByTestId('ProfilePage');
         expect(page).toBeInTheDocument();
     });
 
@@ -62,6 +61,7 @@ describe('app/router/AppRouter', () => {
 
         const page = await screen.findByTestId('ForbiddenPage'); 
         expect(page).toBeInTheDocument();
+        
     });
 
     test('Доступ разрешен, присутствует роль', async () => {

@@ -10,8 +10,8 @@ import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitial
 import { StateSchema } from '@/app/providers/StoreProvider';
 import { useSelector } from 'react-redux';
 import { useTrottle } from '@/shared/lib/hooks/useTrottle/useTrottle';
-import { TestProps } from '@/shared/types/test';
 import { toggleFeatures } from '@/shared/features';
+import { TestProps } from '@/shared/types/testProps';
 
 interface PageProps extends TestProps {
     className?: string

@@ -8,10 +8,10 @@ import { validateArticle } from "../validateArticle/validateArticle";
 import { ValidateErrors } from "../../consts/validateTypes";
 
 
-export const addNewArticle = createAsyncThunk<any, ArticleForm, ThunkConfig<Array<ValidateErrors>>>(
+export const addNewArticle = createAsyncThunk<ArticleForm, void, ThunkConfig<Array<ValidateErrors>>>(
     'addCreatePage/addNewewArticle',
     async (
-        article,
+        _,
         thunkApi
     ) => {
         const {
@@ -35,9 +35,8 @@ export const addNewArticle = createAsyncThunk<any, ArticleForm, ThunkConfig<Arra
             console.log('Before API call');
             const response = await extra.api.post<Article>('/articles', {...formData, userId: userData.id});
             if(!response.data){
-                throw new Error();
+                return rejectWithValue([ValidateErrors.SERVER_ERROR]);
             }
-            console.log('API call successful', response.data);
             return response.data
         } catch(e){
             console.log(e)

@@ -1,6 +1,7 @@
 import { AppRouterByPathPattern, AppRoutes } from "@/shared/const/router";
 import { useEffect, useState } from "react";
-import { matchPath, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import { matchPath } from 'react-router';
 
 export function useRouteChange(){
     const location = useLocation();

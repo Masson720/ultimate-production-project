@@ -13,7 +13,7 @@ import { ValidateErrors } from "../../consts/validateTypes";
 
         try {
             if(!articleId){
-                throw new Error('No id')
+                return rejectWithValue([ValidateErrors.SERVER_ERROR]);
             }
             const response = await extra.api.get<Article>(`/articles/${articleId}`, {
                 params: {
@@ -21,7 +21,7 @@ import { ValidateErrors } from "../../consts/validateTypes";
                 }
             });
             if(!response){
-                throw new Error();
+                return rejectWithValue([ValidateErrors.SERVER_ERROR]);
             }
             return response.data;
         } catch(e) {

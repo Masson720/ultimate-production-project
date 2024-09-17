@@ -35,7 +35,6 @@ export const editArticle = createAsyncThunk<any, ArticleForm, ThunkConfig<Valida
             if(!response.data){
                 throw new Error();
             }
-            console.log(response)
             return response.data
         } catch(e){
             console.log(e)

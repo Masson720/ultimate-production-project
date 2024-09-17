@@ -1,4 +1,4 @@
-import { AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject } from "@reduxjs/toolkit";
+import { Action, EnhancedStore, Reducer, ReducersMapObject } from "@reduxjs/toolkit";
 import { AxiosInstance } from "axios";
 import { UserSchema } from "@/entities/User";
 import { LoginSchema } from "@/features/AuthByUsername";
@@ -18,15 +18,15 @@ export interface StateSchema {
     [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>
 
     //Асинхронные редюсеры
-    loginForm?: LoginSchema
-    registrationForm?: RegistrationSchema
-    profile?: ProfileSchema
-    articleDetails?: ArticleDetailsSchema
-    addCommentForm?: AddCommentFormSchema
-    addArticleForm?: AddArticleFormSchema
-    articlesPage?: ArticlesPageSchema
-    articleDetailsPage?: ArticleDetailsPageSchema
-} 
+    loginForm: LoginSchema | undefined
+    registrationForm: RegistrationSchema | undefined
+    profile: ProfileSchema | undefined
+    articleDetails: ArticleDetailsSchema | undefined
+    addCommentForm: AddCommentFormSchema | undefined
+    addArticleForm: AddArticleFormSchema | undefined
+    articlesPage: ArticlesPageSchema | undefined
+    articleDetailsPage: ArticleDetailsPageSchema | undefined
+}
 
 
 export type StateSchemaKey = keyof StateSchema;
@@ -34,7 +34,7 @@ export type MountedReducers = OptionalRecord<StateSchemaKey, boolean>;
 
 export interface ReducerManager {
     getReducerMap: () => ReducersMapObject<StateSchema>
-    reduce: (state: StateSchema, action: AnyAction) => CombinedState<StateSchema>
+    reduce: (state: StateSchema, action: Action) => StateSchema
     add: (key: StateSchemaKey, reducer: Reducer) => void
     remove: (key: StateSchemaKey) => void
     getMountedReducers: () => MountedReducers

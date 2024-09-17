@@ -78,7 +78,7 @@ export const EditableArticleForm = ({ className, editMode }: EditableArticleForm
 
     const onSendArticle = useCallback(() => {
         if(formData){
-            dispatch(addNewArticle(formData));
+            dispatch(addNewArticle());
             dispatch(addArticleFormActions.resetForm());
             sendLog(UserActions.CREATE_ARTICLE, {
                 userName: user?.username,

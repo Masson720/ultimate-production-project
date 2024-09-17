@@ -1,21 +1,22 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { ThunkConfig } from "@/app/providers/StoreProvider";
-import { getUserDataByIdQuery } from "../../api/userApi";
-import { User } from "../types/user";
+import { getUserDataByIdQuery } from "../../../api/userApi";
+import { User } from "../../types/user";
 import { LOCAL_STORAGE_LAST_DESIGN_KEY, USER_LOCALSTORAGE_KEY } from "@/shared/const/localStorage";
 
- export const initAuthData = createAsyncThunk<User, void, ThunkConfig<string>>(
+export const initAuthData = createAsyncThunk<User, void, ThunkConfig<string>>(
     'user/initAuthData',
-    async (newJsonSettings, thunkApi) => {
+    async (_, thunkApi) => {
         const {
             rejectWithValue, 
             dispatch
         } = thunkApi;
 
         const userId = localStorage.getItem(USER_LOCALSTORAGE_KEY);
+        console.log(userId)
 
         if(!userId){
-            return rejectWithValue('')
+            return rejectWithValue('NO_ID')
         }
 
         try {
@@ -29,7 +30,7 @@ import { LOCAL_STORAGE_LAST_DESIGN_KEY, USER_LOCALSTORAGE_KEY } from "@/shared/c
 
         } catch(e) {
             console.log(e);
-            return rejectWithValue('');
+            return rejectWithValue('SERVER_ERROR');
         }
     }
 );

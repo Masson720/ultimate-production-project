@@ -37,9 +37,11 @@ const ThemeProvider = (props: ThemeProviderProps) => {
         setTheme: setTheme
     }), [theme])
     
-    return (<ThemeContext.Provider value={defaultProps}>
-        {children}
-    </ThemeContext.Provider>)
+    return (
+        <ThemeContext.Provider value={defaultProps}>
+            {children}
+        </ThemeContext.Provider>
+    )
 }
 
 export default ThemeProvider;

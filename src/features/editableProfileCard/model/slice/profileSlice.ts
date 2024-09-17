@@ -3,6 +3,7 @@ import { fetchProfileData } from '../services/fetchProfileData/fetchProfileData'
 import { updateProfileData } from '../services/updateProfileData/updateProfileData';
 import { ProfileSchema } from '../types/editableProfileCardSchema';
 import { Profile } from '@/entities/Profile';
+import { ValidateProfileErrors } from '../consts/consts';
 
 const initialState: ProfileSchema = {
     readonly: true,
@@ -42,7 +43,7 @@ export const profileSlice = createSlice({
                 state.data = action.payload;
                 state.form = action.payload;
             })
-            .addCase(fetchProfileData .rejected, (state, action) => {
+            .addCase(fetchProfileData.rejected, (state, action: PayloadAction<string | undefined>) => {
                 state.isLoading = false;
                 state.error = action.payload
             })
@@ -57,7 +58,7 @@ export const profileSlice = createSlice({
                 state.readonly = true;
                 state.validateErrors = undefined
             })
-            .addCase(updateProfileData.rejected, (state, action) => {
+            .addCase(updateProfileData.rejected, (state, action: PayloadAction<ValidateProfileErrors[] | undefined>) => {
                 state.isLoading = false;
                 state.validateErrors = action.payload
             })
@@ -65,5 +66,5 @@ export const profileSlice = createSlice({
     
 })
 
-export const { actions: profileActions  } = profileSlice;
-export const { reducer: profileReducer  } = profileSlice;
+export const { actions: profileActions } = profileSlice;
+export const { reducer: profileReducer } = profileSlice;

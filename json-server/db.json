@@ -50,7 +50,7 @@
       "title": "Тест",
       "subtitle": "",
       "img": "https://www.terrarium.com.pl/wp-content/uploads/11172.jpg",
-      "views": 11,
+      "views": 13,
       "userId": "",
       "type": [
         "SCIENCE"
@@ -93,7 +93,7 @@
       "title": "Тест",
       "subtitle": "",
       "img": "https://www.terrarium.com.pl/wp-content/uploads/11172.jpg",
-      "views": 3,
+      "views": 4,
       "userId": "",
       "type": [
         "SCIENCE"
@@ -136,7 +136,7 @@
       "title": "Тест",
       "subtitle": "",
       "img": "https://www.terrarium.com.pl/wp-content/uploads/11172.jpg",
-      "views": 14,
+      "views": 16,
       "userId": "1",
       "type": [
         "SCIENCE"
@@ -147,7 +147,7 @@
           "type": "TEXT",
           "title": "Тест",
           "paragraphs": [
-            "тест"
+            " Тест паук"
           ]
         }
       ],
@@ -167,55 +167,13 @@
         },
         "avatar": "https://mobimg.b-cdn.net/v3/fetch/22/2207633df03a819cd72889249c8361a8.jpeg?w=1470&r=0.5625",
         "jsonSettings": {
-          "theme": "app_light_theme",
+          "theme": "app_dark_theme",
           "isFirstVisit": true,
           "settingsPageHasBeenOpen": false,
           "isArticlesPageWasOpened": false,
           "isArticlePageWasOpened": true
-        }
-      }
-    },
-    {
-      "title": "Финальный тест",
-      "subtitle": "",
-      "img": "",
-      "views": 2,
-      "userId": "1",
-      "type": [
-        "SCIENCE"
-      ],
-      "blocks": [
-        {
-          "id": "41738",
-          "type": "TEXT",
-          "title": "тест",
-          "paragraphs": [
-            "Тест"
-          ]
-        }
-      ],
-      "id": "45204",
-      "createdAt": "21.8.2024",
-      "user": {
-        "id": "1",
-        "username": "admin",
-        "password": "123",
-        "roles": [
-          "ADMIN"
-        ],
-        "features": {
-          "isArticleRatingEnabled": true,
-          "isCounterEnabled": true,
-          "isAppRedesigned": true
         },
-        "avatar": "https://mobimg.b-cdn.net/v3/fetch/22/2207633df03a819cd72889249c8361a8.jpeg?w=1470&r=0.5625",
-        "jsonSettings": {
-          "theme": "app_light_theme",
-          "isFirstVisit": true,
-          "settingsPageHasBeenOpen": false,
-          "isArticlesPageWasOpened": false,
-          "isArticlePageWasOpened": true
-        }
+        "banned": false
       }
     },
     {
@@ -431,97 +389,51 @@
       ],
       "id": "14659",
       "createdAt": "22.8.2024"
+    },
+    {
+      "title": "Тест",
+      "subtitle": "",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/9/91/Brachypelma_emilia.jpg",
+      "views": 4,
+      "userId": "1",
+      "type": [
+        "SCIENCE"
+      ],
+      "blocks": [
+        {
+          "id": "20846",
+          "type": "IMAGE",
+          "src": "https://upload.wikimedia.org/wikipedia/commons/9/91/Brachypelma_emilia.jpg",
+          "title": "Брахипельмус"
+        }
+      ],
+      "id": "nQILlTm",
+      "createdAt": "",
+      "user": {
+        "id": "1",
+        "username": "admin",
+        "password": "123",
+        "roles": [
+          "ADMIN"
+        ],
+        "features": {
+          "isArticleRatingEnabled": true,
+          "isCounterEnabled": true,
+          "isAppRedesigned": true
+        },
+        "avatar": "https://mobimg.b-cdn.net/v3/fetch/22/2207633df03a819cd72889249c8361a8.jpeg?w=1470&r=0.5625",
+        "jsonSettings": {
+          "theme": "app_light_theme",
+          "isFirstVisit": true,
+          "settingsPageHasBeenOpen": false,
+          "isArticlesPageWasOpened": false,
+          "isArticlePageWasOpened": true
+        },
+        "banned": false
+      }
     }
   ],
-  "comments": [
-    {
-      "id": "1",
-      "text": "some comment",
-      "articleId": "1",
-      "userId": "2",
-      "avatar": "https://sun9-23.userapi.com/impg/5Kd7hCD5_5lzNLaAJNPpCmru96aN1YwwWB314g/e1Stwn-UQLY.jpg?size=256x256&quality=95&sign=0f2f0006164370661a40025a5e9d256b&c_uniq_tag=rElTDO4oT-IARx7OWiNawz6ZB5TlwGynYdI3tjA-JKQ&type=album"
-    },
-    {
-      "id": "2",
-      "text": "some comment 2",
-      "articleId": "1",
-      "userId": "2",
-      "avatar": "https://sun9-23.userapi.com/impg/5Kd7hCD5_5lzNLaAJNPpCmru96aN1YwwWB314g/e1Stwn-UQLY.jpg?size=256x256&quality=95&sign=0f2f0006164370661a40025a5e9d256b&c_uniq_tag=rElTDO4oT-IARx7OWiNawz6ZB5TlwGynYdI3tjA-JKQ&type=album"
-    },
-    {
-      "id": "3",
-      "text": "some comment 3",
-      "articleId": "1",
-      "userId": "1",
-      "avatar": "https://vk.com/sticker/1-67687-256b"
-    },
-    {
-      "articleId": "1",
-      "userId": "1",
-      "text": "Hello",
-      "id": "UzNU7n6"
-    },
-    {
-      "articleId": "1",
-      "userId": "2",
-      "text": "Hiii",
-      "id": "sq6sf2n"
-    },
-    {
-      "articleId": "1",
-      "userId": "2",
-      "text": "aa",
-      "id": "wJDJVrK"
-    },
-    {
-      "articleId": "1",
-      "userId": "2",
-      "text": "Доброе утро",
-      "id": "Wv-cBCF"
-    },
-    {
-      "articleId": "2",
-      "userId": "2",
-      "text": "Python rulezz",
-      "id": "oTUNp1E"
-    },
-    {
-      "articleId": "7",
-      "userId": "1",
-      "text": "Hello",
-      "id": "xPWOaMi"
-    },
-    {
-      "articleId": "7",
-      "userId": "1",
-      "text": "Писюн",
-      "id": "gsBjPKU"
-    },
-    {
-      "articleId": "2",
-      "userId": "1",
-      "text": "Колян секс",
-      "id": "V4VUGn3"
-    },
-    {
-      "articleId": "7",
-      "userId": "1",
-      "text": "Чпоньк",
-      "id": "NYxQACQ"
-    },
-    {
-      "articleId": "7",
-      "userId": "1",
-      "text": "Hello world",
-      "id": "rzmybyT"
-    },
-    {
-      "articleId": "2869",
-      "userId": "1",
-      "text": "Отличный Чпоньк бро",
-      "id": "8lX9pEI"
-    }
-  ],
+  "comments": [],
   "users": [
     {
       "id": "1",
@@ -862,94 +774,11 @@
   ],
   "article-ratings": [
     {
-      "id": "1",
-      "rate": 4,
-      "feedback": "Хорошая статья",
       "userId": "1",
-      "articleId": "1"
-    },
-    {
-      "id": "2",
-      "rate": 4,
-      "feedback": "Хорошая статья",
-      "userId": "1",
-      "articleId": "2"
-    },
-    {
-      "userId": "1",
-      "articleId": "3",
+      "articleId": "37592",
       "rate": 3,
-      "feedback": "",
-      "id": "I7ofk1u"
-    },
-    {
-      "userId": "1",
-      "articleId": "9",
-      "rate": 5,
-      "feedback": "asdasdasdasd",
-      "id": "Y7MhPzo"
-    },
-    {
-      "userId": "1",
-      "articleId": "10",
-      "rate": 1,
-      "feedback": "отстой",
-      "id": "II0a75O"
-    },
-    {
-      "userId": "1",
-      "articleId": "7",
-      "rate": 3,
-      "feedback": "",
-      "id": "bcPnbbZ"
-    },
-    {
-      "userId": "1",
-      "articleId": "6",
-      "rate": 2,
-      "id": "JfuVGsK"
-    },
-    {
-      "userId": "1",
-      "articleId": "4",
-      "rate": 3,
-      "feedback": "Сносно ",
-      "id": "XbujgKB"
-    },
-    {
-      "userId": "3",
-      "articleId": "7",
-      "rate": 2,
-      "feedback": "",
-      "id": "53wIv_R"
-    },
-    {
-      "userId": "1",
-      "articleId": "5",
-      "rate": 3,
-      "feedback": "Говно",
-      "id": "U-gjIsD"
-    },
-    {
-      "userId": "1",
-      "articleId": "44522",
-      "rate": 4,
-      "feedback": "",
-      "id": "LS4maB7"
-    },
-    {
-      "userId": "1",
-      "articleId": "11",
-      "rate": 2,
-      "feedback": "",
-      "id": "-iSU9hj"
-    },
-    {
-      "userId": "1",
-      "articleId": "2869",
-      "rate": 5,
-      "feedback": "",
-      "id": "5YKLvOv"
+      "feedback": "Отличный Брахипельмус",
+      "id": "Vaj8Wsh"
     }
   ],
   "profile-ratings": [
@@ -1309,6 +1138,59 @@
       },
       "timestamp": "22.8.2024 15:16",
       "id": 32
+    },
+    {
+      "action": "DELETE_ARTICLE",
+      "details": {
+        "userName": "admin",
+        "userId": "1"
+      },
+      "timestamp": "28.8.2024 16:24",
+      "id": 33
+    },
+    {
+      "action": "EDIT_ARTICLE",
+      "details": {
+        "userName": "admin",
+        "userId": "1",
+        "articleId": "26178",
+        "articleName": "Тест"
+      },
+      "timestamp": "28.8.2024 16:24",
+      "id": 34
+    },
+    {
+      "action": "EDIT_ARTICLE",
+      "details": {
+        "userName": "admin",
+        "userId": "1",
+        "articleId": "26178",
+        "articleName": "Тест"
+      },
+      "timestamp": "1.9.2024 14:30",
+      "id": 35
+    },
+    {
+      "action": "CREATE_ARTICLE",
+      "details": {
+        "userName": "admin",
+        "userId": "1",
+        "articleId": "",
+        "articleName": "Тест"
+      },
+      "timestamp": "1.9.2024 14:32",
+      "id": 36
+    },
+    {
+      "action": "EDIT_ARTICLE",
+      "details": {
+        "userName": "admin",
+        "userId": "1",
+        "articleId": "nQILlTm",
+        "articleName": "Тест"
+      },
+      "timestamp": "1.9.2024 14:32",
+      "id": 37
     }
   ]
 }

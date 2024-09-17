@@ -21,17 +21,17 @@ export const incrementViews = createAsyncThunk<any, Article, ThunkConfig<string>
         const updateArticle = {...article, views: article.views + 1}
         
         if(!userData){
-            return rejectWithValue('no data');
+            return rejectWithValue('NO_DATA');
         }
 
         try {
             const response = await extra.api.put<Article>(`/articles/${articleId}`, updateArticle);
-            if(!response.data){
-                throw new Error();
+            if(!response){
+                return rejectWithValue('SERVER_ERROR');
             }
             return response.data
         } catch(e){
-            console.log(e)
+            console.log(e);
             return rejectWithValue('error');
         }
     }

@@ -8,7 +8,7 @@ import { Article } from '@/entities/Article';
 import { fetchArticlesRecomendations } from '../services/fetchArticleRecomendations/fetchArticleRecomendations';
 
 
-const recomendationAdapter = createEntityAdapter<Article>({
+const recomendationAdapter = createEntityAdapter<Article, string>({
     selectId: ( article ) => article.id,
 });
 

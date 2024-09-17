@@ -16,12 +16,12 @@ export const deleteArticle = createAsyncThunk<any, string, ThunkConfig<string>>(
         try {
             const response = await extra.api.delete<Article>(`/articles/${articleId}`);
             if(!response.data){
-                throw new Error();
+                return rejectWithValue('SERVER_ERROR');
             }
             return response.data
         } catch(e){
             console.log(e)
-            return rejectWithValue('error');
+            return rejectWithValue('SERVER_ERROR');
         }
     }
 )

@@ -5,6 +5,7 @@ import { Currency } from "@/entities/Currency";
 import { updateProfileData } from "../services/updateProfileData/updateProfileData";
 import { ProfileSchema } from "../types/editableProfileCardSchema";
 import { ValidateProfileErrors } from "../consts/consts";
+import { Action } from "@reduxjs/toolkit";
 
 const data = {
     username: 'admin',
@@ -49,7 +50,7 @@ describe('profileSlice test', () => {
             isLoading: false,
             validateErrors: [ValidateProfileErrors.SERVER_ERROR]
         };
-        expect(profileReducer(state as ProfileSchema, updateProfileData.pending))
+        expect(profileReducer(state as ProfileSchema, updateProfileData.pending as Action))
         .toEqual({
             isLoading: true,
             validateErrors: undefined

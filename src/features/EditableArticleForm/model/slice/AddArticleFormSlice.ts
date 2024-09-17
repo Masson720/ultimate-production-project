@@ -89,7 +89,6 @@ export const addArticleFormSlice = createSlice({
                 state.isLoading = true;
             })
             .addCase(editArticle.fulfilled, (state) => {
-                console.log('fulfilled triggered');
                 state.isLoading = false;
                 state.success = true;
             })
@@ -102,7 +101,6 @@ export const addArticleFormSlice = createSlice({
                 state.isLoading = true;
             })
             .addCase(fetchArticleById.fulfilled, (state, action: PayloadAction<Article>) => {
-                console.log('Отработал')
                 state.isLoading = false;
                 state.articleForm = {...action.payload};
             })

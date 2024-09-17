@@ -1,9 +1,9 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { ThunkConfig } from "@/app/providers/StoreProvider";
-import { JsonSettings } from "../types/jsonSettings";
-import { getUserAuthData } from "../selectors/gatUserAuthData/getUserAuthData";
-import { getJsonSettings } from "../selectors/jsonSettingsSelector";
-import { setJsonSettingsMutation } from "../../api/userApi";
+import { JsonSettings } from "../../types/jsonSettings";
+import { getUserAuthData } from "../../selectors/gatUserAuthData/getUserAuthData";
+import { getJsonSettings } from "../../selectors/jsonSettingsSelector";
+import { setJsonSettingsMutation } from "../../../api/userApi";
 
  export const saveJsonSettings = createAsyncThunk<JsonSettings, JsonSettings, ThunkConfig<string>>(
     'user/saveJsonSettings',
@@ -17,7 +17,7 @@ import { setJsonSettingsMutation } from "../../api/userApi";
         const currentSettings = getJsonSettings(getState());
 
         if(!userData){
-            return rejectWithValue('')
+            return rejectWithValue('NO_DATA')
         }
 
         try {
@@ -28,16 +28,16 @@ import { setJsonSettingsMutation } from "../../api/userApi";
                     ...newJsonSettings
                 }
             })).unwrap();
-
+            
             if(!response.jsonSettings){
-                return rejectWithValue('');
+                return rejectWithValue('SERVER_ERROR');
             }
 
             return response.jsonSettings;
 
         } catch(e) {
             console.log(e);
-            return rejectWithValue('');
+            return rejectWithValue('SERVER_ERROR');
         }
     }
 );

@@ -32,8 +32,8 @@ export {
 
 export {
     saveJsonSettings
-} from './model/services/saveJsonSettings';
+} from './model/services/saveJsonSettings/saveJsonSettings';
 
 export {
     initAuthData
-} from './model/services/initAuthData';
+} from './model/services/initAuthData/initAuthData';

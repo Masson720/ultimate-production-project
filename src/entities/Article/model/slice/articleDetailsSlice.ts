@@ -3,7 +3,6 @@ import { Article } from '../types/article';
 import { ArticleDetailsSchema } from '../types/articleDetailsSchema';
 import { fetchArticleById } from '../services/fetchArticleById/fetchArticleById';
 import { deleteArticle } from '../services/deleteArticle/deleteArticle';
-import { editArticle } from '@/features/EditableArticleForm/model/services/editArticles/editArticles';
 
 const initialState: ArticleDetailsSchema = {
     isLoading: true,
@@ -15,7 +14,6 @@ export const articleDetailsSlice = createSlice({
     name: 'articleDetails', 
     initialState,
     reducers: {
-
     },
     extraReducers: (builder) => {
         builder
